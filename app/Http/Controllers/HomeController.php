@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
 
     	// Category ----------------------------------------------
-
+        $maxID=0;
         // Trakice
         $parentCatID = 95;
     	$cat_Trakice = Category::subCatByParentID($parentCatID);
@@ -44,6 +44,6 @@ class HomeController extends Controller
         $gallery = Gallery::with('GalleryItems')->where('id',1)->first();
 
     	return view('home.index', compact('cat_Trakice','cat_ZastitneMaske',
-                                            'benefits','gallery'));
+                                            'benefits','gallery','maxID'));
     }
 }

@@ -1,8 +1,7 @@
 /config
 /database
 /hooks
-/node_modules/*
-!/node_modules/mdbootstrap-pro/
+/node_modules
 /public/hot
 /public/storage
 /storage/*.key
@@ -15,5 +14,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/public/css/app.css
-/!!DB
