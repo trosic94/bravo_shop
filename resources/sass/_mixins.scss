@@ -1,0 +1,344 @@
+
+@mixin clearDIV { clear: both; }
+
+@mixin trans_1 {
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+@mixin trans_05 {
+    -moz-transition: all .05s ease-in;
+    -o-transition: all .05s ease-in;
+    -webkit-transition: all .05s ease-in;
+    transition: all .05s ease-in;
+}
+
+@mixin img100 {
+    width: 100%;
+    height: auto;
+}
+
+@mixin scrollable_filter { position: relative; width: 100%; max-height: 250px; overflow: auto;
+
+}
+
+
+@mixin mainMenu { position: relative;
+    
+    font-family: $font_BalooBhai;
+    font-size: 120%;
+    font-weight: 700;
+
+    ul { margin: 0; padding: 0;
+        list-style: none;
+
+        li { display: inline-block; margin-left: 20px;
+
+            a {
+                color: $grey-1;
+
+                &:hover {
+                    color: $pink-1;
+                }
+            }
+        }
+
+        li.active {
+            a {
+                color: $pink-1;
+            }
+        }
+    }
+
+    @media (max-width: 1100px) {
+
+        ul { display: none; position: absolute; z-index: 100;
+
+            margin: 10px 0 0;
+            padding: 20px; 
+
+            background-color: $white;
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(51,51,51,1);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(51,51,51,1);
+            box-shadow: 0px 0px 5px 0px rgba(51,51,51,1);
+
+            li { display: block;
+                margin-left: 0;
+
+            }
+
+        }
+
+    }
+
+
+}
+
+@mixin hamburger { display: none; width: 40px; height: 40px; cursor: pointer;
+            
+    font-size: 120%;
+    color: $pink-1;
+    line-height: 42px;
+    text-align: center;
+
+    border: 2px solid $pink-1;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    @include trans_1;
+
+    &:hover {
+        color: $white;
+        background-color: $pink-1;
+    }
+
+    @media (min-width: 0px) and (max-width: 1100px) {
+
+        display: block;
+
+    }
+}
+
+@mixin footerMenu {
+    
+    font-size: 100%;
+    font-weight: 300;
+
+    ul { margin: 0; padding: 0;
+        list-style: none;
+
+        li { margin: 0 0 5pt 0;
+
+            a {
+                color: $white;
+
+                &:hover {
+                    color: $pink-1;
+                }
+            }
+        }
+
+        li.active {
+            a {
+                color: $pink-1;
+            }
+        }
+        
+    }
+
+}
+
+
+@mixin productPrice_data {  display: block; width: 100%; margin: 2rem 0 0;
+
+    text-align: center;
+
+    span.fullPrice { display: block;
+        color: $grey-1;
+        text-decoration: line-through;
+        font-size: 100%;
+        font-weight: 500;
+        line-height: normal;
+    }
+
+    span.discountPrice { display: block;
+        color: $pink-1;
+        font-size: 160%;
+        font-weight: 600;
+        font-family: $font_BalooBhai;
+        line-height: normal;
+    }
+
+    span.singlePrice { display: block; margin-top: 0.5rem;
+        color: $pink-1;
+        font-size: 160%;
+        font-weight: 600;
+        font-family: $font_BalooBhai;
+        line-height: normal;
+    }
+
+}
+
+@mixin btn_AddToCart_list { display: inline-block; min-width: 130px; cursor: pointer; padding: 0.5rem 2rem; margin-left: auto;
+
+    color: $white;
+    font-family: $font_BalooBhai;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 120%;
+    background-color: $pink-1;
+
+    @include trans_1;
+
+    &:hover {
+        background-color: $grey-1;
+    }
+}
+
+@mixin btn_AddToCart_data { display: inline-block; min-width: 130px; cursor: pointer; padding: 0.5rem 2rem; margin-left: auto;
+
+    color: $white;
+    font-family: $font_BalooBhai;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 120%;
+    background-color: $pink-1;
+
+    @include trans_1;
+
+    &:hover {
+        background-color: $grey-1;
+    }
+}
+
+@mixin btn_Pink { padding: 0.6rem 1.5rem;
+
+    color: $white !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 90%;
+    font-weight: 600;
+    background-color: $pink-1;
+
+    @include trans_1;
+
+    &:hover {
+        background-color: $grey-1 !important;
+    }
+}
+
+@mixin btn_Grey { padding: 0.6rem 1.5rem;
+
+    color: $white !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 90%;
+    font-weight: 600;
+    background-color: $grey-1;
+
+    @include trans_1;
+
+    &:hover {
+        color: $pink-1 !important;
+    }
+}
+
+@mixin btn_Red { 
+
+    color: $white !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 100%;
+    font-weight: 600;
+    background-color: $red;
+
+    @include trans_1;
+
+    &:hover {
+        //background-color: $grey !important;
+        color: $white !important;
+    }
+}
+
+
+@mixin contactDisplayFooter {
+
+       ul { padding: 10px 0;
+            list-style: none;
+            color: $white;
+
+            li {
+                display: inline-block;
+                padding: 0 20px;
+
+                a {
+                    color: $white;
+
+                    &:hover {
+                        //color: $blue;
+                    }
+                }
+
+                img {
+                    margin-left: 10px;
+                    filter: brightness(0) invert(1);
+                }
+            }
+
+            li:nth-child(1),
+            li:nth-child(2) {
+                border-right: 1px solid $white;
+            }
+            li:last-child {
+                padding: 0 0 0 20px;
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            ul { text-align: center;
+                li { display: block; margin: 0 0 10px;
+
+                }
+
+                li:nth-child(1),
+                li:nth-child(2) {
+                    border-right: none;
+                }
+
+                li:last-child {
+                    padding: 0 20px;
+                }
+            }
+        }
+
+}
+
+
+@mixin profileLNK { display: inline-block; height: 38px; line-height: 40px; padding: 0 20px;
+    //background-color: $blue-base;
+    color: $pink-1;
+    font-family: $font_BalooBhai;
+    font-weight: 900;
+    font-size: 140%;
+
+
+    &:hover {
+        color: $grey-1;
+    }
+}
+
+
+@mixin formError { display: block; margin: 5px 0; padding: 0 0 0 5px;
+
+    color: $red;
+    font-size: 90%;
+
+}
+
+
+@mixin pinkTitle { display: block; width: 100%; padding-top: 1.1rem;
+
+    color: $pink-1;
+    font-size: 100%;
+    letter-spacing: 1px;
+    font-weight: 600;
+
+}
+
+@mixin productSKU { display: block; margin-top: 10px;
+
+    font-size: 110%;
+
+    label {
+        //color: $blue;
+        font-weight: 500;
+    }
+
+}

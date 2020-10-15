@@ -1,0 +1,13 @@
+RewriteEngine on
+## If your framework is in a subfolder add the folder to RewriteBa
+RewriteBase /
+RewriteRule ^(.*)$ ./public/$1 [L]
+RewriteRule ^(.*)$ https://www.kupipoklon.rs.rs/$1 [R,L]
+
+# <IfModule mod_rewrite.c>
+# RewriteEngine on
+# RewriteCond %{HTTP_HOST} ^kupipoklon.rs$ [NC,OR]
+# RewriteCond %{HTTP_HOST} ^www.kupipoklon.rs$
+# RewriteCond %{REQUEST_URI} !public/
+# RewriteRule (.*) /public/$1 [L]
+# </IfModule>

@@ -1,0 +1,133 @@
+//addon
+@import 'V_variables';
+@import 'V_mixins';
+
+
+// GLOBAL --------------------------------------------------------------------------------------------------------- //
+hr {
+	@include hr;
+}
+
+.txt-size-85 {
+	font-size: 85%;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.text-center {
+	@include text_center;
+}
+
+.text-right {
+	@include text_right;
+}
+.text-left {
+	@include text_left;
+}
+
+.text-bold {
+	@include text_bold;
+}
+
+.table_v1 {
+	@include table_v1;
+}
+
+.borderBottom_v1 {
+	border-bottom: 1px solid $grey;
+}
+
+.padd_0 {
+	padding: 0;
+}
+
+.padd_l_5 {
+	padding-left: 5px;
+}
+.padd_r_5 {
+	padding-right: 5px;
+}
+
+.padd_l_15 {
+	padding-left: 15px;
+}
+.padd_r_15 {
+	padding-right: 15px;
+}
+
+
+.mar_b_0 {
+	margin-bottom: 0px !important;
+}
+.mar_b_5 {
+	margin-bottom: 5px !important;
+}
+.mar_b_10 {
+	margin-bottom: 10px !important;
+}
+
+.mar_l_10 {
+	margin-left: 10px !important;
+}
+.mar_r_10 {
+	margin-right: 10px !important;
+}
+
+.img100 {
+	width: 100%; height: auto;
+}
+.img25 {
+	width: 25%; height: auto;
+}
+
+.blockFormat {
+	@include blockFormat_wDATA;
+}
+
+
+.btnSmall {
+	@include small_btn;
+}
+
+.inlineForms {
+	@include inline_forms;
+}
+
+.bgWhite {
+	background-color: $white;
+}
+
+.flexWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+// ORDER --------------------------------------------------------------------------------------------------------- //
+.ORD_subTotal { padding: 10px;
+	font-size: 18px;
+	background-color: $grey;
+	color: $white;
+}
+
+.ORD_Discount { padding: 5px;
+	font-size: 16px;
+}
+
+.ORD_Total { padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: $dark-grey;
+	color: $white;
+}
+
+// YT VIDEO
+div.ytEmbedContainter { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;
+
+	iframe, object, embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
+		border: none;
+	}
+
+}

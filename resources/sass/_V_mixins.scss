@@ -1,0 +1,87 @@
+@mixin trans {
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+
+@mixin text_bold {
+	font-weight: bold;
+}
+
+@mixin text_center {
+	text-align: center;
+}
+
+@mixin text_right {
+	text-align: right;
+}
+
+@mixin text_left {
+	text-align: left;
+}
+
+@mixin hr {
+	margin: 5px 0;
+	padding: 0;
+}
+
+
+@mixin table_v1 { 
+
+	width: 100%;
+	margin: 0;
+	padding: 0;
+
+	thead { padding: 5px 0;
+
+		background-color: $blue;
+		color: $white;
+		border-bottom: 1px solid #eee;
+
+		th {
+			padding: 3px 5px;
+
+			text-align: center;
+		}
+
+	}
+
+	tbody { padding: 5px 0;
+
+		border-bottom: 1px solid #eee;
+
+		tr {
+
+			td {
+				padding: 3px 5px;
+			}
+
+		}
+
+
+		tr.itemRow:nth-child(even) {
+			background: $light-grey;
+		}
+		// tr:nth-child(odd) {background: #FFF}
+
+
+
+	}
+}
+
+@mixin blockFormat_wDATA {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+@mixin small_btn {
+	padding: 5px 8px 3px;
+	font-size: 90%;
+}
+
+@mixin inline_forms { display: inline-block; margin: 0 5px;
+}
