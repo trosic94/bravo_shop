@@ -107,7 +107,7 @@ div.mainTitle {
         font-weight: 700;
         letter-spacing: 1px;
         font-size: 250%;
-        font-family: $font_BalooBhai;
+        font-family: $font_Mulish;
 
     }
 
@@ -1164,17 +1164,14 @@ div#productDATA {
             color: $grey-1;
         }
 
+    }
 
-
-        div#addTo_CART {
+}
+		div#addTo_CART {
 
             @include btn_AddToCart_data;
 
         }
-
-    }
-
-}
 
         div.productPriceWrap {
 
@@ -1188,10 +1185,10 @@ div#productDATA {
 
             span.discountPrice {
                 display: block;
-                color: $pink-1;
-                font-size: 140%;
+                color: $black-1;
+                font-size: 24px;
                 font-weight: 600;
-                font-family: $font_BalooBhai;
+                font-family: $font_Mulish;
                 line-height: normal;
             }
 
@@ -1201,7 +1198,7 @@ div#productDATA {
                 color: $black-1;
                 font-size: 24px;
                 font-weight: 600;
-                font-family: $font_BalooBhai;
+                font-family: $font_Mulish;
                 line-height: normal;
             }
 
@@ -1536,7 +1533,7 @@ div.prodTABs {
         .tab-pane {
             //padding: 30px;
             padding-top: 30px;
-            color: $blue-1;
+            color: $black-1;
             p {
                 display: block;
                 margin: 0 0 10px;

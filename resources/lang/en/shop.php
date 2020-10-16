@@ -18,7 +18,7 @@ return [
     'btn_cancel' => 'Cancel',
     'btn_confirm_correction' => 'Confirm correction!',
     'btn_confirm_ordering' => 'Confirm order',
-    'btn_buy' => 'Buy',
+    'btn_buy' => 'Add to cart',
     'btn_user_login' => 'Login',
     'btn_register' => 'Register',
     'btn_logout' => 'Logout',

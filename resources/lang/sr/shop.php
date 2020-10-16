@@ -18,7 +18,7 @@ return [
     'btn_cancel' => 'Odustani',
     'btn_confirm_correction' => 'Izvrši korekciju!',
     'btn_confirm_ordering' => 'Potvrdi promenu redosleda',
-    'btn_buy' => 'Kupi',
+    'btn_buy' => 'Dodaj u korpu',
     'btn_user_login' => 'Prijavi se',
     'btn_register' => 'Registruj se',
     'btn_logout' => 'Odjava',

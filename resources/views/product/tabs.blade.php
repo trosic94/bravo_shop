@@ -33,20 +33,22 @@
 
 					@if ($productDATA->prod_body != '')
 					<div class="tab-pane fade show active" id="body-md" role="tabpanel" aria-labelledby="body-tab-md">
-						{!! $productDATA->prod_body !!}
+						<div class="primary-text">
+							{!! $productDATA->prod_body !!}
+						</div>
+						
 						<div id="prodFooterWrap" class="{{ (count($selectedAttributes) == 0)? 'alignElementToBottom':'' }}">
 
 								{{-- PRICE --}}
 								@include ('product.price')
 					          	{{-- PRICE --}}
 
+					          	@include ('product.quantity')
+
 					          	{{-- BUY --}}
 					          	@include ('product.buy')
 					          	{{-- BUY --}}
 
-					          	{{-- RATING --}}
-					          	@include ('product.rating')
-					          	{{-- RATING --}}
 
 				          	</div>
 						</div>

@@ -37090,6 +37090,10 @@ div.datepicker input ~ i.input-prefix {
   color: #fafafa;
 }
 
+.primary-text {
+  color: #231F20;
+}
+
 body {
   color: #494949;
   background-color: #ffffff;
@@ -37198,7 +37202,7 @@ div.mainTitle h1 {
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 250%;
-  font-family: "Baloo Bhai 2", cursive;
+  font-family: "Mulish", sans-serif;
 }
 
 div.ytEmbedContainter {
@@ -38236,23 +38240,22 @@ div#productDATA form#addToCart .select-dropdown.form-control {
   color: #494949;
 }
 
-div#productDATA form#addToCart div#addTo_CART {
+div#addTo_CART {
   display: inline-block;
   min-width: 130px;
   cursor: pointer;
   padding: 0.5rem 2rem;
   margin-left: auto;
   color: #ffffff;
-  font-family: "Baloo Bhai 2", cursive;
-  text-transform: uppercase;
+  font-family: "Mulish", sans-serif;
   letter-spacing: 1px;
   font-weight: 600;
-  font-size: 120%;
-  background-color: #e31a51;
+  font-size: 80%;
+  background-color: #0A2779;
   transition: all .1s ease-in;
 }
 
-div#productDATA form#addToCart div#addTo_CART:hover {
+div#addTo_CART:hover {
   background-color: #494949;
 }
 
@@ -38266,10 +38269,10 @@ div.productPriceWrap span.fullPrice {
 
 div.productPriceWrap span.discountPrice {
   display: block;
-  color: #e31a51;
-  font-size: 140%;
+  color: #231F20;
+  font-size: 24px;
   font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
+  font-family: "Mulish", sans-serif;
   line-height: normal;
 }
 
@@ -38279,7 +38282,7 @@ div.productPriceWrap span.singlePrice {
   color: #231F20;
   font-size: 24px;
   font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
+  font-family: "Mulish", sans-serif;
   line-height: normal;
 }
 
@@ -38584,7 +38587,7 @@ div.prodTABs .nav .active {
 
 div.prodTABs .tab-pane {
   padding-top: 30px;
-  color: #0A2779;
+  color: #231F20;
 }
 
 div.prodTABs .tab-pane p {
