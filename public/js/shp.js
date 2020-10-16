@@ -126,9 +126,9 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp\www\kupipoklon.rs\resources\js\shp.js */"./resources/js/shp.js");
-__webpack_require__(/*! C:\wamp\www\kupipoklon.rs\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\wamp\www\kupipoklon.rs\resources\sass\voyager.scss */"./resources/sass/voyager.scss");
+__webpack_require__(/*! C:\wamp64\www\bravo_shop\resources\js\shp.js */"./resources/js/shp.js");
+__webpack_require__(/*! C:\wamp64\www\bravo_shop\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\wamp64\www\bravo_shop\resources\sass\voyager.scss */"./resources/sass/voyager.scss");
 
 
 /***/ })

@@ -37357,7 +37357,7 @@ header a.favouritesLNK span.badge {
   position: absolute;
   z-index: 50;
   right: 0;
-  background-color: #9f9f9f;
+  background-color: #0A2779;
   border-radius: 3px;
 }
 
@@ -37371,7 +37371,7 @@ header a.favouritesLNK div#addTo_FAV i {
 }
 
 header a.favouritesLNK div#addTo_FAV i:hover {
-  color: #494949;
+  color: #0A2779;
 }
 
 header div#myCart {
@@ -37959,7 +37959,7 @@ content#homeWrap div#benefitsBlock div#benefitOne div.imgWrap {
   width: 100px;
   height: 100px;
   border-radius: 50px;
-  background-color: #e31a51;
+  background-color: #0A2779;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 75px 75px;
@@ -38147,7 +38147,7 @@ div.imgWrap div#addTo_FAV {
   top: 1rem;
   left: 1rem;
   z-index: 201;
-  color: #e31a51;
+  color: #0A2779;
 }
 
 div.imgWrap div#addTo_FAV i {
