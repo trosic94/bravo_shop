@@ -106,11 +106,7 @@ div.mainTitle {
         color: $black-1;
         font-weight: 700;
         letter-spacing: 1px;
-<<<<<<< HEAD
         font-size: 48px;
-=======
-        font-size: 250%;
->>>>>>> 09f52620684706fc06d4a1c8e133235fbfd9f08b
         font-family: $font_Mulish;
 
     }
@@ -1178,43 +1174,44 @@ div#productDATA {
     }
 
 }
-		div#addTo_CART {
 
-            @include btn_AddToCart_data;
+div#addTo_CART {
 
-        }
+    @include btn_AddToCart_data;
 
-        div.productPriceWrap {
+}
 
-            span.fullPrice {
-                display: block;
-                color: $grey-1;
-                font-size: 100%;
-                font-weight: 500;
-                line-height: normal;
-            }
+div.productPriceWrap {
 
-            span.discountPrice {
-                display: block;
-                color: $black-1;
-                font-size: 24px;
-                font-weight: 600;
-                font-family: $font_Mulish;
-                line-height: normal;
-            }
+    span.fullPrice {
+        display: block;
+        color: $grey-1;
+        font-size: 100%;
+        font-weight: 500;
+        line-height: normal;
+    }
 
-            span.singlePrice {
-                display: block;
-                margin-top: 0.5rem;
-                color: $black-1;
-                font-size: 24px;
-                font-weight: 600;
-                font-family: $font_Mulish;
-                line-height: normal;
-            }
+    span.discountPrice {
+        display: block;
+        color: $black-1;
+        font-size: 24px;
+        font-weight: 600;
+        font-family: $font_Mulish;
+        line-height: normal;
+    }
+
+    span.singlePrice {
+        display: block;
+        margin-top: 0.5rem;
+        color: $black-1;
+        font-size: 24px;
+        font-weight: 600;
+        font-family: $font_Mulish;
+        line-height: normal;
+    }
 
 
-        }
+}
 
 // Product Quantity -------------------------------------------------------------------- //
 div#qtyWrap {
@@ -1522,61 +1519,71 @@ label.btn input[type="radio"].with-gap:checked+label:after {
 
 
 div.prodTABs {
-		.md-tabs {
-            background-color: transparent !important;
-        }	
-        .tab-content {
-            background-color: transparent;
+    .md-tabs {
+        background-color: transparent !important;
+    }
+
+    .tab-content {
+        background-color: transparent;
+    }
+
+    .nav {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: transparent !important;
+    }
+
+    .nav .nav-link {
+        color: $black-1;
+    }
+
+    .nav .active {
+        background-color: transparent !important;
+        color: $black-1 !important;
+        border-bottom: 2px solid $black-1;
+    }
+
+    .tab-pane {
+        //padding: 30px;
+        padding-top: 30px;
+        color: $black-1;
+
+        p {
+            display: block;
+            margin: 0 0 10px;
         }
-        .nav {
-            text-transform: uppercase;
+
+        h2 {
+            display: block;
+            margin: 20px 0;
+            color: $red;
+            font-weight: 600;
+            font-size: 160%;
             letter-spacing: 1px;
-            background-color: transparent !important;
         }
-        .nav .nav-link {
-            color: $black-1;
+
+        h3 {
+            display: block;
+            margin: 20px 0 15px;
+            //     color: $blue;
+            font-weight: 500;
+            font-size: 130%;
+            font-style: italic;
+            letter-spacing: 1px;
         }
-        .nav .active {
-            background-color: transparent !important;
-            color: $black-1 !important;
-            border-bottom: 2px solid $black-1;
+
+        blockquote {
+            display: block;
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 2px solid $black-1;
+            background-color: red;
+            font-style: italic;
         }
-        .tab-pane {
-            //padding: 30px;
-            padding-top: 30px;
-            color: $black-1;
-            p {
-                display: block;
-                margin: 0 0 10px;
-            }
-            h2 {
-                display: block;
-                margin: 20px 0;
-                color: $red;
-                font-weight: 600;
-                font-size: 160%;
-                letter-spacing: 1px;
-            }
-            h3 {
-                display: block;
-                margin: 20px 0 15px;
-                //     color: $blue;
-                font-weight: 500;
-                font-size: 130%;
-                font-style: italic;
-                letter-spacing: 1px;
-            }
-            blockquote {
-                display: block;
-                width: 100%;
-                margin: 20px 0;
-                padding: 15px;
-                border-left: 2px solid $black-1;
-                background-color: red;
-                font-style: italic;
-            }
-            img {
-                @include img100;
-            }
+
+        img {
+            @include img100;
         }
     }
+}
