@@ -12,13 +12,13 @@
 		<div class="col-lg-3"></div>
 		<div class="col-lg-9">
 			<div class="row">
-				@include('includes.breadcrumb')
+				<!-- @include('includes.breadcrumb') -->
 			</div>
 		</div>
 
 	</div>
 
-	<div class="row pr-4">
+	<div class="row pr-4 mt-5">
 
 		<div class="col-lg-3">
 			
@@ -27,15 +27,23 @@
 		</div>
 
 		<div class="col-lg-9">
+			<div class="row">
+				@foreach ($allProducts as $key => $prod)
 
-			@include ('category.product')
+				@php
+					$productSLUG = App\Product::productsSLUG_By_catID($prod->prod_cat_id);
+				@endphp
+				
+				@include ('category.product')
+				
+				@endforeach
+			</div>
 
 			<div class="row">
 				<div id="paginateBlock">
 					{{ $allProducts->links() }}
 				</div>
 			</div>
-
 		</div>
 
 	</div>

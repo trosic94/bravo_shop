@@ -37738,16 +37738,16 @@ div#cartWrap table#cartTable tr td div.priceWrap {
 }
 
 div#cartWrap table#cartTable tr td div.priceWrap span.discountPrice {
-  color: #494949;
+  color: #231F20;
 }
 
 div#cartWrap table#cartTable tr td div.priceWrap span.singlePrice {
-  color: #494949;
+  color: #231F20;
   margin-top: 0;
 }
 
 div#cartWrap table#cartTable tr td div.priceWrap span.finalPrice {
-  color: #494949;
+  color: #231F20;
   margin-top: 0;
 }
 
@@ -38054,12 +38054,13 @@ div.prodOne {
   display: block;
   width: 100%;
   position: relative;
-  padding: 0 0 120px;
+  padding: 0 0 80px;
 }
 
 div.prodOne h3 {
   display: block;
-  margin: 1rem 0.5rem;
+  margin: 2rem 1rem 0.5rem 0.5rem;
+  font-family: "Mulish", sans-serif;
   font-size: 120%;
   text-align: center;
   font-weight: 400;
@@ -38078,20 +38079,19 @@ div.prodOne div.prodFooter {
   display: block;
   width: 100%;
   position: absolute;
-  bottom: 1rem;
   padding: 0 1rem;
 }
 
 div.prodOne div.prodFooter div.priceWrap {
   display: block;
   width: 100%;
-  margin: 2rem 0 0;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
 div.prodOne div.prodFooter div.priceWrap span.fullPrice {
   display: block;
-  color: #494949;
+  color: #231F20;
   text-decoration: line-through;
   font-size: 100%;
   font-weight: 500;
@@ -38100,20 +38100,20 @@ div.prodOne div.prodFooter div.priceWrap span.fullPrice {
 
 div.prodOne div.prodFooter div.priceWrap span.discountPrice {
   display: block;
-  color: #e31a51;
-  font-size: 160%;
+  color: #231F20;
+  font-size: 24px;
   font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
+  font-family: "Mulish", sans-serif;
   line-height: normal;
 }
 
 div.prodOne div.prodFooter div.priceWrap span.singlePrice {
   display: block;
   margin-top: 0.5rem;
-  color: #e31a51;
-  font-size: 160%;
+  color: #231F20;
+  font-size: 24px;
   font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
+  font-family: "Mulish", sans-serif;
   line-height: normal;
 }
 
@@ -38276,8 +38276,8 @@ div.productPriceWrap span.discountPrice {
 div.productPriceWrap span.singlePrice {
   display: block;
   margin-top: 0.5rem;
-  color: #e31a51;
-  font-size: 140%;
+  color: #231F20;
+  font-size: 24px;
   font-weight: 600;
   font-family: "Baloo Bhai 2", cursive;
   line-height: normal;
