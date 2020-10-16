@@ -37194,7 +37194,7 @@ div.mainTitle h1 {
   display: block;
   width: 100%;
   margin: 0 0 30px;
-  color: #e31a51;
+  color: #231F20;
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 250%;
@@ -38236,33 +38236,6 @@ div#productDATA form#addToCart .select-dropdown.form-control {
   color: #494949;
 }
 
-div#productDATA form#addToCart div.productPriceWrap span.fullPrice {
-  display: block;
-  color: #494949;
-  font-size: 100%;
-  font-weight: 500;
-  line-height: normal;
-}
-
-div#productDATA form#addToCart div.productPriceWrap span.discountPrice {
-  display: block;
-  color: #e31a51;
-  font-size: 140%;
-  font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
-  line-height: normal;
-}
-
-div#productDATA form#addToCart div.productPriceWrap span.singlePrice {
-  display: block;
-  margin-top: 0.5rem;
-  color: #e31a51;
-  font-size: 140%;
-  font-weight: 600;
-  font-family: "Baloo Bhai 2", cursive;
-  line-height: normal;
-}
-
 div#productDATA form#addToCart div#addTo_CART {
   display: inline-block;
   min-width: 130px;
@@ -38281,6 +38254,33 @@ div#productDATA form#addToCart div#addTo_CART {
 
 div#productDATA form#addToCart div#addTo_CART:hover {
   background-color: #494949;
+}
+
+div.productPriceWrap span.fullPrice {
+  display: block;
+  color: #494949;
+  font-size: 100%;
+  font-weight: 500;
+  line-height: normal;
+}
+
+div.productPriceWrap span.discountPrice {
+  display: block;
+  color: #e31a51;
+  font-size: 140%;
+  font-weight: 600;
+  font-family: "Baloo Bhai 2", cursive;
+  line-height: normal;
+}
+
+div.productPriceWrap span.singlePrice {
+  display: block;
+  margin-top: 0.5rem;
+  color: #e31a51;
+  font-size: 140%;
+  font-weight: 600;
+  font-family: "Baloo Bhai 2", cursive;
+  line-height: normal;
 }
 
 div#qtyWrap {
@@ -38556,5 +38556,72 @@ label.btn input[type="radio"].with-gap:checked + label:after {
 .select-wrapper.active span.caret,
 .select-wrapper.active label.mdb-main-label {
   color: #494949;
+}
+
+div.prodTABs .md-tabs {
+  background-color: transparent !important;
+}
+
+div.prodTABs .tab-content {
+  background-color: transparent;
+}
+
+div.prodTABs .nav {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: transparent !important;
+}
+
+div.prodTABs .nav .nav-link {
+  color: #231F20;
+}
+
+div.prodTABs .nav .active {
+  background-color: transparent !important;
+  color: #231F20 !important;
+  border-bottom: 2px solid #231F20;
+}
+
+div.prodTABs .tab-pane {
+  padding-top: 30px;
+  color: #0A2779;
+}
+
+div.prodTABs .tab-pane p {
+  display: block;
+  margin: 0 0 10px;
+}
+
+div.prodTABs .tab-pane h2 {
+  display: block;
+  margin: 20px 0;
+  color: #ff0000;
+  font-weight: 600;
+  font-size: 160%;
+  letter-spacing: 1px;
+}
+
+div.prodTABs .tab-pane h3 {
+  display: block;
+  margin: 20px 0 15px;
+  font-weight: 500;
+  font-size: 130%;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+div.prodTABs .tab-pane blockquote {
+  display: block;
+  width: 100%;
+  margin: 20px 0;
+  padding: 15px;
+  border-left: 2px solid #231F20;
+  background-color: red;
+  font-style: italic;
+}
+
+div.prodTABs .tab-pane img {
+  width: 100%;
+  height: auto;
 }
 
