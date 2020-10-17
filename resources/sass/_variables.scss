@@ -12,6 +12,9 @@ $grey-4: #231f20; // copy back
 $grey-5: #9f9f9f; // copy txt
 $grey-6: #f0f0f0; // main title border
 $grey-7: #cccccc; // my cart discount
+$grey-8: #C7C7C7;
+$black-1: #231F20;
+$blue-1: #0A2779;
 
 $red: #ff0000; // error
 
@@ -22,10 +25,20 @@ $site-width: 100%;
 //$lato-font: 'Lato', sans-serif;
 
 // font family
-$font_OpneSans: 'Open Sans', sans-serif;
-$font_BalooBhai: 'Baloo Bhai 2', cursive;
+$font_OpneSans: 'Open Sans',
+sans-serif;
+$font_BalooBhai: 'Baloo Bhai 2',
+cursive;
+$font_Mulish : 'Mulish',
+sans-serif;
 
 
 .grey-lighten-5-text {
-	color: $grey-lighten-5;
+    color: $grey-lighten-5;
 }
+
+.primary-text {
+    color: $black-1;
+}
+
+

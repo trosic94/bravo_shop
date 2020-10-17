@@ -7,11 +7,11 @@
 
 			<div class="prodTABs">
 
-				<ul class="nav nav-tabs nav-justified md-tabs  ml-0 mr-0 p-0 rounded-0 z-depth-0" id="tabsProduct" role="tablist">
+				<ul class="nav nav-tabs nav-justified md-tabs blue ml-0 mr-0 p-0 rounded-0 z-depth-0" id="tabsProduct" role="tablist">
 
 					@if ($productDATA->prod_body != '')
-					<li class="nav-item col-1 p-0">
-						<a class="nav-link rounded-0 active text-left p-0" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
+					<li class="nav-item">
+						<a class="nav-link rounded-0 active" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
 					</li>
 					@endif
 
@@ -33,25 +33,8 @@
 
 					@if ($productDATA->prod_body != '')
 					<div class="tab-pane fade show active" id="body-md" role="tabpanel" aria-labelledby="body-tab-md">
-						<div class="primary-text">
-							{!! $productDATA->prod_body !!}
-						</div>
-						
-						<div id="prodFooterWrap" class="{{ (count($selectedAttributes) == 0)? 'alignElementToBottom':'' }}">
-
-								{{-- PRICE --}}
-								@include ('product.price')
-					          	{{-- PRICE --}}
-
-					          	@include ('product.quantity')
-
-					          	{{-- BUY --}}
-					          	@include ('product.buy')
-					          	{{-- BUY --}}
-
-
-				          	</div>
-						</div>
+						{!! $productDATA->prod_body !!}
+					</div>
 					@endif
 
 					@if ($productDATA->prod_specification != '')
