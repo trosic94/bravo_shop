@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         // Maske
         $parentCatID = 96;
-        $cat_ZastitneMaske = Category::subCatByParentID($parentCatID);      
+        $cat_ZastitneMaske = Category::subCatByParentID($parentCatID);
 
 
         // Benefiti ----------------------------------------------
@@ -43,7 +43,18 @@ class HomeController extends Controller
         // Gallery -----------------------------------------------
         $gallery = Gallery::with('GalleryItems')->where('id',1)->first();
 
+        // BANNERS -------------------------------------------------------------- //
+
+        // Home Wide
+        $banners_homeWide = Banner::allBannersByPosition(3);
+        // Row 1
+        $banners_homeRow_1 = Banner::allBannersByPosition(4);
+        // Row 2
+        $banners_homeRow_2 = Banner::allBannersByPosition(5);
+        // Row 2 - company
+        $banners_homeRow_3 = Banner::allBannersByPosition(6);
+
     	return view('home.index', compact('cat_Trakice','cat_ZastitneMaske',
-                                            'benefits','gallery','maxID'));
+                                            'benefits','gallery','maxID','banners_homeWide','banners_homeRow_1','banners_homeRow_2','banners_homeRow_3'));
     }
 }
