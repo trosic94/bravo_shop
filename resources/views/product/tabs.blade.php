@@ -10,7 +10,7 @@
 				<ul class="nav nav-tabs nav-justified md-tabs  ml-0 mr-0 p-0 rounded-0 z-depth-0" id="tabsProduct" role="tablist">
 
 					@if ($productDATA->prod_body != '')
-					<li class="nav-item col-1 p-0">
+					<li class="nav-item col-2 p-0">
 						<a class="nav-link rounded-0 active text-left p-0" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
 					</li>
 					@endif
@@ -31,13 +31,32 @@
 
 				<div class="tab-content card p-0 pt-3 rounded-0 z-depth-0" id="tabsProductContent">
 
-					@if ($productDATA->prod_body != '')
+					
 					<div class="tab-pane fade show active" id="body-md" role="tabpanel" aria-labelledby="body-tab-md">
 						<div class="primary-text">
+							@if ($productDATA->prod_body != '')
 							{!! $productDATA->prod_body !!}
+							@endif
 						</div>
 						
 						<div id="prodFooterWrap" class="{{ (count($selectedAttributes) == 0)? 'alignElementToBottom':'' }}">
+
+								
+									<div class="col-6">
+										<div class="row">
+											<div class="productSize d-inline p-2 mr-2 ">
+												<p class="my-auto">36</p>
+											</div>
+											<div class="productSize d-inline p-2 mr-2">
+												<p>36</p>
+											</div>
+											<div class="productSize d-inline p-2 mr-2">
+												<p>36</p>
+											</div>
+										</div>
+										
+									</div>
+								
 
 								{{-- PRICE --}}
 								@include ('product.price')
@@ -52,7 +71,7 @@
 
 				          	</div>
 						</div>
-					@endif
+					
 
 					@if ($productDATA->prod_specification != '')
 					<div class="tab-pane fade" id="specification-md" role="tabpanel" aria-labelledby="specification-tab-md">
