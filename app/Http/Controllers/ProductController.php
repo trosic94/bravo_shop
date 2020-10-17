@@ -40,7 +40,7 @@ class ProductController extends Controller
             $discount = $ulogovan->discount;
         else:
             $discount = 0;
-        endif;  
+        endif;
 
         $cart = array();
 
@@ -82,7 +82,7 @@ class ProductController extends Controller
             $addToCart['discount'] = $ulogovan->discount;
         else:
             $addToCart['discount'] = 0;
-        endif;    
+        endif;
 
 
 
@@ -102,7 +102,7 @@ class ProductController extends Controller
 
         // pronadji proizvod
         $findPRoduct = Product::productDATA(request('prodID'));
-        $newProduct = (array) $findPRoduct;        
+        $newProduct = (array) $findPRoduct;
 
 
         // Atributi za proizvod ------------------------------------------------------------ //
@@ -112,7 +112,7 @@ class ProductController extends Controller
 
         // ako postoje dodeljeni atributi za proizvod
         if (request('attr_exist') == 1):
-            
+
             $formDATA = request('formDATA');
 
             // odvajam sve podatke sa forme u poseban niz
@@ -122,7 +122,7 @@ class ProductController extends Controller
             }
 
             // odvajam samo odabrane atribute
-            $input__attr_all = json_decode($input['attr_all'][0]);          
+            $input__attr_all = json_decode($input['attr_all'][0]);
 
             foreach ($input__attr_all as $key => $attributeID):
                 if (array_key_exists('attr_'.$attributeID,$input)):
@@ -150,15 +150,15 @@ class ProductController extends Controller
                     $input_attr_DATA['attr_'.$attributeID]['type'] = $attributeDATA->attr_type; // TYPE atributa
                 endif;
             endforeach;
-            
+
         endif;
         // Atributi za proizvod ------------------------------------------------------------ //
 
         // proveravam da li postoji SESIJA sa KORPOM
         if ($crtOLD):
 
-            for ($o=0; $o < count($crtOLD['products']); $o++) { 
-                
+            for ($o=0; $o < count($crtOLD['products']); $o++) {
+
                 if ($crtOLD['products'][$o]['prod_id'] == request('prodID')):
 
                     $crtOLD['products'][$o]['quantity'] = $crtOLD['products'][$o]['quantity'] + $prodQTTY;
@@ -184,14 +184,14 @@ class ProductController extends Controller
             $addToCart['products'][$cartCNT]['quantity'] = $prodQTTY;
             $addToCart['products'][$cartCNT]['attr_data'] = $input_attr_DATA;
         endif;
-    
+
 
         //return json_encode($addToCart);
 
         // Ako je AJAX request za ADD TO CART (button click)
         if ($request->ajax()):
 
-            for ($c=0; $c < count($addToCart['products']); $c++) { 
+            for ($c=0; $c < count($addToCart['products']); $c++) {
 
                 $cartVIEW .= '<div id="cartPRODrow" class="row fadeInRight wow fast">';
 
@@ -210,7 +210,7 @@ class ProductController extends Controller
                         $cartVIEW .= '          <span class="font-weight-bold mr-1">'.$attr['title'].':</span>';
 
                         // ispis vrednosti za odabrane atribute
-                        $i = 0; 
+                        $i = 0;
                         $attrLABELs = '';
                         $cartVIEW .= '          <span>';
                         foreach ($attr['val'] as $valKey => $val) {
@@ -332,10 +332,11 @@ class ProductController extends Controller
         $addToCart['discount'] = $crt['discount'];
         $addToCart['total'] = 0;
         $cartDATA['count'] = 0;
+        $cartDATA['price'] = 0;
         $fullAmount = 0;
 
         // uklanjam odabrani proizvod iz sesije
-        for ($a=0; $a<count($crt['products']); $a++) { 
+        for ($a=0; $a<count($crt['products']); $a++) {
             if ($crt['products'][$a]['prod_id'] == $unsetID):
                 unset($crt['products'][$a]);
             endif;
@@ -349,7 +350,7 @@ class ProductController extends Controller
         // spremam proizvode iz sesije
         $addToCart['products'] = $reorderCRT;
 
-        
+
         for ($a=0; $a<count($reorderCRT); $a++) {
 
             // Kreiram TOTAL za CART
@@ -370,6 +371,7 @@ class ProductController extends Controller
 
             // kreiram COUNT za cart
             $cartDATA['count'] = $cartDATA['count'] + $reorderCRT[$a]['quantity'];
+            $cartDATA['price'] = $fullAmount;
 
         }
 
@@ -444,6 +446,7 @@ class ProductController extends Controller
 
             // kreiram COUNT za cart
             $cartDATA['count'] = $cartDATA['count'] + $crt['products'][$a]['quantity'];
+            $cartDATA['price'] = $fullAmount;
         }
 
         $addToCart['products'] = $crt['products'];
@@ -498,12 +501,12 @@ class ProductController extends Controller
         $productDisplayOptions = request('specal_options');
 
         $productBadge = request('product_badge');
-    	
+
     	$product->price = request('price');
         $product->product_price_with_discount = request('product_price_with_discount');
 
         $product->product_discount = request('product_discount');
-   	
+
         if (request('status') == 'on'):
             $product->status = 1;
         else:
@@ -599,7 +602,7 @@ class ProductController extends Controller
                     foreach ($poslateVrednostiZaAttribut as $key => $vrednostiZaAtribut) {
 
                         $listOfSelectedAttr[$attrCNT]['attribute_id'] = $attrID; // ATRIBUT ID
-                        
+
                         $attrVAL = explode('|', $vrednostiZaAtribut);
 
                         $listOfSelectedAttr[$attrCNT]['attribute_value_id'] = $attrVAL[0]; // ATTRIBUTE VALUE ID
@@ -610,7 +613,7 @@ class ProductController extends Controller
 
                         $attrCNT++;
 
-                    }                  
+                    }
 
                 else:
 
@@ -630,7 +633,7 @@ class ProductController extends Controller
                 endif;
 
             endif;
-            
+
         }
 
         $insertATTR = AttributesProduct::insert($listOfSelectedAttr);
@@ -641,7 +644,7 @@ class ProductController extends Controller
         $displayOptions = array();
 
         if ($productDisplayOptions):
-            for ($d=0; $d < count($productDisplayOptions); $d++) { 
+            for ($d=0; $d < count($productDisplayOptions); $d++) {
                 $displayOptions[$d]['special_options_id'] = $productDisplayOptions[$d];
                 $displayOptions[$d]['product_id'] = $product_id;
             }
@@ -666,7 +669,7 @@ class ProductController extends Controller
             $insertBadge = BadgeProducts::insert([
                 'product_id' => $product_id,
                 'badge_id' => $productBadge
-            ]); 
+            ]);
 
         endif;
 
@@ -709,7 +712,7 @@ class ProductController extends Controller
 
         $productBadge = request('product_badge');
 
-   	
+
     	if (request('status') == 'on'):
     		$product->status = 1;
     	else:
@@ -740,7 +743,7 @@ class ProductController extends Controller
     	else:
     		$product->image = request('image');
     	endif;
-    	
+
     	$product->meta_description = request('meta_description');
     	$product->meta_keywords = request('meta_keywords');
 
@@ -833,7 +836,7 @@ class ProductController extends Controller
                         foreach ($poslateVrednostiZaAttribut as $key => $vrednostiZaAtribut) {
 
                             $listOfSelectedAttr[$attrCNT]['attribute_id'] = $attrID; // ATRIBUT ID
-                            
+
                             $attrVAL = explode('|', $vrednostiZaAtribut);
 
                             $listOfSelectedAttr[$attrCNT]['attribute_value_id'] = $attrVAL[0]; // ATTRIBUTE VALUE ID
@@ -844,7 +847,7 @@ class ProductController extends Controller
 
                             $attrCNT++;
 
-                        }                  
+                        }
 
                     else:
 
@@ -864,7 +867,7 @@ class ProductController extends Controller
                     endif;
 
                 endif;
-                
+
             }
 
             $insertATTR = AttributesProduct::insert($listOfSelectedAttr);
@@ -877,7 +880,7 @@ class ProductController extends Controller
         $displayOptions = array();
 
         if ($productDisplayOptions):
-            for ($d=0; $d < count($productDisplayOptions); $d++) { 
+            for ($d=0; $d < count($productDisplayOptions); $d++) {
                 $displayOptions[$d]['special_options_id'] = $productDisplayOptions[$d];
                 $displayOptions[$d]['product_id'] = $product->product_id;
             }
@@ -914,7 +917,7 @@ class ProductController extends Controller
             $chkIfBadgeExist = BadgeProducts::where('product_id',$product->product_id)->first();
 
             if($chkIfBadgeExist):
-                $deleteBadge = BadgeProducts::where('product_id',$product->product_id)->delete();                
+                $deleteBadge = BadgeProducts::where('product_id',$product->product_id)->delete();
             endif;
 
         endif;

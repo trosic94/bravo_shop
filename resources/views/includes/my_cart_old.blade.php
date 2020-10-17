@@ -2,15 +2,9 @@
 
 	<div id="myCart" class="row rounded-pill" data-toggle="modal" data-target="#myCartModal">
 
-		<div id="cartCount" class="col-auto d-flex justify-content-center">
-				<span class="badge rounded-circle primary-color {{ ($cartDATA['count'] > 0)? '':'d-none' }}">{{ $cartDATA['count'] }}</span>
-                <img src="/images/header/korpa_icon.svg" alt="Moja korpa">
-		</div>
-
-		<div class="col-auto pl-0">
-			<div class="small">@lang('shop.my_cart_title')</div>
-        <div id="cartCountTXT" class="small font-italic {{ ($cartDATA['count'] > 0)? 'd-none':'d-block' }}">@lang('shop.shop_my_cart_empty')</div>
-        <div id="cartPrice" class="text-primary {{ ($cartDATA['count'] == 0)? 'd-none':'d-block' }}"><span id="head_price">{{ $cartDATA['price'] }} </span> <span class="text-lowercase">{{ setting('site.valuta') }}</span></div>
+		<div id="cartCount" class="col-auto pr-0">
+				<span class="badge {{ ($cartDATA['count'] > 0)? '':'d-none' }}">{{ $cartDATA['count'] }}</span>
+			<img src="/images/header/korpa_icon.svg" alt="Moja korpa">
 		</div>
 
 	</div>
@@ -33,7 +27,7 @@
 
        <div id="cartDATA" class="modal-body">
 
-          <span id="emptyCart_modal" class="text-white {{ ($cartDATA['count'] > 0)? 'd-none':'d-block' }}">@lang('shop.my_cart_my_cart_is_empty')</span>
+          <span id="emptyCart_modal" class="{{ ($cartDATA['count'] > 0)? 'd-none':'d-block' }}">@lang('shop.my_cart_my_cart_is_empty')</span>
 
           {!! $cartDATA['products'] !!}
 
@@ -50,7 +44,7 @@
 
 
 @php
-	// echo '<pre class="text-white">';
+	// echo '<pre>';
 	// print_r($cartDATA);
 	// echo '</pre>';
 @endphp

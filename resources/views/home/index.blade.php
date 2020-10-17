@@ -2,10 +2,12 @@
 
 @section ('content')
 
-@include ('home.shop')
-@include ('home.benefits')
+@include('home.banner_1')
+{{-- @include ('home.shop') --}}
 
-<div id="galleryBlock">
+{{-- @include ('home.benefits') --}}
+
+{{-- <div id="galleryBlock">
 
 	<h2>@lang('shop.title_gallery')</h2>
 
@@ -36,10 +38,10 @@
 
 	</div>
 
-</div>
+</div> --}}
 
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 $( document ).ready(function() {
 
 	new WOW().init();
@@ -59,6 +61,6 @@ $( document ).ready(function() {
 
 	$('.mdb-select').materialSelect();
 });
-</script>
+</script> --}}
 
 @endsection

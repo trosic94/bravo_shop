@@ -93,6 +93,7 @@ class AppServiceProvider extends ServiceProvider
             $cartDATA['products'] = '';
 
             $cartDATA['count'] = 0;
+            $cartDATA['price'] = 0;
 
             $addToCart['total'] = 0;
 
@@ -111,14 +112,14 @@ class AppServiceProvider extends ServiceProvider
 
                 // broj proizvoda u korpi
                 $cartCOUNT = 0;
-                for ($p=0; $p < count($crtSES['products']); $p++) { 
+                for ($p=0; $p < count($crtSES['products']); $p++) {
                     $cartCOUNT = $cartCOUNT + $crtSES['products'][$p]['quantity'];
                 }
 
                 // prikaz korpe iz sesije
                 $addToCart['products'] = $crtSES['products'];
 
-                for ($c=0; $c < count($addToCart['products']); $c++) { 
+                for ($c=0; $c < count($addToCart['products']); $c++) {
 
                     $cartVIEW .= '<div name="row_'.$addToCart['products'][$c]['prod_id'].'" id="cartPRODrow" class="row fadeInRight wow fast">';
 
@@ -137,7 +138,7 @@ class AppServiceProvider extends ServiceProvider
                             $cartVIEW .= '          <span class="font-weight-bold mr-1">'.$attr['title'].':</span>';
 
                             // ispis vrednosti za odabrane atribute
-                            $i = 0; 
+                            $i = 0;
                             $attrLABELs = '';
                             $cartVIEW .= '          <span>';
                             foreach ($attr['val'] as $valKey => $val) {
@@ -169,7 +170,7 @@ class AppServiceProvider extends ServiceProvider
                         // ako proizvod ima definisan popust na cenu kao procenat
 
                         $discountPrice = $addToCart['products'][$c]['prod_price']-(($addToCart['products'][$c]['prod_price']/100)*$addToCart['products'][$c]['prod_discount']);
-                        
+
                         $cartVIEW .= '  <span class="fullPrice">'.number_format($discountPrice,0,"",".").' '.setting('shop.valuta').'</span>';
 
                         $fullAmount = $addToCart['products'][$c]['quantity'] * $discountPrice;
@@ -219,7 +220,7 @@ class AppServiceProvider extends ServiceProvider
                     else:
                         $total = $addToCart['total'];
                     endif;
-
+                    $cartDATA['price'] = number_format($total,0,"",".");
                     $cartVIEW .= '<div id="cartTOTAL" class="row rounded-pill">';
                     $cartVIEW .= '  <div class="col">';
                     $cartVIEW .= '  <div id="cartTOTALtxt">'.trans('shop.my_cart_total').'</div>';
@@ -233,7 +234,7 @@ class AppServiceProvider extends ServiceProvider
 
                 $cartDATA['products'] = $cartVIEW;
 
-            endif;           
+            endif;
 
             $view->with('cartDATA', $cartDATA);
         });
