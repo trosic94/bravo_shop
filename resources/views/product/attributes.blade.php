@@ -103,28 +103,66 @@
 
                                 @elseif ($atribut['attr_type_id'] == 5)
                                     {{-- Ako je RADIO BUTTON --}}
+                                    @if( $atribut['attr_id'] == 15)
+                                    	<div class="proudctSizes">
+											<div class="btn-group p-0" data-toggle="buttons">
+			                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+					                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+						                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+						                                    <label class="btn mr-3 text-center">
+															    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}
+															</label>
+															{{-- <div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
+																<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
+																<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
+															</div> --}}
+															@endif
+					                                    @endforeach
+				                                @else
+				                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+													<div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
+														<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
+														<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
+													</div>
+				                                    @endforeach
 
-                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+			                                    @endif
+	                                    	</div>
+										</div>
+												{{-- <div class="proudctSizes">
+													<div class="btn-group p-0" data-toggle="buttons">
+														@foreach ($productSizes as $value)
+															@if ($value->product_id != '')
+															 <label class="btn mr-3 text-center">
+															    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}
+															</label>
+															@endif 
+														@endforeach
+													</div>
+												</div> --}}
 
-	                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-		                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+                                    @else
+	                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+		                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+			                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+												<div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
+													<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
+													<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
+												</div>
+												@endif
+		                                    @endforeach
+
+	                                    @else
+
+		                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
 											<div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
 												<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
 												<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
 											</div>
-											@endif
-	                                    @endforeach
+		                                    @endforeach
 
-                                    @else
-
-	                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-										<div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
-											<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
-											<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
-										</div>
-	                                    @endforeach
-
-                                    @endif
+	                                    @endif
+                                    @endif 
 
                                 @elseif ($atribut['attr_type_id'] == 7)
                                     {{-- Ako je COLOR --}}

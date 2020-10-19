@@ -164,6 +164,7 @@ return [
     'title_registration_number' => 'Matični broj',
     'title_account_no' => 'Tekući račun',
     'title_contact' => 'Kontakt',
+    'title_choose_size' => 'Odaberi veličinu:',
 
 
 
