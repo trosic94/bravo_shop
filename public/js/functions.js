@@ -407,7 +407,7 @@ function CartEvent(prodID) {
 
             }
 
-            $('header div#cartDATA').html(rsp);
+            $('header div#cartDATA').html(rsp.cart);
             $('#myCartModal').modal('show');
 
             new WOW().init();

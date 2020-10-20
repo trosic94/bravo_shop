@@ -32,7 +32,7 @@
         position: relative;
         font-family: $font_Mulish;
         font-size: 16px;
-        font-weight: 400;
+        font-weight: 700;
         letter-spacing: 0.8px;
         text-transform: uppercase;
         ul {
@@ -46,19 +46,18 @@
                     color: $secondary-color;
                     &:hover {
                         color: $primary-color;
-                        font-weight: 700;
                     }
                 }
             }
             li.active {
                 a {
                     color: $primary-color;
-                    font-weight: 700;
                 }
             }
         }
         @media (max-width: 1100px) {
             ul {
+                right: 0;
                 display: none;
                 position: absolute;
                 z-index: 100;
@@ -355,4 +354,23 @@
                 padding-right: 0px;
             }
         }
+        @media (max-width: 991px) {
+            ul {
+                display: none;
+                // li {
+                //     padding: 0 5px;
+                //     img {
+                //         margin-left: 5px;
+                //     }
+                // }
+                // li:last-child {
+                //     padding: 0 0 0 5px;
+                // }
+            }
+        }
+    }
+    
+    @mixin imgBanner {
+        width: 100%;
+        height: auto;
     }

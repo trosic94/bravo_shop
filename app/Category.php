@@ -18,7 +18,7 @@ class Category extends Model
     public static function shopCAT()
     {
         $shopCAT = 83;
-        
+
         return $shopCAT;
     }
 
@@ -29,14 +29,14 @@ class Category extends Model
         $chopCATdata = Category::where('id',$shopCAT)->first();
 
         $shopCAT_Slug = $chopCATdata->slug;
-        
+
         return $shopCAT_Slug;
     }
 
     public static function allCAT()
     {
     	$kategorije = Category::all();
-        
+
         return $kategorije;
     }
 
@@ -134,7 +134,7 @@ class Category extends Model
                     break;
 
                 endif;
-                
+
             }
 
         return $choosenCAT;
@@ -165,7 +165,7 @@ class Category extends Model
         $allCAT_SEL = Category::where('parent_id',$shopCAT)
                         ->with('childrenCategories')
                         ->get();
-       
+
         return $allCAT_SEL;
     }
 
@@ -208,7 +208,7 @@ class Category extends Model
 
         $getCATdata = Category::whereIn('slug',$catFromURL)
                         ->get();
-       
+
         return $getCATdata;
     }
 
@@ -267,7 +267,7 @@ class Category extends Model
         }
 
 
-        
+
         return $allCAT_SEL;
     }
 
@@ -360,7 +360,7 @@ class Category extends Model
 
 
                     endif;
-                    
+
                     $subcat_CNT++;
 
                 }
@@ -371,7 +371,7 @@ class Category extends Model
         }
 
 
-        
+
         return $allCAT_SEL;
     }
 
@@ -446,7 +446,7 @@ class Category extends Model
         }
 
 
-        
+
         return $allCAT;
     }
 
@@ -483,7 +483,32 @@ class Category extends Model
                                             'CAT.name as cat_name',
                                             'CAT.slug as cat_slug',
                                             'CAT.published as cat_published',
-                                            'CAT.parent_id as cat_parent_id'
+                                            'CAT.parent_id as cat_parent_id',
+                                            'CAT.description as cat_description',
+                                            'CAT.cat_color as cat_color',
+                                            'CAT.cat_image as cat_image'
+                                        )
+                                        ->orderBy('order','ASC')
+                                        ->get();
+
+        return $productCategories;
+    }
+    public static function CatByID($CAT)
+    {
+        $shopCAT = Category::shopCAT();
+
+        $productCategories = DB::table('categories as CAT')
+                                        ->where('CAT.id',$CAT)
+                                        ->where('published',1) // uzimam samo aktivne kategorije
+                                        ->select(
+                                            'CAT.id as cat_id',
+                                            'CAT.name as cat_name',
+                                            'CAT.slug as cat_slug',
+                                            'CAT.published as cat_published',
+                                            'CAT.parent_id as cat_parent_id',
+                                            'CAT.description as cat_description',
+                                            'CAT.cat_color as cat_color',
+                                            'CAT.cat_image as cat_image'
                                         )
                                         ->orderBy('order','ASC')
                                         ->get();

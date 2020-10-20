@@ -10,10 +10,10 @@ class Post extends Model
     protected $table = 'posts';
 
 
-    public static function benefits()
+    public static function oNama()
     {
-    	$benefiti = Post::where('category_id',84)->where('status','PUBLISHED')->get();
+    	$o_nama = Post::where('category_id',105)->where('status','PUBLISHED')->get();
 
-    	return $benefiti;
+    	return $o_nama;
     }
 }

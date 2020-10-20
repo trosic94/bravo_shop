@@ -28,17 +28,20 @@ class HomeController extends Controller
 
     	// Category ----------------------------------------------
         $maxID=0;
-        // Trakice
-        $parentCatID = 95;
-    	$cat_Trakice = Category::subCatByParentID($parentCatID);
+        // Musko
+        $CatID = 102;
+    	$cat_Musko = Category::CatByID($CatID);
 
-        // Maske
-        $parentCatID = 96;
-        $cat_ZastitneMaske = Category::subCatByParentID($parentCatID);
+        // Zensko
+        $CatID = 103;
+        $cat_Zensko = Category::CatByID($CatID);
+        // Distributer
+        $CatID = 104;
+        $cat_Distributer = Category::CatByID($CatID);
 
 
         // Benefiti ----------------------------------------------
-        $benefits = Post::benefits();
+        $oNama = Post::oNama();
 
         // Gallery -----------------------------------------------
         $gallery = Gallery::with('GalleryItems')->where('id',1)->first();
@@ -54,7 +57,7 @@ class HomeController extends Controller
         // Row 2 - company
         $banners_homeRow_3 = Banner::allBannersByPosition(6);
 
-    	return view('home.index', compact('cat_Trakice','cat_ZastitneMaske',
-                                            'benefits','gallery','maxID','banners_homeWide','banners_homeRow_1','banners_homeRow_2','banners_homeRow_3'));
+    	return view('home.index', compact('cat_Musko','cat_Zensko','cat_Distributer',
+                                            'oNama','gallery','maxID','banners_homeWide','banners_homeRow_1','banners_homeRow_2','banners_homeRow_3'));
     }
 }

@@ -32,7 +32,7 @@ body {
     margin: 0 0 1rem;
     font-size: 180%;
     font-weight: 600;
-    color: $pink-1;
+    color: $primary-color;
     font-family: $font_Mulish;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 a {
-    color: $pink-1;
+    color: $primary-color;
     &:hover {
         color: $grey-1;
     }
@@ -51,7 +51,7 @@ a {
 div.pageContent {
     margin: 3% 0;
     h2 {
-        color: $pink-1;
+        color: $primary-color;
         font-size: 250%;
         font-weight: 700;
         font-family: $font_Mulish;
@@ -72,7 +72,7 @@ div.pageContent {
         margin: 20px 0;
         padding: 15px;
         background-color: $grey-2;
-        border-left: 5px solid $pink-1;
+        border-left: 5px solid $primary-color;
     }
 }
 
@@ -84,7 +84,7 @@ div.mainTitle {
         display: block;
         width: 100%;
         margin: 0 0 30px;
-        color: $black-1;
+        color: $secondary-color;
         font-weight: 700;
         letter-spacing: 1px;
         font-size: 48px;
@@ -129,7 +129,7 @@ ol.breadcrumb {
             color: $grey-1;
             font-size: 90%;
             &:hover {
-                color: $pink-1;
+                color: $primary-color;
             }
         }
     }
@@ -171,7 +171,7 @@ div#paginateBlock {
         }
         li.active {
             .page-link {
-                background-color: $blue-1;
+                background-color: $primary-color;
                 padding: 1rem 1.4rem;
                 border-radius: 10px;
             }
@@ -229,21 +229,36 @@ header {
         span.badge {
             position: absolute;
             z-index: 50;
-            right: 0;
-            background-color: $blue-1;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
-            background-color: primary-color;
+            right: -5px;
+            top: -5px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            background-color: $primary-color;
             color: white;
         }
         div#addTo_FAV {
             display: block;
             height: 100%;
+            color: $secondary-color;
             i {
                 font-size: 38px;
+                color: $secondary-color;
+                background-color: $secondary-color;
                 &:hover {
-                    color: $blue-1;
+                    color: $primary-color;
+                }
+            }
+        }
+        div#addTo_FAV_h {
+            display: block;
+            height: 100%;
+            color: $secondary-color;
+            i {
+                font-size: 38px;
+                color: $secondary-color;
+                &:hover {
+                    color: $primary-color;
                 }
             }
         }
@@ -256,18 +271,19 @@ header {
         img {
             width: 40px;
             height: auto;
-            color: secondar
         }
         div#cartCount {
             position: relative;
             span.badge {
                 position: absolute;
                 z-index: 50;
-                right: 0;
-                background-color: $grey-5;
-                -webkit-border-radius: 3px;
-                -moz-border-radius: 3px;
-                border-radius: 3px;
+                right: 5px;
+                top: -5px;
+                background-color: $primary-color;
+                color: white;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
             }
         }
         &:hover {
@@ -361,7 +377,7 @@ div#myCartModal {
             div#cartTOTAL {
                 margin: 10px 0 0;
                 padding: 5px 0;
-                background-color: $pink-1;
+                background-color: $primary-color;
                 div#cartTOTALtxt {
                     margin: 0;
                     padding: 0;
@@ -409,7 +425,7 @@ div#myProfileModal {
             h3 {
                 display: block;
                 margin: 0 0 20px;
-                color: $pink-1;
+                color: $primary-color;
                 font-weight: 600;
                 font-size: 150%;
                 font-family: $font_Mulish;
@@ -431,7 +447,7 @@ div#myProfileModal {
                             font-size: 80%;
                             border-top: 0;
                             a {
-                                color: $pink-1;
+                                color: $primary-color;
                                 &:hover {
                                     color: $grey-1;
                                 }
@@ -465,8 +481,8 @@ div#cartWrap {
         color: $grey-1;
         tr {
             th {
-                color: $pink-1;
-                border-bottom: 2px solid $pink-1;
+                color: $primary-color;
+                border-bottom: 2px solid $primary-color;
                 font-size: 100%;
                 letter-spacing: 1px;
             }
@@ -489,20 +505,20 @@ div#cartWrap {
                     text-align: right;
                     // @include productPrice_list;
                     span.discountPrice {
-                        color: $black-1;
+                        color: $secondary-color;
                     }
                     span.singlePrice {
-                        color: $black-1;
+                        color: $secondary-color;
                         margin-top: 0;
                     }
                     span.finalPrice {
-                        color: $black-1;
+                        color: $secondary-color;
                         margin-top: 0;
                     }
                 }
                 i#delCart {
                     cursor: pointer;
-                    color: $pink-1;
+                    color: $primary-color;
                     font-size: 150%;
                     @include trans_05;
                     &:hover {
@@ -515,11 +531,11 @@ div#cartWrap {
     div.cartInvoiceTitle {
         @include pinkTitle;
         padding-bottom: 1rem;
-        border-bottom: 2px solid $pink-1;
+        border-bottom: 2px solid $primary-color;
     }
     div#cartAmountWrap {
         label {
-            color: $pink-1;
+            color: $primary-color;
             font-weight: 500;
         }
         div#cartAmount,
@@ -542,7 +558,7 @@ div#cartWrap {
             div#cartTotal_label {
                 font-weight: 900;
                 label {
-                    color: $pink-1;
+                    color: $primary-color;
                     margin-bottom: 0;
                     text-transform: uppercase;
                     font-weight: 900;
@@ -557,7 +573,7 @@ div#cartWrap {
                 font-size: 170%;
                 font-weight: 700;
                 label {
-                    color: $pink-1;
+                    color: $primary-color;
                     margin-bottom: 0;
                     text-transform: uppercase;
                     font-weight: 900;
@@ -568,13 +584,13 @@ div#cartWrap {
     div#orderStatus {
         div {
             label {
-                color: $pink-1;
+                color: $primary-color;
             }
             a {
                 color: $grey-1;
                 font-weight: 600;
                 &:hover {
-                    color: $pink-1;
+                    color: $primary-color;
                 }
             }
         }
@@ -596,7 +612,7 @@ div#cartWrap {
             li {
                 label {
                     margin: 0 10px 0 0;
-                    color: $pink-1;
+                    color: $primary-color;
                     font-weight: 600;
                 }
             }
@@ -610,8 +626,8 @@ div#cartWrap {
 // HOME --------------------------------------------------------------------------------------------------- //
 content#homeWrap {
     div#shopBlock {
-        padding: 6% 0;
-        background-image: url('/images/home/shop-back.png');
+        padding: 0 0 4% 0;
+        // background-image: url('/images/home/shop-back.png');
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -623,7 +639,7 @@ content#homeWrap {
                 font-family: $font_Mulish;
             }
             h4 {
-                color: $pink-1;
+                color: $primary-color;
                 font-size: 150%;
                 font-weight: 700;
                 font-family: $font_Mulish;
@@ -632,32 +648,101 @@ content#homeWrap {
                 @include btn_Pink;
             }
         }
+        .card-title {
+            padding-top: 50px;
+            padding-left: 50px;
+            font-weight: 900;
+            @include font-size(2.8rem);
+            color: $secondary-color;
+        }
+        @media (max-width: 575px) {
+            .card-title {
+                padding-top: 10px;
+                padding-left: 10px;
+                font-weight: 700;
+                @include font-size(1.8rem);
+            }
+            .card-text {
+                padding: 0 10px 0 10px !important;
+            }
+            .btn {
+                margin-left: 10px !important;
+                width: auto !important;
+            }
+        }
+        @media (max-width: 767px) {
+            .card-title {
+                @include font-size(2rem);
+            }
+        }
+        @media (max-width: 991px) {
+            .card-title {
+                @include font-size(2.2rem);
+            }
+        }
+        .card {
+            border-radius: unset;
+            min-height: 100%;
+            .bgd {
+                width: 100%;
+                min-height: 100%;
+                position: absolute;
+                // opacity: 0;
+                background-size: 100% 200%;
+                -webkit-transition: background-position 1s;
+                -moz-transition: background-position 1s;
+                transition: background-position 1s;
+            }
+            .card-text {
+                display: none;
+            }
+            .btn {
+                display: none;
+            }
+            .card-img-overlay {
+                padding: 0 !important;
+            }
+            .card-img {
+                padding: 11rem 3rem 1rem 3rem;
+            }
+            div.card-img-overlay:hover {
+                .card-text {
+                    display: block;
+                    position: relative;
+                    color: white;
+                    padding: 50px;
+                }
+                .btn {
+                    background-color: white;
+                    display: block;
+                    text-align: center;
+                    width: 50%;
+                    margin-left: 50px;
+                    font-weight: 600;
+                }
+                .card-title {
+                    position: relative;
+                    color: white;
+                }
+                .bgd {
+                    // opacity: 0.9;
+                    background-position: 0 -100%;
+                }
+            }
+        }
     }
-    div#benefitsBlock {
-        padding: 5% 0;
+    div#oNamaBlock {
+        padding: 0 0 5% 0;
         h2 {
-            color: $pink-1;
+            color: $secondary-color;
             font-size: 370%;
             font-weight: 900;
             font-family: $font_Mulish;
+            padding-bottom: 100px;
         }
-        div#benefitOne {
-            div.imgWrap {
-                margin: 0 auto;
-                width: 100px;
-                height: 100px;
-                -webkit-border-radius: 50px;
-                -moz-border-radius: 50px;
-                border-radius: 50px;
-                background-color: $blue-1;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: 75px 75px;
-            }
-            h3 {
-                color: $grey-3;
-                font-family: $font_Mulish;
-                font-weight: 500;
+        @media (max-width: 991px) {
+            h2 {
+                padding-bottom: 5%;
             }
         }
     }
@@ -750,7 +835,7 @@ div.prodOne {
         a {
             color: $grey-1;
             &:hover {
-                color: $pink-1;
+                color: $primary-color;
             }
         }
     }
@@ -777,11 +862,11 @@ div.imgWrap {
         top: 1rem;
         left: 1rem;
         z-index: 201;
-        color: $blue-1;
+        color: $primary-color;
         i {
             cursor: pointer;
             &:hover {
-                color: $grey-1 !important;
+                color: $primary-color !important;
             }
         }
     }
@@ -796,7 +881,7 @@ div.imgWrap {
         font-weight: 600;
         line-height: 46px;
         text-align: center;
-        background-color: $pink-1;
+        background-color: $primary-color;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -837,7 +922,7 @@ div#productDATA {
         position: relative;
         height: 100%;
         h2 {
-            color: $pink-1;
+            color: $primary-color;
             text-transform: unset;
             font-weight: 600;
             font-family: $font_Mulish;
@@ -848,12 +933,12 @@ div#productDATA {
             font-weight: 500;
         }
         label {
-            color: $pink-1;
+            color: $primary-color;
             font-weight: 600;
             margin: 0 10px 0 0;
         }
         .select-wrapper span.caret {
-            color: $pink-1;
+            color: $primary-color;
         }
         .select-dropdown.form-control {
             //background-color: $grey-form;
@@ -877,7 +962,7 @@ div.productPriceWrap {
     }
     span.discountPrice {
         display: block;
-        color: $black-1;
+        color: $secondary-color;
         font-size: 24px;
         font-weight: 600;
         font-family: $font_Mulish;
@@ -886,7 +971,7 @@ div.productPriceWrap {
     span.singlePrice {
         display: block;
         margin-top: 0.5rem;
-        color: $black-1;
+        color: $secondary-color;
         font-size: 24px;
         font-weight: 600;
         font-family: $font_Mulish;
@@ -903,7 +988,7 @@ div#qtyWrap {
         height: 30px;
         width: 40px;
         cursor: pointer;
-        color: $pink-1;
+        color: $primary-color;
         line-height: 30px;
         text-align: center;
         background-color: $grey-2;
@@ -923,7 +1008,7 @@ div#qtyWrap {
         display: table-cell;
         width: 40px;
         height: 34px;
-        color: $pink-1;
+        color: $primary-color;
         font-weight: 600;
         text-align: center !important;
         background-color: $grey-2;
@@ -935,7 +1020,7 @@ div#qtyWrap {
         height: 30px;
         width: 40px;
         cursor: pointer;
-        color: $pink-1;
+        color: $primary-color;
         line-height: 30px;
         text-align: center;
         background-color: $grey-2;
@@ -960,7 +1045,7 @@ div.leftCol {
             h3 {
                 padding: 5px 0;
                 margin-bottom: 0;
-                background-color: $pink-1;
+                background-color: $primary-color;
                 color: $white;
                 text-transform: uppercase;
                 text-align: center;
@@ -979,7 +1064,7 @@ div.leftCol {
             a {
                 color: $grey-1;
                 &:hover {
-                    color: $pink-1;
+                    color: $primary-color;
                 }
             }
             div.subCat {
@@ -999,7 +1084,7 @@ footer {
     h2 {
         margin-bottom: 20pt;
         font-family: $font_Mulish;
-        color: $pink-1;
+        color: $primary-color;
         font-weight: 700;
         font-size: 180%;
     }
@@ -1043,7 +1128,7 @@ div#modalCookie {
         div.modal-body {
             color: $white;
             a {
-                color: $pink-1;
+                color: $primary-color;
                 &:hover {
                     color: $white;
                 }
@@ -1064,7 +1149,7 @@ div#ratingWrap {
             @include trans_1;
             &:hover {
                 cursor: pointer;
-                color: $pink-1;
+                color: $primary-color;
             }
         }
     }
@@ -1072,22 +1157,22 @@ div#ratingWrap {
         color: $grey-7;
     }
     .starON {
-        color: $pink-1;
+        color: $primary-color;
     }
 }
 
 // MDB OVERRIDE -------------------------------------------------------------------------------------------------------- //
 .form-check-input[type="checkbox"]:checked+label::before,
 label.btn input[type="checkbox"]:checked+label::before {
-    border-right: 2px solid $pink-1;
-    border-bottom: 2px solid $pink-1;
+    border-right: 2px solid $primary-color;
+    border-bottom: 2px solid $primary-color;
 }
 
 .form-check-input[type="radio"]:checked+label:after,
 .form-check-input[type="radio"].with-gap:checked+label:after,
 label.btn input[type="radio"]:checked+label:after,
 label.btn input[type="radio"].with-gap:checked+label:after {
-    background-color: $pink-1;
+    background-color: $primary-color;
 }
 
 .form-check-input[type="radio"]:checked+label:after,
@@ -1096,7 +1181,7 @@ label.btn input[type="radio"].with-gap:checked+label:after {
 label.btn input[type="radio"]:checked+label:after,
 label.btn input[type="radio"].with-gap:checked+label:before,
 label.btn input[type="radio"].with-gap:checked+label:after {
-    border: 2px solid $pink-1;
+    border: 2px solid $primary-color;
 }
 
 .md-form input[type=text]:not(.browser-default):focus:not([readonly]),
@@ -1143,17 +1228,17 @@ div.prodTABs {
         background-color: transparent !important;
     }
     .nav .nav-link {
-        color: $black-1;
+        color: $secondary-color;
     }
     .nav .active {
         background-color: transparent !important;
-        color: $black-1 !important;
-        border-bottom: 2px solid $black-1;
+        color: $secondary-color !important;
+        border-bottom: 2px solid $secondary-color;
     }
     .tab-pane {
         //padding: 30px;
         padding-top: 30px;
-        color: $black-1;
+        color: $secondary-color;
         p {
             display: block;
             margin: 0 0 10px;
@@ -1180,7 +1265,7 @@ div.prodTABs {
             width: 100%;
             margin: 20px 0;
             padding: 15px;
-            border-left: 2px solid $black-1;
+            border-left: 2px solid $secondary-color;
             background-color: red;
             font-style: italic;
         }
@@ -1188,8 +1273,72 @@ div.prodTABs {
             @include img100;
         }
     }
-
 }
-.productSize{
+
+.productSize {
     background-color: $grey-8;
+}
+
+// BANNERS ------------------------------------------------------------------------------------------------- //
+div#banner_1 {
+    display: block;
+    width: 100%;
+    margin: 0 0 30px;
+}
+
+div#bannerWrap {
+    img {
+        @include imgBanner;
+    }
+    h1 {
+        font-weight: 800;
+        font-size: 5vw;
+        letter-spacing: 0;
+        color: white;
+    }
+    span {
+        width: 60%;
+        font-weight: 400;
+        font-size: 2vw;
+        color: white;
+        letter-spacing: 0;
+        display: inline-block;
+    }
+    .cont {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    /* Bottom left text */
+    .bottom-left {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+    }
+    /* Top left text */
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+    }
+    /* Top right text */
+    .top-right {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+    }
+    /* Bottom right text */
+    .bottom-right {
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+    }
+    /* Centered text */
+    .centered {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

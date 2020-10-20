@@ -299,8 +299,8 @@ class ProductController extends Controller
             $cartVIEW .= '  <div class="col">';
             $cartVIEW .= '  <div id="cartTOTALtxt">'.trans('shop.my_cart_total').'</div>';
             $cartVIEW .= '  </div>';
-            $cartVIEW .= '  <div class="col text-right">';
-            $cartVIEW .= '  <span>'.number_format($total,0,"",".").' '.setting('site.valuta').'</span>';
+            $cartVIEW .= '  <div class="col text-right" id="price_modal">';
+            $cartVIEW .= '  <span id="priceH">'.number_format($total,0,"",".").'</span><span> '.setting('site.valuta').'</span>';
             $cartVIEW .= '  </div>';
             $cartVIEW .= '</div>';
 
@@ -308,7 +308,8 @@ class ProductController extends Controller
             Session::forget('crt');
             Session::put('crt', $addToCart);
 
-            return $cartVIEW;
+           // return $cartVIEW;
+            return response()->json(['cart'=>$cartVIEW,'header_price'=>$total]);
 
         else:
 
