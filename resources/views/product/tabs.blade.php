@@ -33,7 +33,7 @@
 
 					
 					<div class="tab-pane fade show active" id="body-md" role="tabpanel" aria-labelledby="body-tab-md">
-						<div class="primary-text">
+						<div class="primary-text mb-3">
 							@if ($productDATA->prod_body != '')
 							{!! $productDATA->prod_body !!}
 							@endif
@@ -42,16 +42,34 @@
 						<div id="prodFooterWrap" class="{{ (count($selectedAttributes) == 0)? 'alignElementToBottom':'' }}">
 
 								
-									<div class="col-6">
+									<div class="col-md-6 col-xs-12">
+										<div class="row mb-1"><p>@lang('shop.title_choose_size')</p></div>
 										<div class="row">
-											<div class="productSize d-inline p-2 mr-2 ">
-												<p class="my-auto">36</p>
-											</div>
-											<div class="productSize d-inline p-2 mr-2">
-												<p>36</p>
-											</div>
-											<div class="productSize d-inline p-2 mr-2">
-												<p>36</p>
+											<div class="proudctSizes">
+												<div class="btn-group p-0" data-toggle="buttons">
+												@foreach ($productSizes as $value)
+													@if ($value->product_id != '')
+	
+													 <label class="btn mr-3 text-center">
+													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}
+													</label>
+													  {{-- <label class="btn">
+													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}</label>
+													  <label class="btn">
+													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}</label> --}}
+													
+
+													{{-- <label for="{{$value->label}}">{{$value->label}}</label> --}}
+  													{{-- <input type="radio" name="gender" id="{{$value->label}}" value="{{$value->label}}">
+													<label class="mr-2" for="{{$value->label}}">{{$value->label}}</label> --}}
+													{{-- <label for="sizeWeight">It's pretty, pretty, pretty, pretty good</label> --}}
+														{{-- <p class="mr-2 active">{{$value->label}}</p> --}}
+													@else
+														{{-- <p class="mr-2">{{$value->label}}</p> --}}
+													@endif 
+
+												@endforeach
+												</div>
 											</div>
 										</div>
 										

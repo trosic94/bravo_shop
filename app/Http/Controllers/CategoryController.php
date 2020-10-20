@@ -174,6 +174,18 @@ class CategoryController extends Controller
             // PRODUCT data
             $productDATA = Product::productDATA_bySLUG($categorySLUG);
 
+            $productSizes = DB::table('attributes_values as av')
+                                ->leftJoin('attributes_product as ap', function($join) use ($productDATA) {
+                                    $join->on('av.id', '=', 'ap.attribute_value_id');
+                                    $join->where('ap.product_id', $productDATA->prod_id);
+                                })->where('av.attribute_id',15)->get();
+
+            /*$productSizes = DB::table('attributes_values as av')
+                                ->join('attributes_product as ap','ap.attribute_value_id','=','av.id')
+                                ->where('av.attribute_id',15)
+                                ->where('ap.product_id', $productDATA->prod_id)
+                                ->get();*/
+
             // current CAT data
             $currentCAT = DB::table('categories as CAT')
                                     ->leftJoin('categories as PCAT','CAT.parent_id','PCAT.id')
@@ -217,7 +229,7 @@ class CategoryController extends Controller
             return view('product.index', compact('slug','favLIST','metaTitle','metaDescription','metaKeywords',
                                                     'productDATA','selectedAttributes','allAttributesForProduct','odabraneVrednostiAtributaZaProizvod',
                                                     'catFromURL',
-                                                    'ratingOptions'));
+                                                    'ratingOptions','productSizes'));
 
 
         endif;

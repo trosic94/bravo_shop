@@ -139,6 +139,7 @@ return [
     'title_registration_number' => 'Registration number',
     'title_account_no' => 'Account number',
     'title_contact' => 'Contact',
+    'title_choose_size' => 'Choose size:',
 
 
 
