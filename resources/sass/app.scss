@@ -85,9 +85,9 @@ div.mainTitle {
         width: 100%;
         margin: 0 0 30px;
         color: $black-1;
-        font-weight: 700;
+        font-weight: bold;
         letter-spacing: 1px;
-        font-size: 48px;
+        font-size: 1.8rem;
         font-family: $font_Mulish;
     }
 }
@@ -848,7 +848,7 @@ div#productDATA {
             font-weight: 500;
         }
         label {
-            color: white;
+            color: $grey-1;
             font-weight: 600;
             margin: 0 10px 0 0;
         }
@@ -878,7 +878,7 @@ div.productPriceWrap {
     span.discountPrice {
         display: block;
         color: $black-1;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 600;
         font-family: $font_Mulish;
         line-height: normal;
@@ -887,7 +887,7 @@ div.productPriceWrap {
         display: block;
         margin-top: 0.5rem;
         color: $black-1;
-        font-size: 24px;
+        font-size: 18px;
         font-weight: 600;
         font-family: $font_Mulish;
         line-height: normal;
@@ -898,21 +898,22 @@ div.productPriceWrap {
 div#qtyWrap {
     display: table;
     min-width: 100px;
+    max-width: 100%;
     div.btnMINUS {
         display: table-cell;
-        height: 30px;
-        width: 40px;
+        max-height: 50px;
+        width: 50px;
         cursor: pointer;
-        color: $pink-1;
+        color: $white;
         line-height: 30px;
         text-align: center;
-        background-color: $grey-2;
-        -webkit-border-top-left-radius: 17px;
-        -webkit-border-bottom-left-radius: 17px;
-        -moz-border-radius-topleft: 17px;
-        -moz-border-radius-bottomleft: 17px;
-        border-top-left-radius: 17px;
-        border-bottom-left-radius: 17px;
+        background-color: $grey-8;
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         @include trans_05;
         &:hover {
             color: $white;
@@ -921,30 +922,30 @@ div#qtyWrap {
     }
     input.prod_quantity {
         display: table-cell;
-        width: 40px;
-        height: 34px;
-        color: $pink-1;
+        width: 50px;
+        height: 50px;
+        color: $white;
         font-weight: 600;
         text-align: center !important;
-        background-color: $grey-2;
+        background-color: $grey-8;
         border: none;
         border-collapse: collapse;
     }
     div.btnPLUS {
         display: table-cell;
-        height: 30px;
-        width: 40px;
+        max-height: 50px;
+        width: 50px;
         cursor: pointer;
-        color: $pink-1;
+        color: $white;
         line-height: 30px;
         text-align: center;
-        background-color: $grey-2;
-        -webkit-border-top-right-radius: 17px;
-        -webkit-border-bottom-right-radius: 17px;
-        -moz-border-radius-topright: 17px;
-        -moz-border-radius-bottomright: 17px;
-        border-top-right-radius: 17px;
-        border-bottom-right-radius: 17px;
+        background-color: $grey-8;
+        -webkit-border-top-right-radius: 10px;
+        -webkit-border-bottom-right-radius: 10px;
+        -moz-border-radius-topright: 10px;
+        -moz-border-radius-bottomright: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
         @include trans_05;
         &:hover {
             color: $white;
@@ -1144,11 +1145,16 @@ div.prodTABs {
     }
     .nav .nav-link {
         color: $black-1;
+        border-bottom: 1px solid $grey-8;
+        font-size: 90%;
+        font-weight: bold;
     }
     .nav .active {
         background-color: transparent !important;
         color: $black-1 !important;
-        border-bottom: 2px solid $black-1;
+        border-bottom: 2px solid $blue-1;
+        font-size: 90%;
+        font-weight: bold;
     }
     .tab-pane {
         //padding: 30px;
@@ -1193,6 +1199,7 @@ div.prodTABs {
 
 .proudctSizes {
   display: inline-block;
+
 }
 
 .proudctSizes label {
@@ -1203,6 +1210,11 @@ div.prodTABs {
   text-decoration: none;
   font-size: 75%;
   border-radius: 5px !important;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .proudctSizes input {
   // visibility:hidden;  
@@ -1219,3 +1231,17 @@ div.prodTABs {
 //   background-color: $grey-7;
 //   border-radius: 5px;
 // }
+
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.no-bullets  {
+    li {
+        p{
+            margin: 0px !important;
+            padding: 0px;
+        }    
+    } 
+}

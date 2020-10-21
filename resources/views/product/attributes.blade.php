@@ -1,19 +1,22 @@
-					<div class="row mt-5">
+					<div class="row mt-1">
 
-						<div class="col-xl-12">
+						<div class="col-xl-12 p-0">
 
-							<h3>@lang('shop.title_available_options'):</h3>
+							{{-- <h3>@lang('shop.title_available_options'):</h3> --}}
 
                             @php
                                 $listOfAttributes = array();
                                 $attr_cnt = 0;
                             @endphp
-
-                            @foreach ($allAttributesForProduct as $ATTRkey => $atribut)
-
-                            <div class="form-group">
-                                <label class="control-label mar_b_0 text-bold">{{ $atribut['attr_name'] }}:</label>
-                                <div class="small mar_b_5">{{ $atribut['attr_description'] }} {{ $atribut['attr_type_id'] }}</div>
+                            <div class="form-row">
+                            {{-- <div class="form-inline"> --}}
+	                        @foreach ($allAttributesForProduct as $ATTRkey => $atribut)
+	                            @if($atribut['attr_id'] != 15 && $atribut['attr_id'] != 16)
+	                            	@continue
+	                            @endif 
+                            <div class="form-group col-md-6 col-12 p-0">
+                                {{-- <label class="d-block primary-text control-label mar_b_0 text-bold">{{ $atribut['attr_name'] }}:</label> --}}
+                                {{-- <div class="small mar_b_5">{{ $atribut['attr_description'] }} {{ $atribut['attr_type_id'] }}</div> --}}
 
                                 @php
                                     if (!in_array($atribut['attr_id'], $listOfAttributes)):
@@ -104,44 +107,30 @@
                                 @elseif ($atribut['attr_type_id'] == 5)
                                     {{-- Ako je RADIO BUTTON --}}
                                     @if( $atribut['attr_id'] == 15)
+                                    	<label class="d-block control-label mar_b_0 text-bold mb-4">@lang('shop.title_choose_size'):</label>
                                     	<div class="proudctSizes">
 											<div class="btn-group p-0" data-toggle="buttons">
 			                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
 					                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
 						                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
-						                                    <label class="btn mr-3 text-center">
+						                                    <label class="btn mr-3 text-center align-middle white-text">
 															    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}
 															</label>
-															{{-- <div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
-																<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
-																<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
-															</div> --}}
 															@endif
 					                                    @endforeach
 				                                @else
 				                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-													<div class="form-check pl-0 pr-0 mt-2 mb-0" mt-1>
-														<input type="radio" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" name="materialExampleRadios" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
-														<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
-													</div>
+				                                    <label class="btn mr-3 text-center align-middle">
+															    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}
+															</label>
+									
+													</div> --}}
 				                                    @endforeach
 
 			                                    @endif
 	                                    	</div>
 										</div>
-												{{-- <div class="proudctSizes">
-													<div class="btn-group p-0" data-toggle="buttons">
-														@foreach ($productSizes as $value)
-															@if ($value->product_id != '')
-															 <label class="btn mr-3 text-center">
-															    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}
-															</label>
-															@endif 
-														@endforeach
-													</div>
-												</div> --}}
-
-                                    @else
+                                    @else 
 	                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
 		                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
 			                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
@@ -166,27 +155,50 @@
 
                                 @elseif ($atribut['attr_type_id'] == 7)
                                     {{-- Ako je COLOR --}}
+                                    @if( $atribut['attr_id'] == 16 )
+                                    	
+                                    	<label class="col-12 control-label mar_b_0 text-bold p-0  mb-4">@lang('shop.title_choose_color'):</label>
 
-                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+                                    	<div class="proudctSizes">
+											<div class="btn-group p-0" data-toggle="buttons">
+			                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+					                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+						                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+						                                    <label class="btn mr-3 text-center" style="background-color: {{ $ATTRoptions['value'] }}">
+															    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}"></label>
+															@endif
+					                                    @endforeach
+				                                @else
+				                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+													<label class="btn mr-3 text-center" style="background-color: {{ $ATTRoptions['value'] }}">
+															    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}"></label>
+				                                    @endforeach
 
-	                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-		                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+			                                    @endif
+	                                    	</div>
+										</div>
+                                    @else 
+	                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+
+		                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
+			                                    @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+												<div class="form-check pl-0 pr-0 mt-2 mb-0 mt-1">
+													<input type="checkbox" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
+													<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}"><div class="btn mar_l_10 mar_r_10" style="background-color: {{ $ATTRoptions['value'] }}"></div>  {{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
+												</div>
+												@endif
+											@endforeach
+
+										@else
+
+											@foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
 											<div class="form-check pl-0 pr-0 mt-2 mb-0 mt-1">
 												<input type="checkbox" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
 												<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}"><div class="btn mar_l_10 mar_r_10" style="background-color: {{ $ATTRoptions['value'] }}"></div>  {{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
 											</div>
-											@endif
-										@endforeach
+											@endforeach
 
-									@else
-
-										@foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-										<div class="form-check pl-0 pr-0 mt-2 mb-0 mt-1">
-											<input type="checkbox" name="attr_{{ $atribut['attr_id'] }}" class="form-check-input" id="attr_{{ $ATTRoptions['id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}">
-											<label class="form-check-label" for="attr_{{ $ATTRoptions['id'] }}"><div class="btn mar_l_10 mar_r_10" style="background-color: {{ $ATTRoptions['value'] }}"></div>  {{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}</label>
-										</div>
-										@endforeach
-
+										@endif
 									@endif
 
                                 @else
@@ -197,8 +209,9 @@
                             </div>
 
                             <hr>
-
+                  
                             @endforeach
+                            </div>
 
                             <input type="hidden" name="attr_all" value="{{ json_encode($listOfAttributes) }}">
                             <input type="hidden" name="attr_cnt" value="{{ $attr_cnt }}">

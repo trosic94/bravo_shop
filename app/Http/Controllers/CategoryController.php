@@ -220,11 +220,13 @@ class CategoryController extends Controller
             // odabrane VREDNOSTI ATRIBUTA za PROIZVOD
             $odabraneVrednostiAtributaZaProizvod = AttributesProduct::selectedAttributesValue_ForProduct($productDATA->prod_id);
 
+
             // product rading
             $ratingOptions = array();
             if (setting('shop.rating') == 1):
                 $ratingOptions = RatingOption::productRating();
             endif;
+
 
             return view('product.index', compact('slug','favLIST','metaTitle','metaDescription','metaKeywords',
                                                     'productDATA','selectedAttributes','allAttributesForProduct','odabraneVrednostiAtributaZaProizvod',
