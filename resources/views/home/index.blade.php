@@ -3,9 +3,9 @@
 @section ('content')
 
 @include('home.banner_1')
-{{-- @include ('home.shop') --}}
+@include ('home.shop')
 
-{{-- @include ('home.benefits') --}}
+@include ('home.onama')
 
 {{-- <div id="galleryBlock">
 

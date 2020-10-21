@@ -5,8 +5,8 @@
 
 		<div class="imgWrap">
 			<div id="addTo_FAV" class="prod_{{ $prod->prod_id }}" onclick="FavEvent({{ $prod->prod_id }})">
-				<i class="far fa-heart fa-2x {{ (in_array($prod->prod_id,$favLIST))? 'd-none':'d-block' }}"></i>
-				<i class="fas fa-heart fa-2x {{ (in_array($prod->prod_id,$favLIST))? 'd-block':'d-none' }}"></i>
+				<i class="far fa-heart fa-2x {{ (in_array($prod->prod_id,$favLIST))? 'd-none':'d-block' }}" style="color:#231F20 !important;"></i>
+				<i class="fas fa-heart fa-2x {{ (in_array($prod->prod_id,$favLIST))? 'd-block':'d-none' }}" ></i>
 			</div>
 			@if ($prod->prod_discount != null)
 				<div class="discountNOTE {{ ($prod->b_title != '')? 'discountNOTE_position_wBagge':'discountNOTE_position_noBagge' }}">-{{ $prod->prod_discount }}%</div>

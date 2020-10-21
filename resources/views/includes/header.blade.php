@@ -12,27 +12,29 @@
 				<div class="col-lg-9  align-items-stretch">
 
 					<div class="row">
-                        <div class="col-8 small pb-1 mb-n1 text-muted pl-3 align-top" id="contactINFOhead">
+                        <div class="col-lg-12 col-xl-8 col-12 small pb-1 mb-n1 text-muted pl-3 align-top" id="contactINFOhead">
                             {!! setting('site.kontakt') !!}
                         </div>
-						<div class="col-4">
-							<div class="row justify-content-end">
+						<div class="col-lg-8 col-xl-4 col-10">
+							<div class="row justify-content-xl-end justify-content-lg-start mt-lg-2 mt-xl-0 justify-content-center">
 							{{-- @include ('includes.search_form') --}}
 							{{-- @include ('includes.my_profile') --}}
 							@include ('includes.my_favourites')
-							@include ('includes.my_cart')
-							</div>
-						</div>
+                            @include ('includes.my_cart')
+                            </div>
 
-						<div class="col-12 justify-content-end d-flex align-items-baseline mt-4 pr-0 align-bottom">
-							<div class="row d-flex align-items-center mt-3">
-								<div id="mainMenu" class="col-auto pr-0">
-									<div class="hamburger" onclick="mobMenu()"><i class="fas fa-bars"></i></div>
-									{{ menu('Navigacija') }}
-								</div>
-								<div id="snLNKs" class="col-auto">{!! setting('site.sn_icons') !!}</div>
-							</div>
-						</div>
+                        </div>
+                        <div class="col-2 col-lg-4 col-xl-12 justify-content-end d-flex align-items-lg-baseline mt-xl-4 pr-0 align-lg-bottom">
+                            <div class="row d-flex align-items-center mt-xl-3">
+                                <div id="mainMenu" class="col-auto pr-0">
+                                    <div class="hamburger" onclick="mobMenu()"><i class="fas fa-bars"></i></div>
+                                    {{ menu('Navigacija') }}
+                                </div>
+                                <div id="snLNKs" class="col-auto">{!! setting('site.sn_icons') !!}</div>
+                            </div>
+                        </div>
+
+
 
 					</div>
 
