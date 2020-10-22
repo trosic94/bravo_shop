@@ -416,5 +416,12 @@ return [
     /* COPY ------------------------------------------------------*/
     'footer_copy_1' => 'Kupi Poklon 2020. Sva prava zadržana',
 
+
+    /* --------------------------------------- */
+    'foot_forma' => 'PIŠITE NAM',
+    'foot_kontakt' => 'KONTAKT',
+    'foot_menu_kupovina' => 'ONLINE KUPOVINA',
+    'foot_menu_main' => 'NAVIGACIJA',
+
     
 ];

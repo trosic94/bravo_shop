@@ -31,11 +31,11 @@ class HomeController extends Controller
     	// Category ----------------------------------------------
         $maxID=0;
         // Musko
-        $CatID = 102;
+        $CatID = 96;
     	$cat_Musko = Category::CatByID($CatID);
 
         // Zensko
-        $CatID = 103;
+        $CatID = 95;
         $cat_Zensko = Category::CatByID($CatID);
         // Distributer
         $CatID = 104;
@@ -69,8 +69,7 @@ class HomeController extends Controller
 
     	$contact = array();
 
-        $mailData['ime'] = request('ime');
-        $mailData['prezime'] = request('prezime');
+        $mailData['ime_prezime'] = request('ime');
         $mailData['email'] = request('email');
         $mailData['telefon'] = request('telefon');
     	$mailData['poruka'] = request('poruka');
@@ -98,8 +97,7 @@ class HomeController extends Controller
 	public function validateContact($request)
     {
     	return $this->validate($request, [
-            'ime' => 'required',
-            'prezime' => 'required',
+            'ime_prezime' => 'required',
     		'email' => 'required|email',
     		'poruka' => 'required'
     	]);
