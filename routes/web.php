@@ -112,6 +112,6 @@ Route::get('/symlink', function () {
 });
 //symLink ----------------------------------------------- //
 
-	Route::post('/posalji-kontakt', 'PageController@contactForm');
+	Route::post('/posalji-kontakt', 'HomeController@contactForm');
 	
 	Route::get('/{pageSlug}', 'PageController@page');

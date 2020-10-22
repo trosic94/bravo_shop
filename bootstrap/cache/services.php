@@ -34,17 +34,19 @@
     30 => 'Laravel\\Telescope\\TelescopeServiceProvider',
     31 => 'Laravel\\Tinker\\TinkerServiceProvider',
     32 => 'Laravel\\Ui\\UiServiceProvider',
-    33 => 'Carbon\\Laravel\\ServiceProvider',
-    34 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    35 => 'Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider',
-    36 => 'TCG\\Voyager\\VoyagerServiceProvider',
-    37 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
-    38 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    39 => 'App\\Providers\\AppServiceProvider',
-    40 => 'App\\Providers\\AuthServiceProvider',
-    41 => 'App\\Providers\\EventServiceProvider',
-    42 => 'App\\Providers\\RouteServiceProvider',
-    43 => 'App\\Providers\\TelescopeServiceProvider',
+    33 => 'Collective\\Html\\HtmlServiceProvider',
+    34 => 'Carbon\\Laravel\\ServiceProvider',
+    35 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    36 => 'Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider',
+    37 => 'TCG\\Voyager\\VoyagerServiceProvider',
+    38 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
+    39 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    40 => 'Collective\\Html\\HtmlServiceProvider',
+    41 => 'App\\Providers\\AppServiceProvider',
+    42 => 'App\\Providers\\AuthServiceProvider',
+    43 => 'App\\Providers\\EventServiceProvider',
+    44 => 'App\\Providers\\RouteServiceProvider',
+    45 => 'App\\Providers\\TelescopeServiceProvider',
   ),
   'eager' => 
   array (
@@ -188,6 +190,10 @@
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'Laravel\\Ui\\AuthCommand' => 'Laravel\\Ui\\UiServiceProvider',
     'Laravel\\Ui\\UiCommand' => 'Laravel\\Ui\\UiServiceProvider',
+    'html' => 'Collective\\Html\\HtmlServiceProvider',
+    'form' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
   ),
   'when' => 
   array (
@@ -231,6 +237,9 @@
     array (
     ),
     'Laravel\\Ui\\UiServiceProvider' => 
+    array (
+    ),
+    'Collective\\Html\\HtmlServiceProvider' => 
     array (
     ),
   ),

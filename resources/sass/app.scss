@@ -1079,14 +1079,15 @@ div.leftCol {
 
 // FOOTER --------------------------------------------------------------------------------------------------------- //
 footer {
-    background-color: $grey-3;
+    background-color: $secondary-color;
     color: $white;
     h2 {
+        padding-top: 75pt;
         margin-bottom: 20pt;
         font-family: $font_Mulish;
-        color: $primary-color;
-        font-weight: 700;
-        font-size: 180%;
+        color: $grey-8;
+        text-transform: uppercase;
+        font-size: 12pt;
     }
     nav {
         @include footerMenu;
