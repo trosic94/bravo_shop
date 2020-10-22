@@ -12,7 +12,7 @@
 				<div class="col-lg-9 align-items-stretch">
 
 					<div class="row">
-                        <div class="col-lg-12 col-xl-6 col-12 small pb-1 mb-n1 text-muted pl-3 align-top" id="contactINFOhead">
+                        <div class="col-lg-12 col-xl-6 col-12 small text-muted pl-3 align-self-center" id="contactINFOhead">
                             {!! setting('site.kontakt') !!}
                         </div>
 						<div class="col-xl-6 col-12 col-lg-12 pl-0">
