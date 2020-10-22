@@ -84,10 +84,10 @@ div.mainTitle {
         display: block;
         width: 100%;
         margin: 0 0 30px;
-        color: $secondary-color;
-        font-weight: 700;
+        color: $black-1;
+        font-weight: bold;
         letter-spacing: 1px;
-        font-size: 48px;
+        font-size: 1.8rem;
         font-family: $font_Mulish;
     }
 }
@@ -933,7 +933,7 @@ div#productDATA {
             font-weight: 500;
         }
         label {
-            color: white;
+            color: $grey-1;
             font-weight: 600;
             margin: 0 10px 0 0;
         }
@@ -962,8 +962,8 @@ div.productPriceWrap {
     }
     span.discountPrice {
         display: block;
-        color: $secondary-color;
-        font-size: 24px;
+        color: $black-1;
+        font-size: 18px;
         font-weight: 600;
         font-family: $font_Mulish;
         line-height: normal;
@@ -971,8 +971,8 @@ div.productPriceWrap {
     span.singlePrice {
         display: block;
         margin-top: 0.5rem;
-        color: $secondary-color;
-        font-size: 24px;
+        color: $black-1;
+        font-size: 18px;
         font-weight: 600;
         font-family: $font_Mulish;
         line-height: normal;
@@ -983,21 +983,22 @@ div.productPriceWrap {
 div#qtyWrap {
     display: table;
     min-width: 100px;
+    max-width: 100%;
     div.btnMINUS {
         display: table-cell;
-        height: 30px;
-        width: 40px;
+        max-height: 50px;
+        width: 50px;
         cursor: pointer;
-        color: $primary-color;
+        color: $white;
         line-height: 30px;
         text-align: center;
-        background-color: $grey-2;
-        -webkit-border-top-left-radius: 17px;
-        -webkit-border-bottom-left-radius: 17px;
-        -moz-border-radius-topleft: 17px;
-        -moz-border-radius-bottomleft: 17px;
-        border-top-left-radius: 17px;
-        border-bottom-left-radius: 17px;
+        background-color: $grey-8;
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-bottom-left-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-bottomleft: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         @include trans_05;
         &:hover {
             color: $white;
@@ -1006,30 +1007,30 @@ div#qtyWrap {
     }
     input.prod_quantity {
         display: table-cell;
-        width: 40px;
-        height: 34px;
-        color: $primary-color;
+        width: 50px;
+        height: 50px;
+        color: $white;
         font-weight: 600;
         text-align: center !important;
-        background-color: $grey-2;
+        background-color: $grey-8;
         border: none;
         border-collapse: collapse;
     }
     div.btnPLUS {
         display: table-cell;
-        height: 30px;
-        width: 40px;
+        max-height: 50px;
+        width: 50px;
         cursor: pointer;
-        color: $primary-color;
+        color: $white;
         line-height: 30px;
         text-align: center;
-        background-color: $grey-2;
-        -webkit-border-top-right-radius: 17px;
-        -webkit-border-bottom-right-radius: 17px;
-        -moz-border-radius-topright: 17px;
-        -moz-border-radius-bottomright: 17px;
-        border-top-right-radius: 17px;
-        border-bottom-right-radius: 17px;
+        background-color: $grey-8;
+        -webkit-border-top-right-radius: 10px;
+        -webkit-border-bottom-right-radius: 10px;
+        -moz-border-radius-topright: 10px;
+        -moz-border-radius-bottomright: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
         @include trans_05;
         &:hover {
             color: $white;
@@ -1229,13 +1230,24 @@ div.prodTABs {
         background-color: transparent !important;
     }
     .nav .nav-link {
-        color: $secondary-color;
+        color: $black-1;
+        border-bottom: 1px solid $grey-8;
+        font-size: 90%;
+        font-weight: bold;
     }
     .nav .active {
         background-color: transparent !important;
-        color: $secondary-color !important;
-        border-bottom: 2px solid $secondary-color;
+        color: $black-1 !important;
+        border-bottom: 2px solid $blue-1;
+        font-size: 90%;
+        font-weight: bold;
+        color: $secondary-color;
     }
+    // .nav .active {
+    //     background-color: transparent !important;
+    //     color: $secondary-color !important;
+    //     border-bottom: 2px solid $secondary-color;
+    // }
     .tab-pane {
         //padding: 30px;
         padding-top: 30px;
@@ -1345,17 +1357,24 @@ div#bannerWrap {
 }
 
 .proudctSizes {
-    display: inline-block;
+
+  display: inline-block;
+
 }
 
 .proudctSizes label {
-    background-color: $grey-8;
-    color: black;
-    //float: left;
-    padding: 10px 12px;
-    text-decoration: none;
-    font-size: 75%;
-    border-radius: 5px !important;
+  background-color: $grey-8;
+  color: black;
+  //float: left;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 75%;
+  border-radius: 5px !important;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .proudctSizes input {
@@ -1369,7 +1388,19 @@ div#bannerWrap {
     border-radius: 5px;
 }
 
-// .proudctSizes label:hover:not(.active) {
-//   background-color: $grey-7;
-//   border-radius: 5px;
-// }
+
+
+ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.no-bullets  {
+    li {
+        p{
+            margin: 0px !important;
+            padding: 0px;
+        }    
+    } 
+}
+

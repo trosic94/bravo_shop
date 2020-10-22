@@ -76,7 +76,7 @@ return [
     'title_time' => 'Vreme',
     'title_amount' => 'Iznos',
     'title_amount_in' => 'Iznos u',
-    'title_price' => 'Cena',
+    'title_price' => 'cena',
     'title_invoice_amount' => 'Iznos računa',
     'title_image' => 'Slika',
     'title_image_format' => '(.jpeg, .jpg, .png, .bmp, .gif)',
@@ -95,7 +95,7 @@ return [
     'title_amount_spent' => 'Potrošeno',
     'title_row_number' => 'RB.',
     'title_discount' => 'Popust',
-    'title_price_with_discount' => 'Cena sa popustom',
+    'title_price_with_discount' => 'cena sa popustom',
     'title_consumption' => 'Potrošnja',
     'title_total' => 'U K U P N O',
     'title_setup' => 'Podešavanja',
@@ -164,7 +164,10 @@ return [
     'title_registration_number' => 'Matični broj',
     'title_account_no' => 'Tekući račun',
     'title_contact' => 'Kontakt',
-    'title_choose_size' => 'Odaberi veličinu:',
+    'title_choose_size' => 'Odaberi veličinu',
+    'title_choose_color' => 'Odaberi boju',
+    'title_additional_information' => 'Dodatne informacije',
+    'title_reviews' => 'Recenzije',
 
 
 

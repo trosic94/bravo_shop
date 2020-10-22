@@ -1,6 +1,6 @@
-					<div class="row mt-4 mb-4">
+					<div class="row mt-3 mb-3">
 						
-						<div class="col-xl-12">
+						<div class="col-xl-12 p-0">
 
 							<div class="productPriceWrap">
 								@if ($productDATA->prod_price_with_discount != null)

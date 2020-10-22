@@ -75,7 +75,7 @@ return [
     'title_time' => 'Time',
     'title_amount' => 'Amount',
     'title_amount_in' => 'Amount in',
-    'title_price' => 'Price',
+    'title_price' => 'price',
     'title_invoice_amount' => 'Invoice amount',
     'title_image' => 'Image',
     'title_image_format' => '(.jpeg, .jpg, .png, .bmp, .gif)',
@@ -94,7 +94,7 @@ return [
     'title_amount_spent' => 'Amount spent',
     'title_row_number' => 'No.',
     'title_discount' => 'Discount',
-    'title_price_with_discount' => 'Price with discount',
+    'title_price_with_discount' => 'price with discount',
     'title_consumption' => 'Consumtion',
     'title_total' => 'T O T A L',
     'title_setup' => 'Setup',
@@ -139,7 +139,10 @@ return [
     'title_registration_number' => 'Registration number',
     'title_account_no' => 'Account number',
     'title_contact' => 'Contact',
-    'title_choose_size' => 'Choose size:',
+    'title_choose_size' => 'Choose size',
+    'title_choose_color' => 'Choose color',
+    'title_additional_information' => 'Additional information',
+    'title_reviews' => 'Reviews',
 
 
 

@@ -1,101 +1,110 @@
 	
 	@if ($productDATA->prod_body != '' || $productDATA->prod_specification != '' || $productDATA->prod_video != '')
 
-	<div class="row mt-5">
+	<div class="row w-100">
 
 		<div class="col-xl-12">
 
 			<div class="prodTABs">
 
-				<ul class="nav nav-tabs nav-justified md-tabs  ml-0 mr-0 p-0 rounded-0 z-depth-0" id="tabsProduct" role="tablist">
-
+				<ul class="nav nav-tabs  md-tabs  ml-0 mr-0 p-0 rounded-0 z-depth-0" id="tabsProduct" role="tablist">
+				
 					@if ($productDATA->prod_body != '')
-					<li class="nav-item col-2 p-0">
-						<a class="nav-link rounded-0 active text-left p-0" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
+					<li class="nav-item col-md-2 col-12 p-0 ">
+						<a class="nav-link rounded-0 active text-left p-0 pb-2 mt-md-0 mt-2" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
 					</li>
 					@endif
 
-					@if ($productDATA->prod_specification != '')
-					<li class="nav-item">
-						<a class="nav-link rounded-0" id="specification-tab-md" data-toggle="tab" href="#specification-md" role="tab" aria-controls="specification-md" aria-selected="false">@lang('shop.title_specification')</a>
+					{{-- @if ($productDATA->prod_specification != '') --}}
+					<li class="nav-item col-md-4 col-12 p-0 ">
+						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="specification-tab-md" data-toggle="tab" href="#specification-md" role="tab" aria-controls="specification-md" aria-selected="false">@lang('shop.title_additional_information')</a>
 					</li>
-					@endif
+					{{-- @endif --}}
 
-					@if ($productDATA->prod_video != '')
-					<li class="nav-item">
-						<a class="nav-link rounded-0" id="video-tab-md" data-toggle="tab" href="#video-md" role="tab" aria-controls="video-md" aria-selected="false">@lang('shop.title_video')</a>
+					<li class="nav-item col-md-2 col-12 p-0 mt-md-0 mt-xs-5">
+						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="video-tab-md" data-toggle="tab" href="#video-md" role="tab" aria-controls="video-md" aria-selected="false">@lang('shop.title_reviews')</a>
 					</li>
-					@endif
-
 				</ul>
 
 				<div class="tab-content card p-0 pt-3 rounded-0 z-depth-0" id="tabsProductContent">
 
 					
 					<div class="tab-pane fade show active" id="body-md" role="tabpanel" aria-labelledby="body-tab-md">
-						<div class="primary-text mb-3">
-							@if ($productDATA->prod_body != '')
-							{!! $productDATA->prod_body !!}
-							@endif
-						</div>
 						
-						<div id="prodFooterWrap" class="{{ (count($selectedAttributes) == 0)? 'alignElementToBottom':'' }}">
+							<div class="primary-text mb-3">
+								@if ($productDATA->prod_body != '')
+								{!! $productDATA->prod_body !!}
+								@endif
+							</div>	
+				          	<div class="container">
+				          		<form id="addToCart" method="POST" action="/add-to-cart" enctype="multipart/form-data">
+				          		{{-- <div class="col-md-12"> --}}
+				          			
+								{{-- ATTRIBUTES --}}
+									@if (!$selectedAttributes->isEmpty())
 
-								
-									<div class="col-md-6 col-xs-12">
-										<div class="row mb-1"><p>@lang('shop.title_choose_size')</p></div>
-										<div class="row">
-											<div class="proudctSizes">
-												<div class="btn-group p-0" data-toggle="buttons">
-												@foreach ($productSizes as $value)
-													@if ($value->product_id != '')
-	
-													 <label class="btn mr-3 text-center">
-													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}
-													</label>
-													  {{-- <label class="btn">
-													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}</label>
-													  <label class="btn">
-													    <input type="radio" name="options" id="{{$value->label}}">{{$value->label}}</label> --}}
-													
+										@include ('product.attributes_bravo')
 
-													{{-- <label for="{{$value->label}}">{{$value->label}}</label> --}}
-  													{{-- <input type="radio" name="gender" id="{{$value->label}}" value="{{$value->label}}">
-													<label class="mr-2" for="{{$value->label}}">{{$value->label}}</label> --}}
-													{{-- <label for="sizeWeight">It's pretty, pretty, pretty, pretty good</label> --}}
-														{{-- <p class="mr-2 active">{{$value->label}}</p> --}}
-													@else
-														{{-- <p class="mr-2">{{$value->label}}</p> --}}
-													@endif 
+										<input type="hidden" name="attr_exist" value="1">
+									@else	
+										<input type="hidden" name="attr_exist" value="0">
 
-												@endforeach
-												</div>
-											</div>
-										</div>
-										
-									</div>
-								
-
-								{{-- PRICE --}}
-								@include ('product.price')
-					          	{{-- PRICE --}}
-
-					          	@include ('product.quantity')
-
-					          	{{-- BUY --}}
-					          	@include ('product.buy')
-					          	{{-- BUY --}}
-
-
+									@endif
+									{{-- ATTRIBUTES --}}
+									{{-- PRICE --}}
+									@include ('product.price')
+						          	{{-- PRICE --}}
+				          			<div class="row">
+				          				{{-- QUANTITY --}}
+				          				@include ('product.quantity')
+						          		{{-- QUANTITY --}}
+						          		{{-- BUY --}}
+							          	@include ('product.buy')
+							          	{{-- BUY --}}
+				          			</div>
+				          		</form>
 				          	</div>
 						</div>
 					
 
-					@if ($productDATA->prod_specification != '')
+					{{-- @if ($productDATA->prod_specification != '') --}}
 					<div class="tab-pane fade" id="specification-md" role="tabpanel" aria-labelledby="specification-tab-md">
-						{!! $productDATA->prod_specification !!}
+						<div class="container p-0">
+							<ul class="no-bullets">
+								<li>
+									<p class="d-inline">@lang('shop.title_category'): </p>
+									<p class="font-weight-bold d-inline">
+										{{$productDATA->cat_name}}
+									</p>
+								</li>
+								@foreach ($allAttributesForProduct as  $atribut)
+									@if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
+										<li>
+											<p class="d-inline">{{$atribut['attr_name']}}: </p>
+											<p class="font-weight-bold d-inline">
+											@php
+												$values = '';
+											@endphp 
+											@foreach ($atribut['attr_values'] as  $atrr_value)
+												@if (in_array($atrr_value['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']]))
+													@php
+														$values .= $atrr_value['label'].',';
+													@endphp
+												@endif
+		            						@endforeach
+		            						@php
+												echo rtrim($values, ',');
+											@endphp 
+
+											</p>
+										</li>
+									@endif
+								@endforeach
+							</ul>
+							
+						</div>
 					</div>
-					@endif
+					{{-- @endif --}}
 
 					@if ($productDATA->prod_video != '')
 					<div class="tab-pane fade" id="video-md" role="tabpanel" aria-labelledby="video-tab-md">
