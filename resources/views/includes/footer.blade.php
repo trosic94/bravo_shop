@@ -83,7 +83,7 @@
                 </div>
                 
                 <div class="row pt-0 footer_logo">
-                    <div class="col-12 pt-0 mt-n5">
+                    <div class="col-auto pt-0 mt-n5">
                         <a href="/" title="{{ setting('site.title') }}" ><img src="/storage/{{ setting('site.footer_logo') }}" alt="{{ setting('site.title') }}"></a>
                     </div>
                 </div>

@@ -1,12 +1,12 @@
-<div class="col-auto pl-1 pl-sm-2 pr-1 pr-sm-2">
+<div class="col-auto pl-1 pl-sm-2 pr-1 pr-sm-1">
 	<a id="myProfile" class="rounded-pill profileLNK justify-content-md-center" href="/profil" @auth data-toggle="modal" data-target="#myProfileModal" @endauth>
 		<div class="row">
 		<div class="col-auto p-0">
 			<img class="" src="/images/header/moj-profil-icon.svg" alt="Moj profil">
 		</div>
-		<div class="col-auto pl-1 pr-0 d-none d-lg-block">
+		{{-- <div class="col-auto pl-1 pr-0 d-none d-lg-block">
 			{{ $userDATA['msg'] }}
-		</div>
+		</div> --}}
 		</div>
 	</a>
 </div>

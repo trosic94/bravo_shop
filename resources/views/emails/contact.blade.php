@@ -38,7 +38,7 @@
 					<br>
 					<h3>Poruka sa kontakt formulara</h3>
 					<br>
-					<strong>Ime</strong>: {{ $ime }}<br>
+					<strong>Ime</strong>: {{ $ime_prezime }}<br>
 					<strong>E-mail</strong>: {{ $email }}<br>
 					<strong>Poruka</strong>: {{ $poruka }}<br>
 					<br>

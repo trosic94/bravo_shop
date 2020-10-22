@@ -69,7 +69,7 @@ class HomeController extends Controller
 
     	$contact = array();
 
-        $mailData['ime_prezime'] = request('ime');
+        $mailData['ime_prezime'] = request('ime_prezime');
         $mailData['email'] = request('email');
         $mailData['telefon'] = request('telefon');
     	$mailData['poruka'] = request('poruka');
@@ -83,9 +83,9 @@ class HomeController extends Controller
                         ->from($mailData['email'], 'Bravo Shop')
                         //->cc('petar.medarevic@onestopmarketing.rs', 'OSM')
                         // ->bcc('webmaster@onestpmarketing.rs', 'OSM')
-                        ->sender($mailData['email'], $mailData['ime'])
-                        ->replyTo($mailData['email'], $mailData['ime'])
-                        ->subject('Kontakt sa sajta - '. $mailData['ime'].' '.$mailData['prezime']);
+                        ->sender($mailData['email'], $mailData['ime_prezime'])
+                        ->replyTo($mailData['email'], $mailData['ime_prezime'])
+                        ->subject('Kontakt sa sajta - '. $mailData['ime_prezime']);
             });
 
     	endif;
