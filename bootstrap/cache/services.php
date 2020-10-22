@@ -41,12 +41,11 @@
     37 => 'TCG\\Voyager\\VoyagerServiceProvider',
     38 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
     39 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    40 => 'Collective\\Html\\HtmlServiceProvider',
-    41 => 'App\\Providers\\AppServiceProvider',
-    42 => 'App\\Providers\\AuthServiceProvider',
-    43 => 'App\\Providers\\EventServiceProvider',
-    44 => 'App\\Providers\\RouteServiceProvider',
-    45 => 'App\\Providers\\TelescopeServiceProvider',
+    40 => 'App\\Providers\\AppServiceProvider',
+    41 => 'App\\Providers\\AuthServiceProvider',
+    42 => 'App\\Providers\\EventServiceProvider',
+    43 => 'App\\Providers\\RouteServiceProvider',
+    44 => 'App\\Providers\\TelescopeServiceProvider',
   ),
   'eager' => 
   array (
