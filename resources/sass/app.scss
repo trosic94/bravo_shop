@@ -1407,3 +1407,7 @@ ul.no-bullets {
         margin-top: 0;
     }
 }
+
+div#contactINFOfooter {
+    @include contactDisplayFooter;
+}

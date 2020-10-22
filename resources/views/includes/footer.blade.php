@@ -24,11 +24,11 @@
 
 					</div>
 
-					<div class="col-lg-2 col-md-6 mb-5">
+					<div class="col-lg-2 col-md-6 mb-5" id='contactINFOfooter'>
 
-						<h2>@lang('shop.title_contact')</h2>
+						<h2>@lang('shop.foot_kontakt')</h2>
 
-						{!! setting('site.foot_kontakt') !!}
+						{!! setting('site.kontakt') !!}
 
 					</div>
 
