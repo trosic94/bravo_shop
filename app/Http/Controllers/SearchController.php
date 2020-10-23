@@ -22,7 +22,11 @@ class SearchController extends Controller
     {
 
         $storeCAT = Category::shopCAT();
+
         $CATCurrent = request('CATCurrent');
+        if ($CATCurrent == null):
+            $CATCurrent = $storeCAT;
+        endif;
 
         $srchString = request('PRETRAGA');
         session()->flashInput($request->input());
@@ -39,8 +43,6 @@ class SearchController extends Controller
         if (request('price') != ''):
             $price_SRCH = explode(',', request('price'));
         endif;
-
-        // $srchString = request('PRETRAGA');
 
         // spremam search request za priakaz na rezultatu
         $searchREQ = array();
@@ -71,24 +73,8 @@ class SearchController extends Controller
 
         //return json_encode($currentCAT);
 
-                                // SLUG ---------------------------------------------------------------------------------- //
-
-        if ($currentCAT->id == 83):
-
-        $slug = array(
-            '0' => array(
-                'slug' => '/',
-                'title' => trans('shop.title_home'),
-                'active' => '',
-            ),
-            '1' => array(
-                'slug' => trans('shop.slug_url_products'),
-                'title' => trans('shop.slug_title_products'),
-                'active' => 'active',
-            )
-        );
-
-        elseif ($currentCAT->parent_id == 83):
+        // SLUG ---------------------------------------------------------------------------------- //
+        if ($currentCAT->parent_id == null):
 
             $slug = array(
                 '0' => array(
@@ -99,41 +85,31 @@ class SearchController extends Controller
                 '1' => array(
                     'slug' => trans('shop.slug_url_products'),
                     'title' => trans('shop.slug_title_products'),
-                    'active' => '',
-                ),
-                '2' => array(
-                    'slug' => trans('shop.slug_url_products').'/'.$currentCAT->slug,
-                    'title' => $currentCAT->name,
                     'active' => 'active',
                 )
             );
-
-        else:
-
-            $slug = array(
-                '0' => array(
-                    'slug' => '/',
-                    'title' => trans('shop.title_home'),
-                    'active' => '',
-                ),
-                '1' => array(
-                    'slug' => trans('shop.slug_url_products'),
-                    'title' => trans('shop.slug_title_products'),
-                    'active' => '',
-                ),
-                '2' => array(
-                    'slug' => trans('shop.slug_url_products').'/'.$currentCAT->slug,
-                    'title' => $currentCAT->name,
-                    'active' => '',
-                ),
-                '3' => array(
-                    'slug' => trans('shop.slug_url_products').'/'.$currentCAT->pcat_slug.'/'.$currentCAT->slug,
-                    'title' => $currentCAT->name,
-                    'active' => 'active',
-                )
-            );
-
-        endif;
+    
+            elseif ($currentCAT->parent_id != null):
+    
+                $slug = array(
+                    '0' => array(
+                        'slug' => '/',
+                        'title' => trans('shop.title_home'),
+                        'active' => '',
+                    ),
+                    '1' => array(
+                        'slug' => trans('shop.slug_url_products'),
+                        'title' => trans('shop.slug_title_products'),
+                        'active' => '',
+                    ),
+                    '2' => array(
+                        'slug' => trans('shop.slug_url_products').'/'.$currentCAT->slug,
+                        'title' => $currentCAT->name,
+                        'active' => 'active',
+                    )
+                );
+    
+            endif;
         // SLUG ---------------------------------------------------------------------------------- //
 
 
@@ -394,12 +370,12 @@ class SearchController extends Controller
 
 
         // LEFT
-        $navCategory = Category::where('parent_id',83)
+        $navCategory = Category::where('parent_id',$storeCAT)
                         ->with('childrenCategories')
                         ->get();
 
         // MANUFACTURERS
-        $manufacturers = Manufacturer::manufacturersByCAT(83);
+        $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
 
 		return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers'));
     }
