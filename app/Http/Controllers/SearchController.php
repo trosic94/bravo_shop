@@ -22,7 +22,7 @@ class SearchController extends Controller
     {
 
         $storeCAT = Category::shopCAT();
-         $CATCurrent = $storeCAT;
+        $CATCurrent = request('CATCurrent');
 
         $srchString = request('PRETRAGA');
         session()->flashInput($request->input());
@@ -73,7 +73,7 @@ class SearchController extends Controller
 
                                 // SLUG ---------------------------------------------------------------------------------- //
 
-        if ($currentCAT->id == 3):
+        if ($currentCAT->id == 83):
 
         $slug = array(
             '0' => array(
@@ -88,7 +88,7 @@ class SearchController extends Controller
             )
         );
 
-        elseif ($currentCAT->parent_id == 3):
+        elseif ($currentCAT->parent_id == 83):
 
             $slug = array(
                 '0' => array(
@@ -147,20 +147,24 @@ class SearchController extends Controller
                 ->leftJoin('badges_products as BP','BP.product_id','PROD.id')
                 ->leftJoin('badges as B','B.id','BP.badge_id');
 
-                if ($currentCAT->id == 3):
+        if ($currentCAT->parent_id == null):
 
             // nema filtera po kategoriji jer se pretrazuju svi proizvodi
 
-        elseif ($currentCAT->parent_id == 3):
+        elseif ($currentCAT->parent_id != null):
 
             $numberOfChildCATs = Category::where('parent_id',$currentCAT->id)->count();
+
             if ($numberOfChildCATs > 0):
             // ako je parent cat
-                $childCATs = DB::table('categories as CAT')
-                                    ->where('parent_id',$currentCAT->id)
-                                    ->pluck('id')->toArray();
+                // $childCATs = DB::table('categories as CAT')
+                //                     ->where('parent_id',$currentCAT->id)
+                //                     ->pluck('id')->toArray();
 
-                $builder->whereIn('PROD.category_id',$childCATs);
+                $allChilds = Category::getAllChildCAT_IDs($currentCAT->id);
+
+                $builder->whereIn('PROD.category_id',$allChilds);
+
             else:
                 $builder->where('PROD.category_id',$currentCAT->id);
             endif;
@@ -378,7 +382,7 @@ class SearchController extends Controller
                             ->groupBy('PROD.id')
                             ->paginate(12);
 
-
+    
         // FAV proizvodi
         $favSESS = Session::get('fav');
 
@@ -388,16 +392,14 @@ class SearchController extends Controller
             $favLIST = $favSESS;
         endif;
 
-        // Current category
-        $CATCurrent = $storeCAT;
 
         // LEFT
-        $navCategory = Category::where('parent_id',$storeCAT)
+        $navCategory = Category::where('parent_id',83)
                         ->with('childrenCategories')
                         ->get();
 
         // MANUFACTURERS
-        $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
+        $manufacturers = Manufacturer::manufacturersByCAT(83);
 
 		return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers'));
     }
