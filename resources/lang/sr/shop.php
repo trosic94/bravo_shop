@@ -423,5 +423,11 @@ return [
     'foot_menu_kupovina' => 'ONLINE KUPOVINA',
     'foot_menu_main' => 'NAVIGACIJA',
 
-    
+    /* ZAPOSLENJE   ------------------------ */
+    'zaposlenje_page_naslov' => 'Zaposlenje',
+    'zaposlenje_konkursi' => 'Trenutno otvorene pozicije',
+    'zaposlenje_kon_naslov' => 'Naziv pozicije: ',
+    'zaposlenje_kon_datum' => 'Rok trajanja konkursa: ',
+    'zaposlenje_kon_mesto' => 'Mesto rada: ',
+
 ];

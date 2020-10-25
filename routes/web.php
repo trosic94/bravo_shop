@@ -56,6 +56,9 @@ Route::get('/', 'HomeController@index');
 	// cookie check
 	Route::post('cookie-privacy', 'CookieConfirmController@privacyConfirm');
 
+	//Zaposlenje
+	Route::get('zaposlenje', 'ZaposlenjeController@getKonkursi');
+
 
 	//rute za kupce
 	Route::group(['middleware' => 'auth'], function () {
