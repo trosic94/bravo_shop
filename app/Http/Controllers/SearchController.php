@@ -22,8 +22,99 @@ class SearchController extends Controller
     {
         $storeCAT = Category::shopCAT();
 
+
+        $CATCurrent = request('CATCurrent');
+        if ($CATCurrent == null):
+            $CATCurrent = $storeCAT;
+        endif;
+
+
         $srchString = request('PRETRAGA');
         session()->flashInput($request->input());
+
+
+                // podaci za pretragu
+        $mfc_SRCH = array();
+        if (request('mfc') != ''):
+            $mfc_SRCH = explode(',', request('mfc'));
+        endif;
+        
+        $available_SRCH = request('available');
+
+        $price_SRCH = array();
+        if (request('price') != ''):
+            $price_SRCH = explode(',', request('price'));
+        endif;
+
+        // spremam search request za priakaz na rezultatu
+        $searchREQ = array();
+        $searchREQ['mfc'] = $mfc_SRCH;
+        $searchREQ['available'] = $available_SRCH;
+        $searchREQ['price'] = $price_SRCH;
+
+        //return $mfc_SRCH;
+
+        //return request('price');
+        //return $CATCurrent;
+
+        // current CAT data
+        $currentCAT = DB::table('categories as CAT')
+                                ->leftJoin('categories as PCAT','CAT.parent_id','PCAT.id')
+                                ->where('CAT.id',$CATCurrent)
+                                ->select(
+                                    'CAT.id as id',
+                                    'CAT.name as name',
+                                    'CAT.slug as slug',
+                                    'CAT.parent_id as parent_id',
+                                    'CAT.meta_description as meta_description',
+                                    'CAT.meta_keywords as meta_keywords',
+                                    'PCAT.name as pcat_name',
+                                    'PCAT.slug as pcat_slug'
+                                )
+                                ->first();
+
+        //return json_encode($currentCAT);
+
+        // SLUG ---------------------------------------------------------------------------------- //
+        if ($currentCAT->parent_id == null):
+
+            $slug = array(
+                '0' => array(
+                    'slug' => '/',
+                    'title' => trans('shop.title_home'),
+                    'active' => '',
+                ),
+                '1' => array(
+                    'slug' => trans('shop.slug_url_products'),
+                    'title' => trans('shop.slug_title_products'),
+                    'active' => 'active',
+                )
+            );
+    
+            elseif ($currentCAT->parent_id != null):
+    
+                $slug = array(
+                    '0' => array(
+                        'slug' => '/',
+                        'title' => trans('shop.title_home'),
+                        'active' => '',
+                    ),
+                    '1' => array(
+                        'slug' => trans('shop.slug_url_products'),
+                        'title' => trans('shop.slug_title_products'),
+                        'active' => '',
+                    ),
+                    '2' => array(
+                        'slug' => trans('shop.slug_url_products').'/'.$currentCAT->slug,
+                        'title' => $currentCAT->name,
+                        'active' => 'active',
+                    )
+                );
+    
+            endif;
+        // SLUG ---------------------------------------------------------------------------------- //
+
+
 
         // PRETRAGA ----------------------------------------------------------------------------- //
         $builder = DB::table('products as PROD');
@@ -35,7 +126,35 @@ class SearchController extends Controller
                 ->leftJoin('badges_products as BP','BP.product_id','PROD.id')
                 ->leftJoin('badges as B','B.id','BP.badge_id');
 
-        
+
+        if ($currentCAT->parent_id == null):
+
+            // nema filtera po kategoriji jer se pretrazuju svi proizvodi
+
+        elseif ($currentCAT->parent_id != null):
+
+            $numberOfChildCATs = Category::where('parent_id',$currentCAT->id)->count();
+
+            if ($numberOfChildCATs > 0):
+            // ako je parent cat
+                // $childCATs = DB::table('categories as CAT')
+                //                     ->where('parent_id',$currentCAT->id)
+                //                     ->pluck('id')->toArray();
+
+                $allChilds = Category::getAllChildCAT_IDs($currentCAT->id);
+
+                $builder->whereIn('PROD.category_id',$allChilds);
+
+            else:
+                $builder->where('PROD.category_id',$currentCAT->id);
+            endif;
+        else:
+
+            $builder->where('PROD.category_id',$currentCAT->id);
+
+        endif;
+
+
 
         // uzimam samo AKTIVNE PROIZVODE
         $builder->where('PROD.status',1);
@@ -101,7 +220,7 @@ class SearchController extends Controller
                             ->groupBy('PROD.id')
                             ->paginate(12);
 
-
+    
         // FAV proizvodi
         $favSESS = Session::get('fav');
 
@@ -111,8 +230,6 @@ class SearchController extends Controller
             $favLIST = $favSESS;
         endif;
 
-        // Current category
-        $CATCurrent = $storeCAT;
 
         // LEFT
         $navCategory = Category::where('parent_id',$storeCAT)
