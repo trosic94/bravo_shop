@@ -34,13 +34,13 @@
     30 => 'Laravel\\Telescope\\TelescopeServiceProvider',
     31 => 'Laravel\\Tinker\\TinkerServiceProvider',
     32 => 'Laravel\\Ui\\UiServiceProvider',
-    33 => 'Carbon\\Laravel\\ServiceProvider',
-    34 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
-    35 => 'Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider',
-    36 => 'TCG\\Voyager\\VoyagerServiceProvider',
-    37 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
-    38 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    39 => 'Barryvdh\\Debugbar\\ServiceProvider',
+    33 => 'Collective\\Html\\HtmlServiceProvider',
+    34 => 'Carbon\\Laravel\\ServiceProvider',
+    35 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    36 => 'Rap2hpoutre\\FastExcel\\Providers\\FastExcelServiceProvider',
+    37 => 'TCG\\Voyager\\VoyagerServiceProvider',
+    38 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
+    39 => 'Barryvdh\\DomPDF\\ServiceProvider',
     40 => 'App\\Providers\\AppServiceProvider',
     41 => 'App\\Providers\\AuthServiceProvider',
     42 => 'App\\Providers\\EventServiceProvider',
@@ -74,12 +74,11 @@
     22 => 'TCG\\Voyager\\VoyagerServiceProvider',
     23 => 'TCG\\Voyager\\Providers\\VoyagerDummyServiceProvider',
     24 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    25 => 'Barryvdh\\Debugbar\\ServiceProvider',
-    26 => 'App\\Providers\\AppServiceProvider',
-    27 => 'App\\Providers\\AuthServiceProvider',
-    28 => 'App\\Providers\\EventServiceProvider',
-    29 => 'App\\Providers\\RouteServiceProvider',
-    30 => 'App\\Providers\\TelescopeServiceProvider',
+    25 => 'App\\Providers\\AppServiceProvider',
+    26 => 'App\\Providers\\AuthServiceProvider',
+    27 => 'App\\Providers\\EventServiceProvider',
+    28 => 'App\\Providers\\RouteServiceProvider',
+    29 => 'App\\Providers\\TelescopeServiceProvider',
   ),
   'deferred' => 
   array (
@@ -190,6 +189,10 @@
     'command.tinker' => 'Laravel\\Tinker\\TinkerServiceProvider',
     'Laravel\\Ui\\AuthCommand' => 'Laravel\\Ui\\UiServiceProvider',
     'Laravel\\Ui\\UiCommand' => 'Laravel\\Ui\\UiServiceProvider',
+    'html' => 'Collective\\Html\\HtmlServiceProvider',
+    'form' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
   ),
   'when' => 
   array (
@@ -233,6 +236,9 @@
     array (
     ),
     'Laravel\\Ui\\UiServiceProvider' => 
+    array (
+    ),
+    'Collective\\Html\\HtmlServiceProvider' => 
     array (
     ),
   ),

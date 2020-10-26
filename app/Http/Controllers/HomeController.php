@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 //use TCG\Voyager\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,7 @@ use App\Post;
 use App\Category;
 use App\Gallery;
 
+
 class HomeController extends Controller
 {
     public function index()
@@ -29,11 +31,11 @@ class HomeController extends Controller
     	// Category ----------------------------------------------
         $maxID=0;
         // Musko
-        $CatID = 102;
+        $CatID = 96;
     	$cat_Musko = Category::CatByID($CatID);
 
         // Zensko
-        $CatID = 103;
+        $CatID = 95;
         $cat_Zensko = Category::CatByID($CatID);
         // Distributer
         $CatID = 104;
@@ -59,5 +61,45 @@ class HomeController extends Controller
 
     	return view('home.index', compact('cat_Musko','cat_Zensko','cat_Distributer',
                                             'oNama','gallery','maxID','banners_homeWide','banners_homeRow_1','banners_homeRow_2','banners_homeRow_3'));
+    }
+    public function contactForm(Request $request)
+    {
+
+    	$this->validateContact($request);
+
+    	$contact = array();
+
+        $mailData['ime_prezime'] = request('ime_prezime');
+        $mailData['email'] = request('email');
+        $mailData['telefon'] = request('telefon');
+    	$mailData['poruka'] = request('poruka');
+    	$mailData['tst'] = request('hpASSdDGT3e5345345');
+
+    	if ($mailData['tst'] == null):
+
+            Mail::send('emails.contact', $mailData, function($message) use ($mailData)
+            {
+                $message->to(setting('shop.shop_notification_email'),'Bravo Shop')
+                        ->from($mailData['email'], 'Bravo Shop')
+                        //->cc('petar.medarevic@onestopmarketing.rs', 'OSM')
+                        // ->bcc('webmaster@onestpmarketing.rs', 'OSM')
+                        ->sender($mailData['email'], $mailData['ime_prezime'])
+                        ->replyTo($mailData['email'], $mailData['ime_prezime'])
+                        ->subject('Kontakt sa sajta - '. $mailData['ime_prezime']);
+            });
+
+    	endif;
+
+        return  redirect()->back()->with('mailSent', 'Vaša poruka je poslata. Hvala.');
+
+    }
+
+	public function validateContact($request)
+    {
+    	return $this->validate($request, [
+            'ime_prezime' => 'required',
+    		'email' => 'required|email',
+    		'poruka' => 'required'
+    	]);
     }
 }

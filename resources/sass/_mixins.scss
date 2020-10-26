@@ -55,7 +55,7 @@
                 }
             }
         }
-        @media (max-width: 1100px) {
+        @media (max-width: 991px) {
             ul {
                 right: 0;
                 display: none;
@@ -93,7 +93,7 @@
             color: $white;
             background-color: $primary-color;
         }
-        @media (min-width: 0px) and (max-width: 1100px) {
+        @media (min-width: 0px) and (max-width: 991px) {
             display: block;
         }
     }
@@ -116,7 +116,7 @@
             }
             li.active {
                 a {
-                    color: $primary-color;
+                    color: $white;
                 }
             }
         }
@@ -236,30 +236,37 @@
     }
     
     @mixin contactDisplayFooter {
+        i {
+            color: $primary-color;
+        }
         ul {
-            padding: 10px 0;
+            padding: 0;
             list-style: none;
             color: $white;
+            margin-bottom: 0 !important;
             li {
                 display: inline-block;
-                padding: 0 20px;
+                padding: 0;
+                vertical-align: middle;
                 a {
                     color: $white;
                     &:hover {
-                        //color: $blue;
+                        color: $primary-color;
                     }
                 }
                 img {
                     margin-left: 10px;
-                    filter: brightness(0) invert(1);
                 }
             }
-            li:nth-child(1),
-            li:nth-child(2) {
-                border-right: 1px solid $white;
+            li:nth-child(1) {
+                padding-right: 97px;
+                padding-bottom: 3rem;
             }
-            li:last-child {
-                padding: 0 0 0 20px;
+            li:nth-child(2) {
+                padding-right: 16px;
+            }
+            li:nth-child(3) {
+                padding-right: 0px;
             }
         }
         @media (max-width: 768px) {
