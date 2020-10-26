@@ -1,3 +1,4 @@
+  
 <?php
 
 namespace App\Http\Controllers;
@@ -18,20 +19,18 @@ use Input;
 class SearchController extends Controller
 {
 
-	public function search(Request $request)
+    public function search(Request $request)
     {
-        $storeCAT = Category::shopCAT();
 
+        $storeCAT = Category::shopCAT();
 
         $CATCurrent = request('CATCurrent');
         if ($CATCurrent == null):
             $CATCurrent = $storeCAT;
         endif;
 
-
         $srchString = request('PRETRAGA');
         session()->flashInput($request->input());
-
 
                 // podaci za pretragu
         $mfc_SRCH = array();
@@ -115,7 +114,6 @@ class SearchController extends Controller
         // SLUG ---------------------------------------------------------------------------------- //
 
 
-
         // PRETRAGA ----------------------------------------------------------------------------- //
         $builder = DB::table('products as PROD');
 
@@ -125,7 +123,6 @@ class SearchController extends Controller
                 ->leftJoin('special_options_products as SOP','SOP.product_id','PROD.id')
                 ->leftJoin('badges_products as BP','BP.product_id','PROD.id')
                 ->leftJoin('badges as B','B.id','BP.badge_id');
-
 
         if ($currentCAT->parent_id == null):
 
@@ -155,7 +152,6 @@ class SearchController extends Controller
         endif;
 
 
-
         // uzimam samo AKTIVNE PROIZVODE
         $builder->where('PROD.status',1);
 
@@ -173,6 +169,149 @@ class SearchController extends Controller
                 ->orWhereRaw('LOWER(PROD.specification) LIKE ? ',trim('%'.strtolower($srchString)).'%')
                 ->orWhereRaw('LOWER(CAT.name) LIKE ? ',trim('%'.strtolower($srchString)).'%');
             });
+
+        endif;
+
+               // Pretraga po MANUFACTURERS
+        if (count($mfc_SRCH) > 0):
+            $builder->whereIn('M.id',$mfc_SRCH);
+        endif;
+
+        // Pretraga po PRICE RANGEs
+        if (count($searchREQ['price']) > 0):
+
+            if (count($searchREQ['price']) == 1):
+
+                $comparePRICE = explode('|', $searchREQ['price'][0]);
+
+                $startPRICE1 = $comparePRICE[0];
+                $endPRICE1 = $comparePRICE[1];
+
+
+                $builder->whereBetween('PROD.product_price',[$startPRICE1,$endPRICE1]);
+
+            else:
+
+                //return $searchREQ['price'];
+                switch (count($searchREQ['price'])) {
+                    case 2:
+
+                            $comparePRICE_1 = explode('|', $searchREQ['price'][0]);
+                            $range1 = array($comparePRICE_1[0],$comparePRICE_1[1]);
+
+                            $comparePRICE_2 = explode('|', $searchREQ['price'][1]);
+                            $range2 = array($comparePRICE_2[0],$comparePRICE_2[1]);
+
+                            $builder->where(function ($a) use ($range1,$range2) {
+                                        $a->whereBetween('PROD.product_price',$range1)
+                                        ->orWhereBetween('PROD.product_price',$range2);
+                                    });
+
+                        break;
+                    
+                    case 3:
+
+                            $comparePRICE_1 = explode('|', $searchREQ['price'][0]);
+                            $range1 = array($comparePRICE_1[0],$comparePRICE_1[1]);
+
+                            $comparePRICE_2 = explode('|', $searchREQ['price'][1]);
+                            $range2 = array($comparePRICE_2[0],$comparePRICE_2[1]);
+
+                            $comparePRICE_3 = explode('|', $searchREQ['price'][2]);
+                            $range3 = array($comparePRICE_3[0],$comparePRICE_3[1]);
+
+                            $builder->where(function ($a) use ($range1,$range2,$range3) {
+                                        $a->whereBetween('PROD.product_price',$range1)
+                                        ->orWhereBetween('PROD.product_price',$range2)
+                                        ->orWhereBetween('PROD.product_price',$range3);
+                                    });
+
+                        break;
+
+                    case 4:
+
+                            $comparePRICE_1 = explode('|', $searchREQ['price'][0]);
+                            $range1 = array($comparePRICE_1[0],$comparePRICE_1[1]);
+
+                            $comparePRICE_2 = explode('|', $searchREQ['price'][1]);
+                            $range2 = array($comparePRICE_2[0],$comparePRICE_2[1]);
+
+                            $comparePRICE_3 = explode('|', $searchREQ['price'][2]);
+                            $range3 = array($comparePRICE_3[0],$comparePRICE_3[1]);
+
+                            $comparePRICE_4 = explode('|', $searchREQ['price'][2]);
+                            $range4 = array($comparePRICE_4[0],$comparePRICE_4[1]);
+
+                            $builder->where(function ($a) use ($range1,$range2,$range3,$range4) {
+                                        $a->whereBetween('PROD.product_price',$range1)
+                                        ->orWhereBetween('PROD.product_price',$range2)
+                                        ->orWhereBetween('PROD.product_price',$range3)
+                                        ->orWhereBetween('PROD.product_price',$range4);
+                                    });
+
+                        break;
+
+                    case 5:
+
+                            $comparePRICE_1 = explode('|', $searchREQ['price'][0]);
+                            $range1 = array($comparePRICE_1[0],$comparePRICE_1[1]);
+
+                            $comparePRICE_2 = explode('|', $searchREQ['price'][1]);
+                            $range2 = array($comparePRICE_2[0],$comparePRICE_2[1]);
+
+                            $comparePRICE_3 = explode('|', $searchREQ['price'][2]);
+                            $range3 = array($comparePRICE_3[0],$comparePRICE_3[1]);
+
+                            $comparePRICE_4 = explode('|', $searchREQ['price'][2]);
+                            $range4 = array($comparePRICE_4[0],$comparePRICE_4[1]);
+
+                            $comparePRICE_5 = explode('|', $searchREQ['price'][2]);
+                            $range5 = array($comparePRICE_5[0],$comparePRICE_5[1]);
+
+                            $builder->where(function ($a) use ($range1,$range2,$range3,$range4,$range5) {
+                                        $a->whereBetween('PROD.product_price',$range1)
+                                        ->orWhereBetween('PROD.product_price',$range2)
+                                        ->orWhereBetween('PROD.product_price',$range3)
+                                        ->orWhereBetween('PROD.product_price',$range4)
+                                        ->orWhereBetween('PROD.product_price',$range5);
+                                    });
+
+                        break;
+
+                    case 5:
+
+                            $comparePRICE_1 = explode('|', $searchREQ['price'][0]);
+                            $range1 = array($comparePRICE_1[0],$comparePRICE_1[1]);
+
+                            $comparePRICE_2 = explode('|', $searchREQ['price'][1]);
+                            $range2 = array($comparePRICE_2[0],$comparePRICE_2[1]);
+
+                            $comparePRICE_3 = explode('|', $searchREQ['price'][2]);
+                            $range3 = array($comparePRICE_3[0],$comparePRICE_3[1]);
+
+                            $comparePRICE_4 = explode('|', $searchREQ['price'][2]);
+                            $range4 = array($comparePRICE_4[0],$comparePRICE_4[1]);
+
+                            $comparePRICE_5 = explode('|', $searchREQ['price'][2]);
+                            $range5 = array($comparePRICE_5[0],$comparePRICE_5[1]);
+
+                            $comparePRICE_6 = explode('|', $searchREQ['price'][2]);
+                            $range6 = array($comparePRICE_6[0],$comparePRICE_6[1]);
+
+                            $builder->where(function ($a) use ($range1,$range2,$range3,$range4,$range5,$range6) {
+                                        $a->whereBetween('PROD.product_price',$range1)
+                                        ->orWhereBetween('PROD.product_price',$range2)
+                                        ->orWhereBetween('PROD.product_price',$range3)
+                                        ->orWhereBetween('PROD.product_price',$range4)
+                                        ->orWhereBetween('PROD.product_price',$range5)
+                                        ->orWhereBetween('PROD.product_price',$range6);
+                                    });
+
+                        break;
+
+                }
+
+            endif;
 
         endif;
 
@@ -239,7 +378,7 @@ class SearchController extends Controller
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
 
-		return view('search.index', compact('favLIST','searchREZ','navCategory','manufacturers','CATCurrent'));
+        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers'));
     }
 
 
