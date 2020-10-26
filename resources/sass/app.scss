@@ -1227,6 +1227,7 @@ div.prodTABs {
         text-transform: uppercase;
         letter-spacing: 1px;
         background-color: transparent !important;
+        transition: all 0.6s;
     }
     .nav .nav-link {
         color: $black-1;
@@ -1237,11 +1238,25 @@ div.prodTABs {
     .nav .active {
         background-color: transparent !important;
         color: $black-1 !important;
-        border-bottom: 2px solid $blue-1;
+        // border-bottom: 2px solid $blue-1;
         font-size: 90%;
         font-weight: bold;
         color: $secondary-color;
+
     }
+    .nav  span {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: #000;
+        transition: all 0.6s;
+    }
+    .nav .nav-item .active span {
+        width: 100%;
+    }
+
     // .nav .active {
     //     background-color: transparent !important;
     //     color: $secondary-color !important;

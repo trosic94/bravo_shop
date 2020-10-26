@@ -12,17 +12,20 @@
 					@if ($productDATA->prod_body != '')
 					<li class="nav-item col-md-2 col-12 p-0 ">
 						<a class="nav-link rounded-0 active text-left p-0 pb-2 mt-md-0 mt-2" id="body-tab-md" data-toggle="tab" href="#body-md" role="tab" aria-controls="body-md" aria-selected="true">@lang('shop.title_description')</a>
+						 <span></span>
 					</li>
 					@endif
 
 					{{-- @if ($productDATA->prod_specification != '') --}}
 					<li class="nav-item col-md-4 col-12 p-0 ">
 						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="specification-tab-md" data-toggle="tab" href="#specification-md" role="tab" aria-controls="specification-md" aria-selected="false">@lang('shop.title_additional_information')</a>
+						 <span></span>
 					</li>
 					{{-- @endif --}}
 
 					<li class="nav-item col-md-2 col-12 p-0 mt-md-0 mt-xs-5">
 						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="video-tab-md" data-toggle="tab" href="#video-md" role="tab" aria-controls="video-md" aria-selected="false">@lang('shop.title_reviews')</a>
+						 <span></span>
 					</li>
 				</ul>
 
