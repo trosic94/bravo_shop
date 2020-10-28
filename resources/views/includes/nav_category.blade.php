@@ -10,9 +10,15 @@
 		<div class="catItems">
 		@foreach ($navCategory as $category)
 
-		<a href="/shop/{{ $category->slug }}">{{ $category->name }}</a><br>
+		
+		{{-- <input type="radio" name="obuca" class="mr-2" value="{{ $category->name }}" onclick="window.location='/shop/{{ $category->slug }}'" @if($category->slug == $categorySLUG) checked @elseif($categorySLUG =='search') unchecked @endif> --}}
+		<label for="{{ $category->name }}">
+			<a href="/shop/{{ $category->slug }}">{{ $category->name }}</a>
+		</label>
+		</br>
+		{{-- <a href="/shop/{{ $category->slug }}">{{ $category->name }}</a><br> --}}
 
-			<div class="subCat">
+			{{-- <div class="subCat">
 
 		        @foreach ($category->childrenCategories as $childCategory)
 		            @include(
@@ -25,7 +31,7 @@
 		            	)
 		        @endforeach
 
-		    </div>
+		    </div> --}}
 
 		@endforeach
 		</div>

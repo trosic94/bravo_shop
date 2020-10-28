@@ -76,7 +76,7 @@ return [
     'title_time' => 'Vreme',
     'title_amount' => 'Iznos',
     'title_amount_in' => 'Iznos u',
-    'title_price' => 'cena',
+    'title_price' => 'Cena',
     'title_invoice_amount' => 'Iznos računa',
     'title_image' => 'Slika',
     'title_image_format' => '(.jpeg, .jpg, .png, .bmp, .gif)',
@@ -145,7 +145,7 @@ return [
     'title_navigation' => 'Navigacija',
     'title_select_design' => 'Odaberi motiv',
     'title_gallery' => 'Galerija',
-    'title_choose_category' => 'Odaberite kategoriju',
+    'title_choose_category' => 'Program',
 
     'title_input_select' => 'Lista',
     'title_input_check_list' => 'Ček lista',
