@@ -20,12 +20,14 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-
+        //zbog checkbox-a
+        $categorySLUG = 'search';
         $storeCAT = Category::shopCAT();
 
         $CATCurrent = request('CATCurrent');
         if ($CATCurrent == null):
             $CATCurrent = $storeCAT;
+            
         endif;
 
         $srchString = request('PRETRAGA');
@@ -377,7 +379,7 @@ class SearchController extends Controller
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
 
-        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers'));
+        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG'));
     }
 
 

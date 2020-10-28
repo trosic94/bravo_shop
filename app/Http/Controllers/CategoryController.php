@@ -83,6 +83,7 @@ class CategoryController extends Controller
 
     public function categories($categories)
     {
+        
 
         $storeCAT = Category::shopCAT();
 
@@ -105,8 +106,8 @@ class CategoryController extends Controller
         // fetch current CAT from url
         $fullURL = explode('/', $categories);
         $catFromURL = $fullURL;
-        $categorySLUG = end($catFromURL);
 
+        $categorySLUG = end($catFromURL);
         array_pop($catFromURL);
 
         // ako postoji kategoirja sa istim SLUGom proveravam da li se slaze sa URLom ------------------------------------- //
@@ -163,17 +164,17 @@ class CategoryController extends Controller
 
             // PRODUCTS
             $productsFor_CAT = Product::productsBy_CAT_IDs($allCAT_w_Child);
-
+                                      
             return view('category.category', compact('slug','favLIST','searchREQ','currentCAT','CATCurrent','metaTitle','metaDescription','metaKeywords',
                                                         'navCategory','manufacturers',
-                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child'));
+                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child','categorySLUG'));
 
 
         else:
 
             // PRODUCT data
             $productDATA = Product::productDATA_bySLUG($categorySLUG);
-            
+
             $productSizes = DB::table('attributes_values as av')
                                 ->leftJoin('attributes_product as ap', function($join) use ($productDATA) {
                                     $join->on('av.id', '=', 'ap.attribute_value_id');

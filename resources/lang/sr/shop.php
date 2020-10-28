@@ -14,11 +14,12 @@ return [
     /* GENERAL */
     'btn_login' => 'Prijava',
     'btn_send_link' => 'Pošalji link',
+    'btn_send' => 'Pošalji',
     'btn_confirm' => 'Potvrdi',
     'btn_cancel' => 'Odustani',
     'btn_confirm_correction' => 'Izvrši korekciju!',
     'btn_confirm_ordering' => 'Potvrdi promenu redosleda',
-    'btn_buy' => 'Dodaj u korpu',
+    'btn_buy' => 'Kupi',
     'btn_user_login' => 'Prijavi se',
     'btn_register' => 'Registruj se',
     'btn_logout' => 'Odjava',
@@ -76,7 +77,7 @@ return [
     'title_time' => 'Vreme',
     'title_amount' => 'Iznos',
     'title_amount_in' => 'Iznos u',
-    'title_price' => 'cena',
+    'title_price' => 'Cena',
     'title_invoice_amount' => 'Iznos računa',
     'title_image' => 'Slika',
     'title_image_format' => '(.jpeg, .jpg, .png, .bmp, .gif)',
@@ -95,7 +96,7 @@ return [
     'title_amount_spent' => 'Potrošeno',
     'title_row_number' => 'RB.',
     'title_discount' => 'Popust',
-    'title_price_with_discount' => 'cena sa popustom',
+    'title_price_with_discount' => 'Cena sa popustom',
     'title_consumption' => 'Potrošnja',
     'title_total' => 'U K U P N O',
     'title_setup' => 'Podešavanja',
@@ -145,7 +146,10 @@ return [
     'title_navigation' => 'Navigacija',
     'title_select_design' => 'Odaberi motiv',
     'title_gallery' => 'Galerija',
-    'title_choose_category' => 'Odaberite kategoriju',
+    'title_choose_category' => 'Program',
+    'title_rate_product' => 'Oceni proizvod',
+    'title_rate' => 'Ocena',
+    
 
     'title_input_select' => 'Lista',
     'title_input_check_list' => 'Ček lista',
@@ -164,10 +168,6 @@ return [
     'title_registration_number' => 'Matični broj',
     'title_account_no' => 'Tekući račun',
     'title_contact' => 'Kontakt',
-    'title_choose_size' => 'Odaberi veličinu',
-    'title_choose_color' => 'Odaberi boju',
-    'title_additional_information' => 'Dodatne informacije',
-    'title_reviews' => 'Recenzije',
 
 
 
@@ -379,7 +379,9 @@ return [
     'email_product_tbl_sku' => 'Šifra',
     'email_product_tbl_quantity' => 'Količina',
     'email_product_tbl_price' => 'Cena',
+    'email_product_tbl_amount' => 'Osnovica',
     'email_product_tbl_base_price' => 'Cena po komadu',
+    'email_product_tbl_units_type' => 'kom',
     'email_product_tbl_discount' => 'Popust',
     'email_product_tbl_total' => 'Ukupno',
     'email_product_tbl_delivery' => 'Isporuka',
@@ -392,6 +394,14 @@ return [
     'email_order_more_info_link' => 'linku',
     'email_thank_you' => 'Hvala na poverenju',
     'email_yours' => 'Vaš',
+
+    'email_rate_comment_title' => 'Komentar za proizvod',
+    'email_rate_comment_confirmation' => 'Komentar za proizvod',
+    'email_rate_comment_confirmation_txt1' => 'Korisnik',
+    'email_rate_comment_confirmation_txt2' => 'je ostavio komentar za proizvod',
+    'email_rate_comment_confirmation_comment_content' => 'Sadržaj poruke',
+    'email_rate_comment_confirmation_approve' => 'Komentar možete odobriti sa sledećeg',
+    'email_rate_comment_confirmation_approve_link' => 'linka',
 
     /* EMAIL reset  --------------------------------------------------------------------*/
     'email_reset_pass_title' => 'Promena šifre',
@@ -417,17 +427,15 @@ return [
     'footer_copy_1' => 'Kupi Poklon 2020. Sva prava zadržana',
 
 
-    /* --------------------------------------- */
-    'foot_forma' => 'PIŠITE NAM',
-    'foot_kontakt' => 'KONTAKT',
-    'foot_menu_kupovina' => 'ONLINE KUPOVINA',
-    'foot_menu_main' => 'NAVIGACIJA',
+    /* RATING  -----------------------------------------------------------------------------*/
+    'rate_voting_msg_ok' => 'Vaša ocena je evidentirana. Hvala!',
+    'rate_voting_msg_err' => 'Već ste ocenili ovaj proizvod!',
+    'rate_comment_title' => 'Komentari kupaca',
+    'rate_no_comments' => 'Nema komantara',
+    'rate_comment_first' => 'Budite prvi i ostavite komentar uz vašu ocenu proizvoda.',
+    'rate_comment_add' => 'Napiši svoj komentar',
+    'rate_comment_msg_ok' => 'Vaš komentar je uspešno poslat. Biće objavljen nakon provere.',
+    'rate_comment_msg_err' => 'Već ste poslali komentar za ovaj proizvod!',
 
-    /* ZAPOSLENJE   ------------------------ */
-    'zaposlenje_page_naslov' => 'Zaposlenje',
-    'zaposlenje_konkursi' => 'Trenutno otvorene pozicije',
-    'zaposlenje_kon_naslov' => 'Naziv pozicije: ',
-    'zaposlenje_kon_datum' => 'Rok trajanja konkursa: ',
-    'zaposlenje_kon_mesto' => 'Mesto rada: ',
-
+    
 ];

@@ -37,11 +37,12 @@
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Barryvdh\\DomPDF\\ServiceProvider',
-      23 => 'App\\Providers\\AppServiceProvider',
-      24 => 'App\\Providers\\AuthServiceProvider',
-      25 => 'App\\Providers\\EventServiceProvider',
-      26 => 'App\\Providers\\RouteServiceProvider',
-      27 => 'App\\Providers\\TelescopeServiceProvider',
+      23 => 'Collective\\Html\\HtmlServiceProvider',
+      24 => 'App\\Providers\\AppServiceProvider',
+      25 => 'App\\Providers\\AuthServiceProvider',
+      26 => 'App\\Providers\\EventServiceProvider',
+      27 => 'App\\Providers\\RouteServiceProvider',
+      28 => 'App\\Providers\\TelescopeServiceProvider',
     ),
     'aliases' => 
     array (
@@ -80,6 +81,8 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'Form' => 'Collective\\Html\\FormFacade',
+      'Html' => 'Collective\\Html\\HtmlFacade',
       'Image' => 'Intervention\\Image\\Facades\\Image',
       'Input' => 'Illuminate\\Support\\Facades\\Request',
       'PDF' => 'Barryvdh\\DomPDF\\Facade',
@@ -439,16 +442,16 @@
   'mail' => 
   array (
     'driver' => 'smtp',
-    'host' => 'smtp.mailtrap.io',
-    'port' => '2525',
+    'host' => 'mail.bravocomfort.rs',
+    'port' => '465',
     'from' => 
     array (
-      'address' => NULL,
-      'name' => 'KupiPoklon',
+      'address' => 'noreply@bravocomfort.rs',
+      'name' => 'BravoShop',
     ),
-    'encryption' => NULL,
-    'username' => NULL,
-    'password' => NULL,
+    'encryption' => 'ssl',
+    'username' => 'noreply@bravocomfort.rs',
+    'password' => '1VxNUrUcXXUd',
     'sendmail' => '/usr/sbin/sendmail -bs',
     'markdown' => 
     array (
@@ -881,7 +884,7 @@
     array (
       'font_dir' => 'C:\\wamp64\\www\\bravo_shop\\storage\\fonts/',
       'font_cache' => 'C:\\wamp64\\www\\bravo_shop\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\boror\\AppData\\Local\\Temp',
+      'temp_dir' => 'C:\\Users\\nenads\\AppData\\Local\\Temp',
       'chroot' => 'C:\\wamp64\\www\\bravo_shop',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
