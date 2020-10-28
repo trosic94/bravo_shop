@@ -1,7 +1,7 @@
 			<table border="0" cellpadding="0" cellspacing="0" width="100%" align="center" bgcolor="#231f20">
 				<tr bgcolor="#231f20">
 					<td>
-					<table border="0" cellpadding="0" cellspacing="0" width="540" align="center">
+					<table border="0" cellpadding="0" cellspacing="0" width="90%" align="center">
 						<tr>
 							<td style="color: #ffffff; font-size: 14px; font-family: Arial, Helvetica, sans-serif; padding: 10px 0; text-align: center;">
 							<h2 style="margin: 0; padding: 0; font-size: 18px; color: #e31a51; font-weight: bold; text-align: center;">{{ setting('company.company_name') }}</h2>

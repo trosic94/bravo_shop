@@ -76,7 +76,57 @@
 
 				<tr>
 					<td valign="top" style="text-align: center; padding: 5px;">{{ $i+1 }}</td>
-					<td valign="top" style="padding: 5px;">{{ $order_items[$i]['prod_title'] }}</td>
+					<td valign="top" style="padding: 5px;">
+						{{ $order_items[$i]['prod_title'] }}<br>
+						@lang('shop.my_cart_sku'): {{ $order_items[$i]['prod_sku'] }}<br><br>
+
+						@if ($order_items[$i]['attr'])
+
+							@php
+
+							foreach ($order_items[$i]['attr'] as $attrKey => $attr):
+
+									$a = 0;
+		        					$iMAX = 0;
+		        					$attrLABELs = '';
+
+		        					echo '<div style="font-size: 10px;">';
+									// ispis Labele
+									echo '<span class="mr-1" style="font-weight: bold;">'.$attr['title'].'</span>: ';
+
+									//ispis odabranih dinamickih atributa
+		        					foreach ($order_items[$i]['attr'] as $attrLBLKey => $attrLBL) {
+
+		        						if ($attr['id'] == $attrLBL['id']):
+
+		        							foreach ($attrLBL['val'] as $vKey => $attrData) {
+
+		            							$attrLABELs .= $attrData['label'].', ';
+		            							$a++;
+		            							$iMAX++;
+		        								
+		        							}
+
+		        						endif;
+
+		        					}
+		                            // sklanjam zarez sa iza poslednje ispisane vrednosti
+		                            if ($a == 1 || $a == $iMAX):
+		                                $attrLABELs = substr($attrLABELs, 0, -2);
+		                            endif;
+
+		                            echo '<span>'.$attrLABELs.'</span>';
+		        					echo '</div>';
+
+
+							endforeach;
+
+							@endphp 
+
+						@endif
+
+
+					</td>
 
 					<td valign="top" style="text-align: right; padding: 5px;">{{ number_format($order_items[$i]['prod_price'],2,".","") }}</td>
 					<td valign="top" style="text-align: center; padding: 5px;">

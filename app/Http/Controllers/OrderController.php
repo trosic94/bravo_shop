@@ -309,6 +309,21 @@ class OrderController extends Controller
         // FINAL ORDER data ******************************************************************** ////
         $orderDATA = array();
 
+        // dodajem atribute uz proizvode zbog prikaza na ThankYou, za mail i pdf
+        for ($p=0; $p < count($products); $p++) {
+
+            for ($cp=0; $cp < count($crt['products']); $cp++) {
+             
+                if ($products[$p]['product_id'] == $crt['products'][$cp]['prod_id']):
+
+                    $products[$p]['attr'] = $crt['products'][$cp]['attr_data'];
+
+                endif;
+
+            }
+            
+        }
+
         $orderDATA['url'] = $url;
         $orderDATA['dateTime'] = $order_DATETIME;
         $orderDATA['customer'] = $customer; // podaci o ulogovanom korisniku
@@ -348,6 +363,7 @@ class OrderController extends Controller
                             'O.id as ord_id',
                             'O.order_number as ord_order_number',
                             'O.order_invoice as ord_order_invoice',
+                            'O.proforma_invoice as ord_proforma_invoice',
                             'O.rabat as ord_rabat',
                             'O.total as ord_total',
                             'O.order_status as ord_order_status',
