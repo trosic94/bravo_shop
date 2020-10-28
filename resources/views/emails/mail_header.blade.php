@@ -7,7 +7,7 @@
 
 		<body style="margin: 0; padding: 0;">
 
-			<table border="0" cellpadding="0" cellspacing="0" width="540" align="center">
+			<table border="0" cellpadding="0" cellspacing="0" width="90%" align="center">
 				<tr>
 					<td style="padding: 10px; text-align: left;"><a href="{{ setting('site.site_url') }}" target="_blank" title="{{ setting('company.company_name') }}"><img src="{{ setting('site.site_url') }}/storage/{{ setting('site.logo') }}" alt="{{ setting('company.company_name') }}"></a></td>
 					<td style="padding: 10px; text-align: right;">

@@ -54,6 +54,49 @@
 		                        <td>
 		                        	<h3>{{ $prod->p_title }}</h3>
 		                        	<span class="prodSKU"><label>@lang('shop.my_cart_sku'):</label> {{ $prod->p_sku }}</span>
+
+		                        	@if ($prod->attr)
+		                        		@php
+		                        			$sviAtributi = array();
+		                        			foreach ($prod->attr as $attrKey => $attr) {
+		                        				
+		                        				if (!in_array($attr->attr_id, $sviAtributi)):
+		                        					array_push($sviAtributi, $attr->attr_id);
+
+		                        					$i = 0;
+		                        					$iMAX = 0;
+		                        					$attrLABELs = '';
+
+		                        					// ispis Labele
+		                        					echo '<span class="font-weight-bold mr-1">'.$attr->attr_name.'</span>';
+
+		                        					foreach ($prod->attr as $attrLBLKey => $attrLBL) {
+
+		                        						if ($attr->attr_id == $attrLBL->attr_id):
+
+		                        							$attrLABELs .= $attrLBL->attr_val_label.', ';
+		                        							$i++;
+		                        							$iMAX++;
+		                        						endif;
+
+		                        					}
+						                            // sklanjam zarez sa iza poslednje ispisane vrednosti
+						                            if ($i == 1 || $i == $iMAX):
+						                                $attrLABELs = substr($attrLABELs, 0, -2);
+						                            endif;
+
+						                            echo '<span>'.$attrLABELs.'</span>';
+		                        					echo '<br>';
+
+		                        				endif;
+
+		                        				
+
+
+		                        			}
+		                        		@endphp
+		                        	@endif
+		                        	
 		                        </td>
 		                        <td class="text-right">
                                     @if ($prod->p_product_price_with_discount != null)
@@ -203,7 +246,7 @@
 	                    	@if (strtotime($orderDetails->ord_updated_at) != '')
 	                    		<div><label>@lang('shop.order_update'):</label> <span>{{ date('d.m.Y', strtotime($orderDetails->ord_updated_at)) }}</span></div>
 	                    	@endif
-	                    	<div><label>@lang('shop.order_proforma_invoice'):</label> <a href="/storage/proforma-invoice/{{ $orderDetails->ord_order_invoice }}.pdf" target="_blank">{{ $orderDetails->ord_order_invoice }}</a></div>
+	                    	<div><label>@lang('shop.order_proforma_invoice'):</label> <a href="/storage/proforma-invoice/{{ $orderDetails->ord_proforma_invoice }}.pdf" target="_blank">{{ $orderDetails->ord_proforma_invoice }}</a></div>
 	                	</div>
 
 	                </div>
@@ -278,7 +321,6 @@
 
 @php
 // echo '<pre>';
-// print_r($orderProducts);
 // print_r($orderDetails);
 // echo '</pre>';
 @endphp
