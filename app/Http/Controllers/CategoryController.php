@@ -108,10 +108,6 @@ class CategoryController extends Controller
         $catFromURL = $fullURL;
 
         $categorySLUG = end($catFromURL);
-        if($categorySLUG == null){
-            $categorySLUG ='search';
-        }
-        dd($categorySLUG);
         array_pop($catFromURL);
 
         // ako postoji kategoirja sa istim SLUGom proveravam da li se slaze sa URLom ------------------------------------- //
