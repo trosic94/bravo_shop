@@ -196,15 +196,13 @@ header {
     form#siteSearch {
         padding: 0 20px 0 0;
         input[name=PRETRAGA] {
-            border-radius: 10px;
             height: 40px;
             max-width: 250px;
             padding: 0 40px 0 20px;
             background-image: url('/images/header/search-bar-icon.svg');
             background-repeat: no-repeat;
             background-position: center right 10px;
-            background-size: 25px;
-            background-color: #F5F5F5;
+            background-size: 30px;
             font-family: $font_Mulish;
             @media (max-width: 991px) {
                 max-width: 100%;
@@ -225,7 +223,7 @@ header {
         display: block;
         position: relative;
         height: 100%;
-        margin: 0;
+        margin: 0 20px;
         color: $secondary-color;
         font-family: $font_Mulish;
         span.badge {
@@ -1082,15 +1080,14 @@ div.leftCol {
 
 // FOOTER --------------------------------------------------------------------------------------------------------- //
 footer {
-    background-color: $secondary-color;
+    background-color: $grey-3;
     color: $white;
     h2 {
-        padding-top: 75pt;
         margin-bottom: 20pt;
         font-family: $font_Mulish;
-        color: $grey-8;
-        text-transform: uppercase;
-        font-size: 12pt;
+        color: $primary-color;
+        font-weight: 700;
+        font-size: 180%;
     }
     nav {
         @include footerMenu;
@@ -1241,30 +1238,30 @@ div.prodTABs {
     .nav .active {
         background-color: transparent !important;
         color: $black-1 !important;
-        // border-bottom: 2px solid $blue-1;
+        border-bottom: 2px solid $blue-1;
         font-size: 90%;
         font-weight: bold;
         color: $secondary-color;
 
     }
-    .nav  span {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: #000;
-        transition: all 0.6s;
-    }
-    .nav .nav-item .active span {
-        width: 100%;
-    }
-
-    // .nav .active {
-    //     background-color: transparent !important;
-    //     color: $secondary-color !important;
-    //     border-bottom: 2px solid $secondary-color;
+    // .nav  span {
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 0%;
+    //     height: 3px;
+    //     background: #000;
+    //     transition: all 0.6s;
     // }
+    // .nav .nav-item:hover span {
+    //     width: 100%;
+    // }
+
+    .nav .active {
+        background-color: transparent !important;
+        color: $secondary-color !important;
+        border-bottom: 2px solid $secondary-color;
+    }
     .tab-pane {
         //padding: 30px;
         padding-top: 30px;
@@ -1374,22 +1371,24 @@ div#bannerWrap {
 }
 
 .proudctSizes {
-    display: inline-block;
+
+  display: inline-block;
+
 }
 
 .proudctSizes label {
-    background-color: $grey-8;
-    color: black;
-    //float: left;
-    padding: 10px 12px;
-    text-decoration: none;
-    font-size: 75%;
-    border-radius: 5px !important;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: $grey-8;
+  color: black;
+  //float: left;
+  padding: 10px 12px;
+  text-decoration: none;
+  font-size: 75%;
+  border-radius: 5px !important;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .proudctSizes input {
@@ -1403,28 +1402,19 @@ div#bannerWrap {
     border-radius: 5px;
 }
 
-ul.no-bullets {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+
 
 ul.no-bullets {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.no-bullets  {
     li {
-        p {
+        p{
             margin: 0px !important;
             padding: 0px;
-        }
-    }
+        }    
+    } 
 }
 
-.footer_logo {
-    margin-top: -8rem;
-    @media (max-width: 767px) {
-        margin-top: 0;
-    }
-}
-
-div#contactINFOfooter {
-    @include contactDisplayFooter;
-}
