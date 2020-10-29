@@ -225,7 +225,7 @@ header {
         display: block;
         position: relative;
         height: 100%;
-        margin: 0;
+        margin: 0 20px;
         color: $secondary-color;
         font-family: $font_Mulish;
         span.badge {
@@ -1055,9 +1055,8 @@ input[type='radio']:checked:after {
     visibility: visible;
     border: 2px solid white;
 }
+
 // Radio buttonsv ------------------------------------------------------------------------------------------------ //
-
-
 // LEFT ---------------------------------------------------------------------------------------------------------- //
 div.leftCol {
     div.lBlock_Category {
@@ -1278,30 +1277,28 @@ div.prodTABs {
     .nav .active {
         background-color: transparent !important;
         color: $black-1 !important;
-        // border-bottom: 2px solid $blue-1;
+        border-bottom: 2px solid $blue-1;
         font-size: 90%;
         font-weight: bold;
         color: $secondary-color;
-
     }
-    .nav  span {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: #000;
-        transition: all 0.6s;
-    }
-    .nav .nav-item .active span {
-        width: 100%;
-    }
-
-    // .nav .active {
-    //     background-color: transparent !important;
-    //     color: $secondary-color !important;
-    //     border-bottom: 2px solid $secondary-color;
+    // .nav  span {
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 0%;
+    //     height: 3px;
+    //     background: #000;
+    //     transition: all 0.6s;
     // }
+    // .nav .nav-item:hover span {
+    //     width: 100%;
+    // }
+    .nav .active {
+        background-color: transparent !important;
+        color: $secondary-color !important;
+        border-bottom: 2px solid $secondary-color;
+    }
     .tab-pane {
         //padding: 30px;
         padding-top: 30px;

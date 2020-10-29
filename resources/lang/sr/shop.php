@@ -437,5 +437,18 @@ return [
     'rate_comment_msg_ok' => 'Vaš komentar je uspešno poslat. Biće objavljen nakon provere.',
     'rate_comment_msg_err' => 'Već ste poslali komentar za ovaj proizvod!',
 
+    /* FOOTER -------------------------------- */
+    'foot_forma' => 'PIŠITE NAM',
+    'foot_kontakt' => 'KONTAKT',
+    'foot_menu_kupovina' => 'ONLINE KUPOVINA',
+    'foot_menu_main' => 'NAVIGACIJA',
+
+    /* ZAPOSLENJE   ------------------------ */
+    'zaposlenje_page_naslov' => 'Zaposlenje',
+    'zaposlenje_konkursi' => 'Trenutno otvorene pozicije',
+    'zaposlenje_kon_naslov' => 'Naziv pozicije: ',
+    'zaposlenje_kon_datum' => 'Rok trajanja konkursa: ',
+    'zaposlenje_kon_mesto' => 'Mesto rada: ',
+
     
 ];

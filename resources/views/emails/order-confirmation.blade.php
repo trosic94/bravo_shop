@@ -115,6 +115,9 @@
 									<td valign="top" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: right;">{{ number_format($order_items[$oi]['prod_price'],2,".","") }}</td>
 									<td valign="top" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: center;">
 										@if ($order_items[$oi]['prod_discount'] != null)
+										@php
+											$iznosPopusa=$order_items[$oi]['prod_discount'];
+										@endphp
 											{{ $order_items[$oi]['prod_discount'] }}%
 										@else
 											-
@@ -158,7 +161,7 @@
 							
 							<tr bgcolor="#f0f0f0">
 								<td colspan="6" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: right; font-weight: bold;">@lang('shop.email_product_tbl_amount'):</td>
-								<td colspan="3" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: right; font-weight: bold;">{{ $osnovicaTOTAL }}%</td>
+								<td colspan="3" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: right; font-weight: bold;">{{ $osnovicaTOTAL }}</td>
 							</tr>
 							<tr bgcolor="#f0f0f0">
 								<td colspan="6" style="padding: 3px; border-bottom: 1px solid #231f20; text-align: right; font-weight: bold;">@lang('shop.email_product_tbl_discount'):</td>
