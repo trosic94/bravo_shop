@@ -164,10 +164,13 @@ class CategoryController extends Controller
 
             // PRODUCTS
             $productsFor_CAT = Product::productsBy_CAT_IDs($allCAT_w_Child);
+
+            // ATRIBUTi za SVE
+            $allAttributesForAll = AttributesCategory::attributesDATA_for_All();
                                       
             return view('category.category', compact('slug','favLIST','searchREQ','currentCAT','CATCurrent','metaTitle','metaDescription','metaKeywords',
                                                         'navCategory','manufacturers',
-                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child','categorySLUG'));
+                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child','categorySLUG','allAttributesForAll'));
 
 
         else:
@@ -217,6 +220,7 @@ class CategoryController extends Controller
 
             // ATRIBUTi za PROIZVOD
             $allAttributesForProduct = AttributesCategory::attributesDATA_for_Category($productDATA->prod_cat_id);
+
 
             // odabrane VREDNOSTI ATRIBUTA za PROIZVOD
             $odabraneVrednostiAtributaZaProizvod = AttributesProduct::selectedAttributesValue_ForProduct($productDATA->prod_id);
