@@ -90,8 +90,9 @@ class AttributesCategory extends Model
 	}
 	public static function attributesDATA_for_All()
     {
-        $attributesDATA_tmp = DB::table('attributes_category as ATTRCAT')
-        									->join('attributes as ATTR','ATTR.id','ATTRCAT.attribute_id')
+        $attributesDATA_tmp = DB::table('attributes as ATTR')
+										//	->join('attributes as ATTR','ATTR.id','ATTRCAT.attribute_id')
+										//	->where('ATTR.id',15)
         									->select(
         										'ATTR.id as attr_id',
         										'ATTR.name as attr_name',

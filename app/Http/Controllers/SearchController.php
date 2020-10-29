@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Manufacturer;
+use App\AttributesCategory;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -376,10 +377,13 @@ class SearchController extends Controller
                         ->with('childrenCategories')
                         ->get();
 
+        // ATRIBUTi za SVE
+        $allAttributesForAll = AttributesCategory::attributesDATA_for_All();
+
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
 
-        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG'));
+        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG','allAttributesForAll'));
     }
 
 

@@ -1057,13 +1057,17 @@ input[type='radio']:checked:after {
 }
 
 // Radio buttonsv ------------------------------------------------------------------------------------------------ //
+#productColors{
+     margin-left: -5px !important;
+}
+
 // LEFT ---------------------------------------------------------------------------------------------------------- //
 div.leftCol {
     div.lBlock_Category {
         div.lBlockTitle {
             h3 {
                 padding: 5px 0;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
                 // background-color: $primary-color;
                 color: $black-1;
                 text-transform: uppercase;
@@ -1442,7 +1446,8 @@ div#bannerWrap {
 }
 
 .proudctSizes label.active {
-    background-color: $blue-1 !important;
+    // background-color: rgba($black-1, 0.1) !important;
+    opacity: 0.3;
     color: white;
     border-radius: 5px;
 }
