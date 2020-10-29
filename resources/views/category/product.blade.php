@@ -23,8 +23,8 @@
 
 			<div class="priceWrap">
 			@if ($prod->prod_price_with_discount != null)
-				<span class="fullPrice">{{ number_format($prod->prod_price,0,"",".") }} {{ setting('shop.valuta') }}</span>
-				<span class="discountPrice">{{ number_format($prod->prod_price_with_discount,0,"",".") }} {{ setting('shop.valuta') }}</span>
+				<span class="fullPrice">cena: {{ number_format($prod->prod_price,0,"",".") }} {{ setting('shop.valuta') }}</span>
+				<span class="discountPrice">cena: {{ number_format($prod->prod_price_with_discount,0,"",".") }} {{ setting('shop.valuta') }}</span>
 
 			@elseif ($prod->prod_discount != null)
 				<span class="fullPrice">{{ number_format($prod->prod_price,0,"",".") }} {{ setting('shop.valuta') }}</span>

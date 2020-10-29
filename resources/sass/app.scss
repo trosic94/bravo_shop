@@ -1180,6 +1180,16 @@ div#ratingWrap {
         color: $primary-color;
     }
 }
+// Filter title -------------------------------------------------------------------------------------------------------- //
+
+#filterTitle{
+    color: $black-1;
+    // font-weight: bold;
+    text-transform: uppercase;
+    font-family: $font_Mulish,sans-serif;
+    font-weight: 700;
+    font-size: 110%;
+}
 
 // MDB OVERRIDE -------------------------------------------------------------------------------------------------------- //
 .form-check-input[type="checkbox"]:checked+label::before,
