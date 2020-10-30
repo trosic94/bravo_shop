@@ -262,7 +262,6 @@ class CategoryController extends Controller
                 $ratingOptions = RatingOption::productRating();
             endif;
 
-
             return view('product.index', compact('slug','favLIST','metaTitle','metaDescription','metaKeywords',
                                                     'productDATA','selectedAttributes','allAttributesForProduct','odabraneVrednostiAtributaZaProizvod',
                                                     'catFromURL',

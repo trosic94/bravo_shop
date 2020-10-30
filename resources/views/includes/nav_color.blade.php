@@ -6,10 +6,10 @@
     <div class="col-12 col-xs-12 p-0">
         @if( $atribut['attr_id'] == 16 )
             <div class="proudctSizes mb-md-5" id="productColors">
-                <div class="btn-group p-0 pl-2" data-toggle="buttons">
+                <div class="btn-group p-0 pr-2 ml-2 row" data-toggle="buttons">
                     @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
                         <input type="checkbox" name="color" value="{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}" onclick='getVal()' {{ (in_array($ATTRoptions['value'], $searchREQ['color']))? 'checked':'' }} >
-                        <label class="btn mr-3 text-center  {{ (in_array($ATTRoptions['value'], $searchREQ['color']))? 'active':'' }}" style="background-color: {{ $ATTRoptions['value'] }}" for="attr_{{ $ATTRoptions['id'] }}"></label>
+                        <label class="btn mr-3 text-center {{ (in_array($ATTRoptions['value'], $searchREQ['color']))? 'active':'' }}" style="background-color: {{ $ATTRoptions['value'] }}" for="attr_{{ $ATTRoptions['id'] }}"></label>
                     @endforeach
                 </div>
             </div>

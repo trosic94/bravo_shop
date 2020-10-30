@@ -95,6 +95,8 @@ class RatingVote extends Model
         return $allRatingData;
     }
 
+    
+
     public static function sendRateCommentInfo($notification)
     {
             Mail::send('emails.rate-comment', $notification, function($message) use ($notification)

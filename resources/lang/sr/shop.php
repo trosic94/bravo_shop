@@ -151,6 +151,7 @@ return [
     'title_rate' => 'Ocena',
     'title_size'=>'Odaberi veličinu',
     'title_color'=>'Odaberi boju',
+    'title_no_ratings'=>'Još uvek nema objavljenih recenzija.',
     
 
     'title_input_select' => 'Lista',
@@ -435,7 +436,7 @@ return [
     'rate_voting_msg_ok' => 'Vaša ocena je evidentirana. Hvala!',
     'rate_voting_msg_err' => 'Već ste ocenili ovaj proizvod!',
     'rate_comment_title' => 'Komentari kupaca',
-    'rate_no_comments' => 'Nema komantara',
+    'rate_no_comments' => 'Nema komentara',
     'rate_comment_first' => 'Budite prvi i ostavite komentar uz vašu ocenu proizvoda.',
     'rate_comment_add' => 'Napiši svoj komentar',
     'rate_comment_msg_ok' => 'Vaš komentar je uspešno poslat. Biće objavljen nakon provere.',
