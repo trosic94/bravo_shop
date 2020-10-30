@@ -104,6 +104,7 @@ class CategoryController extends Controller
         $searchREQ['mfc'] = array();
         $searchREQ['available'] = '';
         $searchREQ['price'] = array();
+        $searchREQ['size'] = array();
         // spremam search request za priakaz na rezultatu -------- //
 
         // fetch current CAT from url
