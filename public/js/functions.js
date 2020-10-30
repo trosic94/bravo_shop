@@ -77,11 +77,6 @@ function getVal(id) {
         mfc.push($(this).val());
     });
 
-    // var available = [];
-    // $.each($("form#prodSearch input[name='available']:checked"), function(){
-    //     available.push($(this).val());
-    // });
-
     var price = [];
     $.each($("form#prodSearch input[name='price']:checked"), function() {
         price.push($(this).val());
@@ -90,6 +85,11 @@ function getVal(id) {
     var size = [];
     $.each($("form#prodSearch input[name='size']:checked"), function() {
         size.push($(this).val());
+    });
+
+    var color = [];
+    $.each($("form#prodSearch input[name='color']:checked"), function() {
+        color.push($(this).val());
     });
 
     var CATCurrent = $("form#prodSearch input[name='CATCurrent']").val();
@@ -131,10 +131,17 @@ function getVal(id) {
     hiddenField_5.value = CATCurrent;
     form.appendChild(hiddenField_5);
 
+    const hiddenField_6 = document.createElement('input');
+    hiddenField_6.type = 'hidden';
+    hiddenField_6.name = 'color';
+    hiddenField_6.value = color;
+    form.appendChild(hiddenField_6);
+
     document.body.appendChild(form);
     form.submit();
 
-    //console.log(size);
+    // console.log(color);
+    // console.log(size);
 
     // console.log(form);
 

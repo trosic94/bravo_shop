@@ -1451,7 +1451,6 @@ div#bannerWrap {
 .proudctSizes label {
     background-color: $grey-8;
     color: black;
-    //float: left;
     padding: 10px 12px;
     text-decoration: none;
     font-size: 75%;
@@ -1463,13 +1462,11 @@ div#bannerWrap {
     align-items: center;
 }
 
-.proudctSizes input {
-    // visibility:hidden;  
+.proudctSizes input { 
     display: none;
 }
 
 .proudctSizes label.active {
-    // background-color: rgba($black-1, 0.1) !important;
     opacity: 0.3;
     color: white;
     border-radius: 5px;

@@ -50,13 +50,21 @@ class SearchController extends Controller
             $size_SRCH = explode(',', request('size'));
         endif;
 
+        $color_SRCH = array();
+        if (request('color') != ''):
+            $color_SRCH = explode(',', request('color'));
+        endif;
+
         // spremam search request za priakaz na rezultatu
         $searchREQ = array();
         $searchREQ['mfc'] = $mfc_SRCH;
         // $searchREQ['available'] = $available_SRCH;
         $searchREQ['price'] = $price_SRCH;
-        $searchREQ['size'] = $size_SRCH;
+        $searchREQ['size'] = $size_SRCH;        
+        $searchREQ['color'] = $color_SRCH;
         $categorySLUG='';
+
+        // dd($color_SRCH);
 
         //return $mfc_SRCH;
 
@@ -332,6 +340,12 @@ class SearchController extends Controller
             $builder->whereIn('AV.value',$searchREQ['size']);
             
         endif;
+
+        if(count($searchREQ['color']) > 0):
+            // dd($searchREQ['size']);      
+                $builder->whereIn('AV.value',$searchREQ['color']);
+                
+            endif;
 
         $searchREZ = $builder->select(
                                 'PROD.id as prod_id',
