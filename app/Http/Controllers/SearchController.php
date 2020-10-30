@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use App\Manufacturer;
+use App\AttributesCategory;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -39,18 +40,24 @@ class SearchController extends Controller
             $mfc_SRCH = explode(',', request('mfc'));
         endif;
         
-        $available_SRCH = request('available');
+        // $available_SRCH = request('available');
 
         $price_SRCH = array();
         if (request('price') != ''):
             $price_SRCH = explode(',', request('price'));
         endif;
 
+        $size_SRCH = array();
+        if (request('size') != ''):
+            $size_SRCH = explode(',', request('size'));
+        endif;
+
         // spremam search request za priakaz na rezultatu
         $searchREQ = array();
         $searchREQ['mfc'] = $mfc_SRCH;
-        $searchREQ['available'] = $available_SRCH;
+        // $searchREQ['available'] = $available_SRCH;
         $searchREQ['price'] = $price_SRCH;
+        $searchREQ['size'] = $size_SRCH;
 
         //return $mfc_SRCH;
 
@@ -316,6 +323,14 @@ class SearchController extends Controller
 
         endif;
 
+
+        // pretraga po velicini ------------------------------------------------------- //
+        // if(count($searchREQ['size']) > 0):
+        // dd($searchREQ['size']);
+        //     $builder->whereIn();
+        
+        // endif;
+
         $searchREZ = $builder->select(
                                 'PROD.id as prod_id',
                                 'PROD.sku as prod_sku',
@@ -376,10 +391,13 @@ class SearchController extends Controller
                         ->with('childrenCategories')
                         ->get();
 
+        // ATRIBUTi za SVE
+        $allAttributesForAll = AttributesCategory::attributesDATA_for_All();
+
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
 
-        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG'));
+        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG','allAttributesForAll'));
     }
 
 

@@ -196,13 +196,15 @@ header {
     form#siteSearch {
         padding: 0 20px 0 0;
         input[name=PRETRAGA] {
+            border-radius: 10px;
             height: 40px;
             max-width: 250px;
             padding: 0 40px 0 20px;
             background-image: url('/images/header/search-bar-icon.svg');
             background-repeat: no-repeat;
             background-position: center right 10px;
-            background-size: 30px;
+            background-size: 25px;
+            background-color: #F5F5F5;
             font-family: $font_Mulish;
             @media (max-width: 991px) {
                 max-width: 100%;
@@ -1053,8 +1055,11 @@ input[type='radio']:checked:after {
     visibility: visible;
     border: 2px solid white;
 }
-// Radio buttonsv ------------------------------------------------------------------------------------------------ //
 
+// Radio buttonsv ------------------------------------------------------------------------------------------------ //
+#productColors{
+     margin-left: -5px !important;
+}
 
 // LEFT ---------------------------------------------------------------------------------------------------------- //
 div.leftCol {
@@ -1062,7 +1067,7 @@ div.leftCol {
         div.lBlockTitle {
             h3 {
                 padding: 5px 0;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
                 // background-color: $primary-color;
                 color: $black-1;
                 text-transform: uppercase;
@@ -1097,14 +1102,15 @@ div.leftCol {
 
 // FOOTER --------------------------------------------------------------------------------------------------------- //
 footer {
-    background-color: $grey-3;
+    background-color: $secondary-color;
     color: $white;
     h2 {
+        padding-top: 75pt;
         margin-bottom: 20pt;
         font-family: $font_Mulish;
-        color: $primary-color;
-        font-weight: 700;
-        font-size: 180%;
+        color: $grey-8;
+        text-transform: uppercase;
+        font-size: 12pt;
     }
     nav {
         @include footerMenu;
@@ -1159,6 +1165,7 @@ div#modalCookie {
 }
 
 // RATING -------------------------------------------------------------------------------------------------------- //
+<<<<<<< HEAD
 // div#ratingWrap {
 //      margin: 3rem 0;
 //     span {
@@ -1178,12 +1185,63 @@ div#modalCookie {
 //         color: $blue-1;
 //     }
 // }
+=======
+div#ratingWrap {
+    margin: 3rem 0;
+    span {
+        i {
+            font-size: 130%;
+            @include trans_1;
+            &:hover {
+                cursor: pointer;
+                color: $primary-color;
+            }
+        }
+    }
+    .starOFF {
+        color: $grey-7;
+    }
+    .starON {
+        color: $primary-color;
+    }
+}
+// Filter title -------------------------------------------------------------------------------------------------------- //
+
+#filterTitle{
+    color: $black-1;
+    // font-weight: bold;
+    text-transform: uppercase;
+    font-family: $font_Mulish,sans-serif;
+    font-weight: 700;
+    font-size: 110%;
+}
+>>>>>>> a6f5187703d165fcfd0c96bc6f36240c0f5aeb42
 
 // MDB OVERRIDE -------------------------------------------------------------------------------------------------------- //
 .form-check-input[type="checkbox"]:checked+label::before,
 label.btn input[type="checkbox"]:checked+label::before {
-    border-right: 2px solid $primary-color;
-    border-bottom: 2px solid $primary-color;
+    border-right: 1px solid $white;
+    border-bottom: 1px solid $blue-1;
+}
+
+.form-check-input[type="checkbox"].filled-in:checked + label:after, label.btn input[type="checkbox"].filled-in:checked + label:after {
+    top: 0;
+    z-index: 0;
+    width: 20px;
+    height: 20px;
+    background-color: $blue-1;
+    border: $blue-1;
+    border: 1px;
+    border-radius: 5px;
+}
+.form-check-input[type="checkbox"].filled-in:not(:checked) + label:after, label.btn input[type="checkbox"].filled-in:not(:checked) + label:after {
+    border: 1px solid #5a5a5a;
+    border-radius: 5px;
+}
+.form-check-input[type="checkbox"].filled-in:checked + label:before, label.btn input[type="checkbox"].filled-in:checked + label:before {
+    
+    border-right: $blue-1;
+    border-bottom: $blue-1;
 }
 
 .form-check-input[type="radio"]:checked+label:after,
@@ -1199,7 +1257,7 @@ label.btn input[type="radio"].with-gap:checked+label:after {
 label.btn input[type="radio"]:checked+label:after,
 label.btn input[type="radio"].with-gap:checked+label:before,
 label.btn input[type="radio"].with-gap:checked+label:after {
-    border: 2px solid $primary-color;
+    border: 1px solid $primary-color;
 }
 
 .md-form input[type=text]:not(.browser-default):focus:not([readonly]),
@@ -1259,7 +1317,6 @@ div.prodTABs {
         font-size: 90%;
         font-weight: bold;
         color: $secondary-color;
-
     }
     // .nav  span {
     //     position: absolute;
@@ -1273,7 +1330,6 @@ div.prodTABs {
     // .nav .nav-item:hover span {
     //     width: 100%;
     // }
-
     .nav .active {
         background-color: transparent !important;
         color: $secondary-color !important;
@@ -1388,24 +1444,22 @@ div#bannerWrap {
 }
 
 .proudctSizes {
-
-  display: inline-block;
-
+    display: inline-block;
 }
 
 .proudctSizes label {
-  background-color: $grey-8;
-  color: black;
-  //float: left;
-  padding: 10px 12px;
-  text-decoration: none;
-  font-size: 75%;
-  border-radius: 5px !important;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: $grey-8;
+    color: black;
+    //float: left;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 75%;
+    border-radius: 5px !important;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .proudctSizes input {
@@ -1414,27 +1468,64 @@ div#bannerWrap {
 }
 
 .proudctSizes label.active {
-    background-color: $blue-1 !important;
+    // background-color: rgba($black-1, 0.1) !important;
+    opacity: 0.3;
     color: white;
     border-radius: 5px;
 }
 
+.proudctSizes2 {
+    display: inline-block;
+}
 
+.proudctSizes2 label {
+    background-color: $grey-8;
+    color: black;
+    //float: left;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 75%;
+    border-radius: 5px !important;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proudctSizes2 input {
+    // visibility:hidden;  
+    // display: none;
+}
+
+.proudctSizes2 label.active {
+    background-color: $blue-1 !important;
+    // opacity: 0.3;
+    color: white;
+    border-radius: 5px;
+}
 
 ul.no-bullets {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-ul.no-bullets  {
-    li {
-        p{
-            margin: 0px !important;
-            padding: 0px;
-        }    
-    } 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
+ul.no-bullets {
+    li {
+        p {
+            margin: 0px !important;
+            padding: 0px;
+        }
+    }
+}
+
+.footer_logo {
+    margin-top: -8rem;
+    @media (max-width: 767px) {
+        margin-top: 0;
+    }
+}
 
 
 // RATING -------------------------------------------------------------------------------------------------------- //
@@ -1481,3 +1572,7 @@ div#ratingWrap {
 
 }
 
+
+div#contactINFOfooter {
+    @include contactDisplayFooter;
+}

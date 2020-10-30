@@ -6,6 +6,8 @@
 	{{-- @include ('includes.nav_manufacturer') --}}
 	{{-- @include ('includes.nav_available') --}}
 	@include ('includes.nav_price')
+	@include ('includes.nav_numbers')
+	@include ('includes.nav_color')
 
 	<input type="hidden" name="CATCurrent" value="{{ $CATCurrent }}">
 

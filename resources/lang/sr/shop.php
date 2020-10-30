@@ -149,6 +149,8 @@ return [
     'title_choose_category' => 'Program',
     'title_rate_product' => 'Vaša ocena',
     'title_rate' => 'Ocena',
+    'title_size'=>'Odaberi veličinu',
+    'title_color'=>'Odaberi boju',
     
 
     'title_input_select' => 'Lista',
