@@ -19,13 +19,14 @@
         @endphp
 
             @if( $atribut['attr_id'] == 16 )
-            <div class="proudctSizes" id="productColors">
+            <div class="proudctSizes mb-md-5" id="productColors">
                 <div class="btn-group p-0" data-toggle="buttons">
                     {{-- @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod)) --}}
                             @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
                                 {{-- @if (in_array($ATTRoptions['id'], $odabraneVrednostiAtributaZaProizvod[$atribut['attr_id']])) --}}
                                 <label class="btn mr-3 text-center" style="background-color: {{ $ATTRoptions['value'] }}">
-                                    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}"></label>
+                                    <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">
+                                </label>
                                 {{-- @endif --}}
                             @endforeach
                     {{-- @else
@@ -49,5 +50,6 @@
 <script type="text/javascript">
     $('document').ready(function () {
         $('.mdb-select').materialSelect();
+        $('.mdb-select').on("change", function(){ $(".active").removeClass(); });
     });
 </script>

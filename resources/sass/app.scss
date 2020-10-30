@@ -1452,6 +1452,37 @@ div#bannerWrap {
     border-radius: 5px;
 }
 
+.proudctSizes2 {
+    display: inline-block;
+}
+
+.proudctSizes2 label {
+    background-color: $grey-8;
+    color: black;
+    //float: left;
+    padding: 10px 12px;
+    text-decoration: none;
+    font-size: 75%;
+    border-radius: 5px !important;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.proudctSizes2 input {
+    // visibility:hidden;  
+    // display: none;
+}
+
+.proudctSizes2 label.active {
+    background-color: $blue-1 !important;
+    // opacity: 0.3;
+    color: white;
+    border-radius: 5px;
+}
+
 ul.no-bullets {
     list-style-type: none;
     margin: 0;

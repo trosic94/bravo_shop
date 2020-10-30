@@ -87,6 +87,11 @@ function getVal(id) {
         price.push($(this).val());
     });
 
+    var size = [];
+    $.each($("form#prodSearch input[name='size']:checked"), function() {
+        size.push($(this).val());
+    });
+
     var CATCurrent = $("form#prodSearch input[name='CATCurrent']").val();
 
 
@@ -102,11 +107,11 @@ function getVal(id) {
     hiddenField_1.value = mfc;
     form.appendChild(hiddenField_1);
 
-    // const hiddenField_2 = document.createElement('input');
-    // hiddenField_2.type = 'hidden';
-    // hiddenField_2.name = 'available';
-    // hiddenField_2.value = available;
-    // form.appendChild(hiddenField_2);
+    const hiddenField_2 = document.createElement('input');
+    hiddenField_2.type = 'hidden';
+    hiddenField_2.name = 'size';
+    hiddenField_2.value = size;
+    form.appendChild(hiddenField_2);
 
     const hiddenField_3 = document.createElement('input');
     hiddenField_3.type = 'hidden';
@@ -127,11 +132,13 @@ function getVal(id) {
     form.appendChild(hiddenField_5);
 
     document.body.appendChild(form);
-    form.submit();
+    // form.submit();
 
-    console.log(form);
+     console.log(size);
 
-    console.log(mfc + ' // ' + available + ' // ' + price);
+    // console.log(form);
+
+    // console.log(mfc + ' // ' + available + ' // ' + price);
 
 }
 

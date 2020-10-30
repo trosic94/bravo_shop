@@ -23,7 +23,7 @@
                                 
                                    @if( $atribut['attr_id'] == 15)
                                     <label class="d-block control-label mar_b_0 text-bold mb-md-4 mb-xs-2">@lang('shop.title_choose_size'):</label>
-                                    	<div class="proudctSizes">
+                                    	<div class="proudctSizes2">
 											<div class="btn-group p-0" data-toggle="buttons">
 			                                    @if (array_key_exists($atribut['attr_id'], $odabraneVrednostiAtributaZaProizvod))
 					                                    @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)

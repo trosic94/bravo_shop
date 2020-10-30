@@ -19,26 +19,33 @@
             @endphp
 
             @if( $atribut['attr_id'] == 15)
-                <div class="proudctSizes">
+                <div class="proudctSizes2">
                     @foreach ($atribut['attr_values'] as $ATTRkey => $ATTRoptions)
-                    @if($ATTRoptions['value'] < 41)  
+                        @if($ATTRoptions['value'] < 41)  
 
-                    <div class="btn-group p-0 pr-2 pl-2 row" data-toggle="buttons">
-                        <label class="btn mr-3 text-center align-middle">
-                            <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}              
-                        </label> 
-                    </div>
+                            {{-- <div class="btn-group p-0 pr-2 pl-2 row" data-toggle="buttons">
+                                <label class="btn mr-3 text-center align-middle" onclick='getVal()' value="{{ $ATTRoptions['value'] }}" for="attr_{{ $ATTRoptions['id'] }}">  {{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}              
+                                    <input type="checkbox"  name="size" value="{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}"  {{ (in_array($ATTRoptions['value'], $searchREQ['size']))? 'checked':'' }}>
+                                </label> 
+                            </div> --}}
+                            <div class="btn-group p-0 pr-2 pl-2 row" data-toggle="buttons">
+                                <input type="checkbox" name="size"  id="attr_{{ $ATTRoptions['id'] }}" value="{{ $ATTRoptions['value'] }}" onclick='getVal()' {{ (in_array($ATTRoptions['value'], $searchREQ['size']))? 'checked':'' }} >
+                                <label class="btn mr-3 text-center m-1 align-middle" for="attr_{{ $ATTRoptions['id'] }}">
+                                    {{ $ATTRoptions['value'] }}
+                                </label>
+                            </div>
 
-                    @else
+                        @else
 
-                    <div class="btn-group p-0 pr-2 pl-2 row" data-toggle="buttons">
-                        <label class="btn mr-3 text-center align-middle">
-                            <input type="radio" name="attr_{{ $atribut['attr_id'] }}" value="{{ $ATTRoptions['id'] }}|{{ $ATTRoptions['value'] }}" id="attr_{{ $ATTRoptions['id'] }}">{{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}              
-                        </label> 
-                    </div>
+                            {{-- <div class="btn-group p-0 pr-2 pl-2 row" data-toggle="buttons">
+                                <label class="btn mr-3 text-center align-middle" name="size" value="{{ $ATTRoptions['value'] }}" onclick='getVal()'>
+                                    <input type="checkbox"   id="attr_{{ $ATTRoptions['id'] }}" >
+                                    {{ $ATTRoptions['label'] }}  {{ $atribut['attr_unit'] }}              
+                                </label> 
+                            </div> --}}
 
-                    @endif
-            @endforeach
+                        @endif
+                    @endforeach
                 </div>
             @endif 
             

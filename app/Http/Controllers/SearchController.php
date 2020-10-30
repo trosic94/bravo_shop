@@ -40,18 +40,24 @@ class SearchController extends Controller
             $mfc_SRCH = explode(',', request('mfc'));
         endif;
         
-        $available_SRCH = request('available');
+        // $available_SRCH = request('available');
 
         $price_SRCH = array();
         if (request('price') != ''):
             $price_SRCH = explode(',', request('price'));
         endif;
 
+        $size_SRCH = array();
+        if (request('size') != ''):
+            $size_SRCH = explode(',', request('size'));
+        endif;
+
         // spremam search request za priakaz na rezultatu
         $searchREQ = array();
         $searchREQ['mfc'] = $mfc_SRCH;
-        $searchREQ['available'] = $available_SRCH;
+        // $searchREQ['available'] = $available_SRCH;
         $searchREQ['price'] = $price_SRCH;
+        $searchREQ['size'] = $size_SRCH;
 
         //return $mfc_SRCH;
 
@@ -316,6 +322,14 @@ class SearchController extends Controller
             endif;
 
         endif;
+
+
+        // pretraga po velicini ------------------------------------------------------- //
+        // if(count($searchREQ['size']) > 0):
+        // dd($searchREQ['size']);
+        //     $builder->whereIn();
+        
+        // endif;
 
         $searchREZ = $builder->select(
                                 'PROD.id as prod_id',
