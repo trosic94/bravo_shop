@@ -11,7 +11,9 @@
 		@foreach ($navCategory as $category)
 
 		
-		<input type="radio" name="obuca" class="mr-2" value="{{ $category->name }}" onclick="window.location='/shop/{{ $category->slug }}'" @if($category->slug == $categorySLUG) checked @elseif($categorySLUG =='search') unchecked @endif>
+		<input type="radio" name="obuca" class="mr-2" value="{{ $category->name }}" onclick="window.location='/shop/{{ $category->slug }}'" 
+		@if($category->slug == $categorySLUG) checked @else unchecked @endif
+		>
 		<label for="{{ $category->name }}">
 			<a href="/shop/{{ $category->slug }}">{{ $category->name }}</a>
 		</label>

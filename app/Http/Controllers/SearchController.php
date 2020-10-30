@@ -21,8 +21,6 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        //zbog checkbox-a
-        $categorySLUG = 'search';
         $storeCAT = Category::shopCAT();
 
         $CATCurrent = request('CATCurrent');
@@ -58,6 +56,7 @@ class SearchController extends Controller
         // $searchREQ['available'] = $available_SRCH;
         $searchREQ['price'] = $price_SRCH;
         $searchREQ['size'] = $size_SRCH;
+        $categorySLUG='';
 
         //return $mfc_SRCH;
 
@@ -135,13 +134,14 @@ class SearchController extends Controller
                 ->leftJoin('attributes_values as AV','AV.id','AP.attribute_value_id');
 
         if ($currentCAT->parent_id == null):
+            $categorySLUG = $currentCAT->slug;
 
             // nema filtera po kategoriji jer se pretrazuju svi proizvodi
 
         elseif ($currentCAT->parent_id != null):
 
             $numberOfChildCATs = Category::where('parent_id',$currentCAT->id)->count();
-
+            $categorySLUG = $currentCAT->slug;
             if ($numberOfChildCATs > 0):
             // ako je parent cat
                 // $childCATs = DB::table('categories as CAT')
@@ -156,7 +156,7 @@ class SearchController extends Controller
                 $builder->where('PROD.category_id',$currentCAT->id);
             endif;
         else:
-
+            $categorySLUG = $currentCAT->slug;
             $builder->where('PROD.category_id',$currentCAT->id);
 
         endif;
@@ -398,7 +398,6 @@ class SearchController extends Controller
 
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
-
         return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG','allAttributesForAll'));
     }
 
