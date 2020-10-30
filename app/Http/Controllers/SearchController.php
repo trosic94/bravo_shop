@@ -130,7 +130,9 @@ class SearchController extends Controller
                 ->join('manufacturer as M','PROD.manufacturer_id','M.id')
                 ->leftJoin('special_options_products as SOP','SOP.product_id','PROD.id')
                 ->leftJoin('badges_products as BP','BP.product_id','PROD.id')
-                ->leftJoin('badges as B','B.id','BP.badge_id');
+                ->leftJoin('badges as B','B.id','BP.badge_id')
+                ->leftJoin('attributes_product as AP','AP.product_id','PROD.id')
+                ->leftJoin('attributes_values as AV','AV.id','AP.attribute_value_id');
 
         if ($currentCAT->parent_id == null):
 
@@ -325,11 +327,11 @@ class SearchController extends Controller
 
 
         // pretraga po velicini ------------------------------------------------------- //
-        // if(count($searchREQ['size']) > 0):
-        // dd($searchREQ['size']);
-        //     $builder->whereIn();
-        
-        // endif;
+        if(count($searchREQ['size']) > 0):
+        // dd($searchREQ['size']);      
+            $builder->whereIn('AV.value',$searchREQ['size']);
+            
+        endif;
 
         $searchREZ = $builder->select(
                                 'PROD.id as prod_id',
@@ -370,12 +372,12 @@ class SearchController extends Controller
                                 'B.title as b_title',
                                 'B.color as b_color',
                                 'B.text_color as b_text_color',
+                                'AV.value as velicina',
                                 DB::raw('count(SOP.product_id) as sop_count')
                             )
                             ->groupBy('PROD.id')
                             ->paginate(12);
 
-    
         // FAV proizvodi
         $favSESS = Session::get('fav');
 

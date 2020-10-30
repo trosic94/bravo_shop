@@ -132,9 +132,9 @@ function getVal(id) {
     form.appendChild(hiddenField_5);
 
     document.body.appendChild(form);
-    // form.submit();
+    form.submit();
 
-     console.log(size);
+    //console.log(size);
 
     // console.log(form);
 
@@ -593,7 +593,7 @@ function findeCatLevel(val, cLevel, pType) {
 
 
 // RATING ------------------------------------------------------------------------ //
-function rateMe(rateID,rateVAL,productID,ratePosition) {
+function rateMe(rateID, rateVAL, productID, ratePosition) {
 
     $('div#rateMSG').html('');
 
@@ -607,62 +607,64 @@ function rateMe(rateID,rateVAL,productID,ratePosition) {
     $.ajax({
         type: 'POST',
         url: '/rating',
-        data: { productID: productID,
-                rateID: rateID,
-                rateVAL: rateVAL,
-                _token: _token },
+        data: {
+            productID: productID,
+            rateID: rateID,
+            rateVAL: rateVAL,
+            _token: _token
+        },
         success: function(rsp) {
 
             $('div#rateMSG').fadeIn().html(rsp);
 
-            rateON(rateID,clickedRate);
+            rateON(rateID, clickedRate);
         }
 
     });
 
 }
 
-function rateON(rateID,rateCNT) {
+function rateON(rateID, rateCNT) {
 
     for (var i = 0; i < rateID; i++) {
 
-        var ima = $('span#rate'+i+' i').hasClass('starOFF');
+        var ima = $('span#rate' + i + ' i').hasClass('starOFF');
         if (ima == true) {
-            $('span#rate'+i+' i').removeClass('starOFF').addClass('starON');
+            $('span#rate' + i + ' i').removeClass('starOFF').addClass('starON');
         }
     }
 
     for (var i = rateID; i < rateCNT; i++) {
 
-        var ima = $('span#rate'+i+' i').hasClass('starON');
+        var ima = $('span#rate' + i + ' i').hasClass('starON');
         if (ima == true) {
-            $('span#rate'+i+' i').removeClass('starON').addClass('starOFF');
+            $('span#rate' + i + ' i').removeClass('starON').addClass('starOFF');
         }
     }
 
 }
 
-function rateOF(rateCNT,productRate) {
+function rateOF(rateCNT, productRate) {
 
     if (productRate > 0) {
 
         for (var i = 0; i < rateCNT; i++) {
 
             if (i < productRate) {
-                $('span#rate'+i+' i').removeClass('starOFF').addClass('starON');
+                $('span#rate' + i + ' i').removeClass('starOFF').addClass('starON');
             } else {
-                $('span#rate'+i+' i').removeClass('starON').addClass('starOFF');
+                $('span#rate' + i + ' i').removeClass('starON').addClass('starOFF');
             }
 
         }
-        
+
     } else {
 
         for (var i = 0; i < rateCNT; i++) {
 
-            var ima = $('span#rate'+i+' i').hasClass('starON');
+            var ima = $('span#rate' + i + ' i').hasClass('starON');
             if (ima == true) {
-                $('span#rate'+i+' i').removeClass('starON').addClass('starOFF');
+                $('span#rate' + i + ' i').removeClass('starON').addClass('starOFF');
             }
 
         }
@@ -674,16 +676,18 @@ function rateOF(rateCNT,productRate) {
 function addRateComment(productID) {
 
     var rateCommentTXT = $('textarea#rateCommentTXT').val();
-    var _token = $('input[name=_token]').val();
+    var _token = $('meta[name="csrf-token"]').attr('content');
 
     if (rateCommentTXT != '') {
 
         $.ajax({
             type: 'POST',
             url: '/rating/comment',
-            data: { productID: productID,
-                    rateCommentTXT: rateCommentTXT,
-                    _token: _token },
+            data: {
+                productID: productID,
+                rateCommentTXT: rateCommentTXT,
+                _token: _token
+            },
             success: function(rsp) {
 
                 $('div#rateCommentMSG').fadeIn().html(rsp);
@@ -697,6 +701,6 @@ function addRateComment(productID) {
 }
 
 // TOOLTIPS ------------------------------------------------------------------------ //
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip()
 });

@@ -72,7 +72,7 @@
                             <div class="col-12 col-md-6"></div>
                             <div class="col-12 col-md-6">
                         {!! Form::hidden('hpASSdDGT3e5345345','') !!}
-                            <button id="btnToSend" class="btn btn-primary btn mt-3 rounded-pill">Pošalji poruku</button>
+                            <button id="btnToSendContact" class="btn btn-primary btn mt-3 rounded-pill">Pošalji poruku</button>
                         {!! Form::close() !!}
                             </div>
                         </div>

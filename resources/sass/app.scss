@@ -1057,8 +1057,8 @@ input[type='radio']:checked:after {
 }
 
 // Radio buttonsv ------------------------------------------------------------------------------------------------ //
-#productColors{
-     margin-left: -5px !important;
+#productColors {
+    margin-left: -5px !important;
 }
 
 // LEFT ---------------------------------------------------------------------------------------------------------- //
@@ -1165,7 +1165,6 @@ div#modalCookie {
 }
 
 // RATING -------------------------------------------------------------------------------------------------------- //
-
 // div#ratingWrap {
 //      margin: 3rem 0;
 //     span {
@@ -1185,7 +1184,6 @@ div#modalCookie {
 //         color: $blue-1;
 //     }
 // }
-
 div#ratingWrap {
     margin: 3rem 0;
     span {
@@ -1205,13 +1203,13 @@ div#ratingWrap {
         color: $primary-color;
     }
 }
-// Filter title -------------------------------------------------------------------------------------------------------- //
 
-#filterTitle{
+// Filter title -------------------------------------------------------------------------------------------------------- //
+#filterTitle {
     color: $black-1;
     // font-weight: bold;
     text-transform: uppercase;
-    font-family: $font_Mulish,sans-serif;
+    font-family: $font_Mulish, sans-serif;
     font-weight: 700;
     font-size: 110%;
 }
@@ -1219,11 +1217,12 @@ div#ratingWrap {
 // MDB OVERRIDE -------------------------------------------------------------------------------------------------------- //
 .form-check-input[type="checkbox"]:checked+label::before,
 label.btn input[type="checkbox"]:checked+label::before {
-    border-right: 1px solid $white;
+    border-right: 1px solid $blue-1;
     border-bottom: 1px solid $blue-1;
 }
 
-.form-check-input[type="checkbox"].filled-in:checked + label:after, label.btn input[type="checkbox"].filled-in:checked + label:after {
+.form-check-input[type="checkbox"].filled-in:checked+label:after,
+label.btn input[type="checkbox"].filled-in:checked+label:after {
     top: 0;
     z-index: 0;
     width: 20px;
@@ -1233,12 +1232,15 @@ label.btn input[type="checkbox"]:checked+label::before {
     border: 1px;
     border-radius: 5px;
 }
-.form-check-input[type="checkbox"].filled-in:not(:checked) + label:after, label.btn input[type="checkbox"].filled-in:not(:checked) + label:after {
+
+.form-check-input[type="checkbox"].filled-in:not(:checked)+label:after,
+label.btn input[type="checkbox"].filled-in:not(:checked)+label:after {
     border: 1px solid #5a5a5a;
     border-radius: 5px;
 }
-.form-check-input[type="checkbox"].filled-in:checked + label:before, label.btn input[type="checkbox"].filled-in:checked + label:before {
-    
+
+.form-check-input[type="checkbox"].filled-in:checked+label:before,
+label.btn input[type="checkbox"].filled-in:checked+label:before {
     border-right: $blue-1;
     border-bottom: $blue-1;
 }
@@ -1526,51 +1528,43 @@ ul.no-bullets {
     }
 }
 
-
 // RATING -------------------------------------------------------------------------------------------------------- //
 div#ratingWrap {
-
     // margin: 3rem 0;
-
     span {
-
         i {
             font-size: 130%;
-
             @include trans_1;
-
             &:hover {
                 cursor: pointer;
                 color: $pink-1;
             }
-
         }
-
     }
-
     span.blank {
-            i {
-                pointer-events: none;
-            }
+        i {
+            pointer-events: none;
         }
-
+    }
     .starOFF {
         color: $grey-7;
     }
-
     .starON {
         color: $blue-1;
     }
-
-    div#rateMSG { height: 40px;
+    div#rateMSG {
+        height: 40px;
         line-height: 30px;
-
-        div.formOK { margin: 0; padding: 0; }
-        div.formERR { margin: 0; padding: 0; }
+        div.formOK {
+            margin: 0;
+            padding: 0;
+        }
+        div.formERR {
+            margin: 0;
+            padding: 0;
+        }
     }
-
 }
-
 
 div#contactINFOfooter {
     @include contactDisplayFooter;
