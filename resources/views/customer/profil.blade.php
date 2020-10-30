@@ -264,9 +264,9 @@
 
 
 @php
-    echo '<pre>';
-    print_r($customerDATA);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($customerDATA);
+    // echo '</pre>';
 @endphp
 
 <script type="text/javascript">

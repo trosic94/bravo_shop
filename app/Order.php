@@ -168,6 +168,17 @@ class Order extends Model
             });
     }
 
+    public static function ifProductOrderedByCustomer($productID,$userID)
+    {
+        $ifProductOrderedByCustomer = DB::table('orders as O')
+                                            ->leftJoin('order_items as OI','OI.order_id','O.id')
+                                            ->where('OI.product_id',$productID)
+                                            ->where('O.user_id',$userID)
+                                            ->first();
+
+        return $ifProductOrderedByCustomer;
+    }
+
 
     // relacije
     public function user()

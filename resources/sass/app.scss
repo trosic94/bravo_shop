@@ -1159,25 +1159,25 @@ div#modalCookie {
 }
 
 // RATING -------------------------------------------------------------------------------------------------------- //
-div#ratingWrap {
-    margin: 3rem 0;
-    span {
-        i {
-            font-size: 130%;
-            @include trans_1;
-            &:hover {
-                cursor: pointer;
-                color: $primary-color;
-            }
-        }
-    }
-    .starOFF {
-        color: $grey-7;
-    }
-    .starON {
-        color: $primary-color;
-    }
-}
+// div#ratingWrap {
+//      margin: 3rem 0;
+//     span {
+//         i {
+//             font-size: 130%;
+//             @include trans_1;
+//             &:hover {
+//                 cursor: pointer;
+//                 color: $primary-color;
+//             }
+//         }
+//     }
+//     .starOFF {
+//         color: $grey-7;
+//     }
+//     .starON {
+//         color: $blue-1;
+//     }
+// }
 
 // MDB OVERRIDE -------------------------------------------------------------------------------------------------------- //
 .form-check-input[type="checkbox"]:checked+label::before,
@@ -1433,5 +1433,51 @@ ul.no-bullets  {
             padding: 0px;
         }    
     } 
+}
+
+
+
+// RATING -------------------------------------------------------------------------------------------------------- //
+div#ratingWrap {
+
+    // margin: 3rem 0;
+
+    span {
+
+        i {
+            font-size: 130%;
+
+            @include trans_1;
+
+            &:hover {
+                cursor: pointer;
+                color: $pink-1;
+            }
+
+        }
+
+    }
+
+    span.blank {
+            i {
+                pointer-events: none;
+            }
+        }
+
+    .starOFF {
+        color: $grey-7;
+    }
+
+    .starON {
+        color: $blue-1;
+    }
+
+    div#rateMSG { height: 40px;
+        line-height: 30px;
+
+        div.formOK { margin: 0; padding: 0; }
+        div.formERR { margin: 0; padding: 0; }
+    }
+
 }
 

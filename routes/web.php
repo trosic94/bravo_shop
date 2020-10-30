@@ -43,8 +43,7 @@ Route::get('/', 'HomeController@index');
 	// Banners
 	Route::post('banner-click', 'BannerController@clickCount');
 
-	// Rating
-	Route::post('rating', 'RatingOptionController@rateEvent');
+	
 
 	//checkOut
 	Route::get('checkout', 'OrderController@checkOut');
@@ -58,6 +57,10 @@ Route::get('/', 'HomeController@index');
 
 	//Zaposlenje
 	Route::get('zaposlenje', 'ZaposlenjeController@getKonkursi');
+
+	// Rating
+	Route::post('rating', 'RatingOptionController@rateEvent');
+	Route::post('rating/comment', 'RatingOptionController@rateComment');
 
 
 	//rute za kupce

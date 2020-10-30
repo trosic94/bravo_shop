@@ -1,25 +1,49 @@
 					<div id="ratingWrap" class="row">
 						
-						<div class="col-xl-12">
+						<div class="col-xl-12 pb-3">
 
-							@if (setting('shop.rating') == 1)
+							<h5 class="mb-3 mt-0">@lang('shop.title_rate_product')</h5>
 
+							<div class="row">
 
-								<div class="container" onmouseout="rateOF({{ count($ratingOptions) }})">
+								@if (setting('shop.rating') == 1)
 
-									@foreach ($ratingOptions as $rKey => $rate)
+									<div id="rateOptions" class="ml-3 w-auto" onmouseout="rateOF({{ count($ratingOptions) }},{{ $productRate }})">
 
-										<span id="rate{{ $rKey }}" data-toggle="tooltip" title="{{ $rate->ro_name }}" onmouseover="rateON({{ $rate->ro_id }},{{ count($ratingOptions) }})" onclick="rateMe({{ $rate->ro_id }},{{ $rate->ro_value }},{{ $productDATA->prod_id }})"><i class="fas fa-star starOFF"></i></span>
+										@foreach ($ratingOptions as $rKey => $rate)
 
-									@endforeach
+											<span
+												@if ($daLiMozeDaOcenjujeIKomentarise != 1)
+												class="blank"
+												@endif
+												id="rate{{ $rKey }}" 
+												data-toggle="tooltip" 
+												title="{{ $rate->ro_name }}"
+												@if ($daLiMozeDaOcenjujeIKomentarise == 1)
+												onmouseover="rateON({{ $rate->ro_id }},{{ count($ratingOptions) }})" 
+												onclick="rateMe({{ $rate->ro_id }},{{ $rate->ro_value }},{{ $productDATA->prod_id }},{{ $rKey }})"
+												@endif
+												>
+												<i class="fas fa-star {{ ($productRate > $rKey)? 'starON':'starOFF' }}"></i>
+											</span>
 
-								</div>
+										@endforeach
 
-								@if (setting('shop.rating_comments') == 1)
-
-									{{-- {{ setting('shop.rating_comments') }} --}}
+									</div>
 
 								@endif
+
+							</div>
+
+						{{-- <div class="rate">@lang('shop.title_rate'): <span id="rateVal">{{ $productRate }}</span></div> --}}
+
+							@if ($daLiMozeDaOcenjujeIKomentarise == 1)
+							<div id="rateMSG"></div>
+							@endif
+
+							@if (setting('shop.rating_comments') == 1)
+
+								@include ('product.rating_comments')
 
 							@endif
 
@@ -30,11 +54,7 @@
 
 @php
 // echo '<pre>';
-// print_r($ratingOptions);
+// print_r($daLiJeKupioProizvod);
+// print_r($ulogovan);
 // echo '</pre>';
 @endphp
-
-<script type="text/javascript">
-
-
-</script>

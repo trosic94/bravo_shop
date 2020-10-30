@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Voyager;
 
-use App\URL;
-
 use Exception;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -20,20 +18,9 @@ use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 
-use App\Product;
-use App\Category;
-use App\Manufacturer;
-use App\Attributes;
-use App\AttributesCategory;
-use App\AttributesProduct;
-use App\SpecialOption;
-use App\SpecialOptionForProducts;
-use App\Badge;
-use App\BadgeProducts;
-use App\ProductImages;
+use App\RatingVote;
 
-
-class V_ProductController extends VoyagerBaseController
+class V_RatingVoteController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
@@ -213,12 +200,6 @@ class V_ProductController extends VoyagerBaseController
 
     public function show(Request $request, $id)
     {
-        // Rating for the product
-        $productRate = RatingVote::productRate($id);
-
-        // Comments for the product
-        $ratingComments = RatingVote::allRatingCommentsForProduct($id);
-        
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -266,27 +247,11 @@ class V_ProductController extends VoyagerBaseController
         }
 
 
-        //PRODUCT data
-        $productDATA = Product::productDATA($id);
-
-        // ATRIBUTI ZA PROIZVOD
-        $productAttributes = AttributesProduct::selectedAttributes_ForProduct($id);
-
-        // Selected Special Display Options
-        $specialDisplayOptionsForProduct = SpecialOptionForProducts::SelectedSpecialDisplayOptionsForProduct($id);
-
-        // Selected Product Badge
-        $badgeForProduct = BadgeProducts::badgeByProductID($id);
-
-        // Selected Product Images for gallery
-        $productGallery = ProductImages::productGalleryByProdID($id);
-
-        
-
+        // All VoteData
+        $productRatingsAndComments = RatingVote::allRatingData($id);
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'isSoftDeleted',
-                                            'productDATA','productAttributes','specialDisplayOptionsForProduct',
-                                            'badgeForProduct','productGallery','productRate','ratingComments'));
+                                                'productRatingsAndComments'));
     }
 
     //***************************************
@@ -345,43 +310,11 @@ class V_ProductController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        // podaci o proizvodu
-        $productDATA = Product::where('id',$id)->first();
-        $categoryID = $productDATA->category_id;
-
-        // kategorij proizvoda
-        $productCategories_SEL = Category::productCategories_SEL();
-
-        // ATRIBUTi za PROIZVOD
-        $allAttributesForProduct = AttributesCategory::attributesDATA_for_Category($categoryID);
-
-        $categoriesForAttribute = array();
-
-        // odabrane VREDNOSTI ATRIBUTA za PROIZVOD
-        $odabraneVrednostiAtributaZaProizvod = AttributesProduct::selectedAttributesValue_ForProduct($id);
-
-        // MANUFACTURERS
-        $allManufacturers = Manufacturer::manufacturerALL();
-
-        // Special Display Options
-        $specialDisplayOptions = SpecialOption::SpecialDisplayOptions();
-
-        // Selected Special Display Options
-        $specialDisplayOptionsForProduct = SpecialOptionForProducts::where('product_id',$id)->pluck('special_options_id')->toArray();
-
-        // All Product Badges
-        $productBadges = Badge::allBadges();
-
-        // Selected Product Badge
-        $badgeForProduct = BadgeProducts::badgeByProductID($id);
-
+        // All VoteData
+        $productRatingsAndComments = RatingVote::allRatingData($id);
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',
-                                                'allAttributesForProduct','odabraneVrednostiAtributaZaProizvod','categoriesForAttribute',
-                                                'productCategories_SEL',
-                                                'allManufacturers',
-                                                'specialDisplayOptions','specialDisplayOptionsForProduct',
-                                                'productBadges','badgeForProduct'));
+                                                'productRatingsAndComments'));
     }
 
     // POST BR(E)AD
@@ -470,33 +403,7 @@ class V_ProductController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        // kategorij proizvoda
-        $productCategories_SEL = Category::productCategories_SEL();
-
-        // MANUFACTURERS
-        $allManufacturers = Manufacturer::manufacturerALL();
-
-        // CAtegoriesForAttributes
-        $categoriesForAttribute = array();
-
-        // Special Display Options
-        $specialDisplayOptions = SpecialOption::SpecialDisplayOptions();
-
-        // Selected Special Display Options
-        $specialDisplayOptionsForProduct = array();
-
-        // All Product Badges
-        $productBadges = Badge::allBadges();
-
-        // Selected Product Badge
-        $badgeForProduct = array();
-        
-
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable',
-                                            'productCategories_SEL','allManufacturers',
-                                            'specialDisplayOptions','specialDisplayOptionsForProduct',
-                                            'productBadges','badgeForProduct',
-                                            'categoriesForAttribute'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
     }
 
     /**

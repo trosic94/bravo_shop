@@ -24,7 +24,7 @@
 					{{-- @endif --}}
 
 					<li class="nav-item col-md-2 col-12 p-0 mt-md-0 mt-xs-5">
-						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="video-tab-md" data-toggle="tab" href="#video-md" role="tab" aria-controls="video-md" aria-selected="false">@lang('shop.title_reviews')</a>
+						<a class="nav-link rounded-0 text-left p-0 pb-2 mt-md-0 mt-2" id="rating-tab-md" data-toggle="tab" href="#rating-md" role="tab" aria-controls="rating-md" aria-selected="false">@lang('shop.title_reviews')</a>
 						 <span></span>
 					</li>
 				</ul>
@@ -109,15 +109,13 @@
 					</div>
 					{{-- @endif --}}
 
-					@if ($productDATA->prod_video != '')
-					<div class="tab-pane fade" id="video-md" role="tabpanel" aria-labelledby="video-tab-md">
+					
+					<div class="tab-pane fade" id="rating-md" role="tabpanel" aria-labelledby="rating-tab-md">
 
-						<div class="ytEmbedContainter mar_b_10">
-							<iframe width="100%" height="auto" src="https://www.youtube.com/embed/{{ $productDATA->prod_video }}"></iframe>
-						</div>
+						@include ('product.rating')
 
 					</div>
-					@endif
+
 
 				</div>
 

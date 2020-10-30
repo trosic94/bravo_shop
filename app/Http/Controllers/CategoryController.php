@@ -9,6 +9,8 @@ use App\AttributesCategory;
 use App\Manufacturer;
 use App\BreadCrumb;
 use App\RatingOption;
+use App\RatingVote;
+use App\Order;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -16,6 +18,7 @@ use Illuminate\Support\Facades\Session;
 
 use URL;
 use Redirect;
+use Auth;
 
 class CategoryController extends Controller
 {
@@ -172,8 +175,33 @@ class CategoryController extends Controller
 
         else:
 
+            $ulogovan = Auth::user();
+
+            $daLiMozeDaOcenjujeIKomentarise = 0;
+            $daLiJeKupioProizvod = array();
+
+            
+
+            
+
             // PRODUCT data
             $productDATA = Product::productDATA_bySLUG($categorySLUG);
+
+            $ratingOptions = RatingOption::productRating();
+            $productRate = round(RatingVote::productRate($productDATA->prod_id), 1);
+            $ratingComments = RatingVote::ratingComments($productDATA->prod_id);
+
+            if (!Auth::guest()):
+
+                $daLiJeKupioProizvod = Order::ifProductOrderedByCustomer($productDATA->prod_id,$ulogovan->id);
+
+                if ($daLiJeKupioProizvod):
+
+                    $daLiMozeDaOcenjujeIKomentarise = 1;
+
+                endif;
+
+            endif;
 
             $productSizes = DB::table('attributes_values as av')
                                 ->leftJoin('attributes_product as ap', function($join) use ($productDATA) {
@@ -232,7 +260,7 @@ class CategoryController extends Controller
             return view('product.index', compact('slug','favLIST','metaTitle','metaDescription','metaKeywords',
                                                     'productDATA','selectedAttributes','allAttributesForProduct','odabraneVrednostiAtributaZaProizvod',
                                                     'catFromURL',
-                                                    'ratingOptions','productSizes'));
+                                                    'ratingOptions','productSizes','ratingOptions','productRate','ratingComments','daLiJeKupioProizvod','daLiMozeDaOcenjujeIKomentarise'));
 
 
         endif;

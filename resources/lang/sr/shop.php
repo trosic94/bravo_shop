@@ -147,7 +147,7 @@ return [
     'title_select_design' => 'Odaberi motiv',
     'title_gallery' => 'Galerija',
     'title_choose_category' => 'Program',
-    'title_rate_product' => 'Oceni proizvod',
+    'title_rate_product' => 'Vaša ocena',
     'title_rate' => 'Ocena',
     
 
@@ -168,8 +168,10 @@ return [
     'title_registration_number' => 'Matični broj',
     'title_account_no' => 'Tekući račun',
     'title_contact' => 'Kontakt',
-
-
+    'title_choose_size' => 'Odaberi veličinu',
+    'title_choose_color' => 'Odaberi boju',
+    'title_additional_information' => 'Dodatne informacije',
+    'title_reviews' => 'Recenzije',
 
     /* ERR  -----------------------------------------------------------------------------*/
     'err_required' => 'Polje je obavezno.',
@@ -449,6 +451,7 @@ return [
     'zaposlenje_kon_naslov' => 'Naziv pozicije: ',
     'zaposlenje_kon_datum' => 'Rok trajanja konkursa: ',
     'zaposlenje_kon_mesto' => 'Mesto rada: ',
+
 
     
 ];

@@ -21,6 +21,7 @@ return [
     'btn_confirm_order' => 'Confirm order',
     'btn_view' => 'View',
     'btn_view_all' => 'View All',
+    'btn_send' => 'Send',
 
     'title_edit' => 'Edit',
     'title_index' => 'View',
@@ -212,6 +213,17 @@ return [
     'title_registration_number' => 'Registration number',
     'title_account_no' => 'Account number',
     'title_contact' => 'Contact',
+
+    'title_rate' => 'Rate',
+    'title_product_rate' => 'Product rate',
+    'title_product_rate_value' => 'Rate value',
+    'title_product_rating' => 'Product rating',
+    'title_product_comment' => 'Product comment',
+    'title_product_comments' => 'Product comments',
+    'title_ip' => 'IP',
+    'title_comment' => 'Comment',
+    'title_comments' => 'Comments',
+    'title_comment_status' => 'Comment satus',
 
 
 

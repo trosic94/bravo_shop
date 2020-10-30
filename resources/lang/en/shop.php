@@ -26,6 +26,7 @@ return [
     'btn_agree' => 'Confirm',
     'btn_order' => 'Order',
     'btn_search' => 'Search',
+    'btn_send' => 'Send',
 
     'title_edit' => 'Edit',
     'title_index' => 'View',
@@ -143,6 +144,8 @@ return [
     'title_choose_color' => 'Choose color',
     'title_additional_information' => 'Additional information',
     'title_reviews' => 'Reviews',
+    'title_rate_product' => 'Rate product',
+    'title_rate' => 'Rate',
 
 
 
@@ -217,6 +220,26 @@ return [
 
     /* COPY ------------------------------------------------------*/
     'footer_copy_1' => 'Kupi Poklon 2020. All rights reserved 1111',
+
+        /* EMAIL */
+    'email_rate_comment_title' => 'Product comment',
+    'email_rate_comment_confirmation' => 'Product review',
+    'email_rate_comment_confirmation_txt1' => 'Customer',
+    'email_rate_comment_confirmation_txt2' => 'has left comment for the following item',
+    'email_rate_comment_confirmation_comment_content' => 'Comment content',
+    'email_rate_comment_confirmation_approve' => 'Comment can be approved from the following',
+    'email_rate_comment_confirmation_approve_link' => 'link',
+
+
+    /* RATING  -----------------------------------------------------------------------------*/
+    'rate_voting_msg_ok' => 'Your rating has been recorded. Thanks!',
+    'rate_voting_msg_err' => 'You have already rated this product!',
+    'rate_comment_title' => 'Customer reviews',
+    'rate_comment_first' => 'Be the first to leave a comment with your product rating.',
+    'rate_no_comments' => 'No comments',
+    'rate_comment_add' => 'Add your review',
+    'rate_comment_msg_ok' => 'Your comment has been sent successfully. It will be published after verification.',
+    'rate_comment_msg_err' => 'You have already sent a comment for this product!',
 
     
 ];

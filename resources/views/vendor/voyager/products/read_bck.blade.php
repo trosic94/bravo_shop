@@ -154,7 +154,6 @@
 
                 </div>
 
-                @if (!$productAttributes->isEmpty())
                 <div class="panel panel-bordered" style="padding-bottom:5px;">
 
                     <div class="panel-heading" style="border-bottom:0;">
@@ -194,100 +193,38 @@
                     </div>
 
                 </div>
-                @endif
 
-                @if($productRate)
                 <div class="panel panel-bordered" style="padding-bottom:5px;">
 
                     <div class="panel-heading" style="border-bottom:0;">
-                        <h3 class="panel-title">@lang('shop_admin.title_product_rate'):</h3>
+                        <h3 class="panel-title">@lang('shop_admin.title_product_badges'):</h3>
                     </div>
                     
                     <div class="panel-body" style="padding-top:0;">
-                        <div>
-                            <label class="text-bold">@lang('shop_admin.title_product_rate'):</label> {{ round($productRate) }}
-                        </div>
-                    </div>
-
-                </div>
-                @endif
-
-                @if($ratingComments)
-                <div class="panel panel-bordered" style="padding-bottom:5px;">
-
-                    <div class="panel-heading" style="border-bottom:0;">
-                        <h3 class="panel-title">@lang('shop_admin.title_product_comments'):</h3>
-                    </div>
-                    
-                    <div class="panel-body" style="padding-top:0;">
-
-                        <table class="table_v1" cellpadding="0" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>@lang('shop_admin.title_customer')</th>
-                                    <th>@lang('shop_admin.title_rate')</th>
-                                    <th>@lang('shop_admin.title_product_rate_value')</th>
-                                    <th>@lang('shop_admin.title_comments')</th>
-                                    <th>@lang('shop_admin.title_comment_status')</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($ratingComments as $cKey => $comment)
-                                <td class="text-center">{{ $comment->u_name }} {{ $comment->u_last_name }}</td>
-                                <td class="text-center">{{ $comment->ro_name }}</td>
-                                <td class="text-center">{{ $comment->rv_rating_value }}</td>
-                                <td class="text-center">{{ $comment->rv_comment }}</td>
-                                <td class="text-center">
-                                    @if($comment->rv_comment_status == 1)
-                                        <span class="label label-info">@lang('shop_admin.title_on')</span>
-                                    @else
-                                        <span class="label label-warning">@lang('shop_admin.title_off')</span>
-                                    @endif
-                                </td>
-                                <td class="text-center"><a class="btn btn-warning btnSmall" href="/{{ setting('admin.adm_url') }}/rating-votes/{{ $comment->rv_id }}"><i class="voyager-edit"></i></a></td>
-                                @endforeach
-                            </tbody>
-
-                        </table>
-
-                    </div>
-
-                </div>
-                @endif
-
-
-                @if($badgeForProduct || !$specialDisplayOptionsForProduct->isEmpty())
-                <div class="panel panel-bordered" style="padding-bottom:5px;">
-
-                    @if($badgeForProduct)
-                        <div class="panel-heading" style="border-bottom:0;">
-                            <h3 class="panel-title">@lang('shop_admin.title_product_badges'):</h3>
-                        </div>
                         
-                        <div class="panel-body" style="padding-top:0;">
-                            <div>
-                                <label class="text-bold">@lang('shop_admin.title_product_badges'):</label> {{ $badgeForProduct->b_title }} (<span class="small">{{ $badgeForProduct->b_description }}</span>)
-                            </div>
+                        @if($badgeForProduct)
+                        <div>
+                            <label class="text-bold">@lang('shop_admin.title_product_badges'):</label> {{ $badgeForProduct->b_title }} (<span class="small">{{ $badgeForProduct->b_description }}</span>)
                         </div>
-                    @endif
+                        @endif
+                        
+                    </div>
 
-                    @if (!$specialDisplayOptionsForProduct->isEmpty())
-                        <div class="panel-heading" style="border-bottom:0;">
-                            <h3 class="panel-title">@lang('shop_admin.title_special_display_options'):</h3>
-                        </div>
+                    <div class="panel-heading" style="border-bottom:0;">
+                        <h3 class="panel-title">@lang('shop_admin.title_special_display_options'):</h3>
+                    </div>
 
-                        <div class="panel-body" style="padding-top:0;">
+                    <div class="panel-body" style="padding-top:0;">
+
                         @foreach ($specialDisplayOptionsForProduct as $key => $displayOption)
                             <div>
                                 <label class="text-bold">{{ $displayOption->title }}</label> (<span class="small">{{ $displayOption->description }}</span>)
                             </div>
                         @endforeach
-                        </div>
-                    @endif
+                        
+                    </div>
 
                 </div>
-                @endif
 
 
             </div>
@@ -345,7 +282,7 @@
                             @foreach ($productGallery as $image)
                                 <img src="/storage/{{ $image->pi_image }}" class="img25">
                             @endforeach
-                        @endif
+                        @endif;
 
                     </div>
 
@@ -357,13 +294,6 @@
 
     </div>
 
-
-@php
-// echo '<pre>';
-// print_r($productRate);
-// print_r($specialDisplayOptionsForProduct);
-// echo '</pre>';
-@endphp
 
     {{-- Single delete modal --}}
     <div class="modal modal-danger fade" tabindex="-1" id="delete_modal" role="dialog">
