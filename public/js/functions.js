@@ -148,6 +148,59 @@ function getVal(id) {
     // console.log(mfc + ' // ' + available + ' // ' + price);
 
 }
+// slider 
+$(document).ready(function() {
+    const $valueSpan = $('.valueSpan2');
+    const $value = $('#customRange11');
+    $valueSpan.html($value.val());
+    $value.on('input change', () => {
+      $valueSpan.html($value.val());
+    });
+});
+
+function sliderCena(){
+    var filterPrice = $("#customRange11").val();
+    var filter = 1;
+
+    var _token = $('meta[name="csrf-token"]').attr('content');
+
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = '/search';
+
+    const hiddenField_3 = document.createElement('input');
+    hiddenField_3.type = 'hidden';
+    hiddenField_3.name = 'filterPrice';
+    hiddenField_3.value = filterPrice;
+    form.appendChild(hiddenField_3);
+
+    const hiddenField_4 = document.createElement('input');
+    hiddenField_4.type = 'hidden';
+    hiddenField_4.name = '_token';
+    hiddenField_4.value = _token;
+    form.appendChild(hiddenField_4);
+    
+    const hiddenField_5 = document.createElement('input');
+    hiddenField_5.type = 'hidden';
+    hiddenField_5.name = 'filter';
+    hiddenField_5.value = filter;
+    form.appendChild(hiddenField_5);
+
+    document.body.appendChild(form);
+    form.submit();
+    
+    // $.ajax({
+    //     method: "post",
+    //     url: "/search",
+    //     data: {
+    //         filterPrice : filterPrice,
+    //         _token : _token
+    //     },
+    //     success: function(response) {
+    //     //   alert(response);
+    //     }
+    //   });
+}
 
 // SubmitOrder
 function submitOrder(event) {

@@ -55,6 +55,10 @@ class SearchController extends Controller
             $color_SRCH = explode(',', request('color'));
         endif;
 
+
+        $filterPrice = request('filterPrice');
+        $filter = request('filter');
+        // dd($filter) ;
         // spremam search request za priakaz na rezultatu
         $searchREQ = array();
         $searchREQ['mfc'] = $mfc_SRCH;
@@ -336,14 +340,17 @@ class SearchController extends Controller
 
         // pretraga po velicini ------------------------------------------------------- //
         if(count($searchREQ['size']) > 0):
-        // dd($searchREQ['size']);      
             $builder->whereIn('AV.value',$searchREQ['size']);
             
         endif;
 
         if(count($searchREQ['color']) > 0):
-            // dd($searchREQ['size']);      
                 $builder->whereIn('AV.value',$searchREQ['color']);
+                
+            endif;
+
+        if($filterPrice != 0):
+                $builder->where('PROD.product_price','<=',$filterPrice);
                 
             endif;
 
@@ -409,10 +416,19 @@ class SearchController extends Controller
 
         // ATRIBUTi za SVE
         $allAttributesForAll = AttributesCategory::attributesDATA_for_All();
+        $maxPrice = Product::max('product_price');
+
+        if($filter == 1){
+            $valPrice = $filterPrice;
+        }else{
+            $valPrice = $maxPrice;
+        }
+        $minPrice = Product::min('product_price');
+        // dd($minPrice);
 
         // MANUFACTURERS
         $manufacturers = Manufacturer::manufacturersByCAT($storeCAT);
-        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG','allAttributesForAll'));
+        return view('search.index', compact('slug','CATCurrent','searchREQ','currentCAT','favLIST','searchREZ','navCategory','manufacturers','categorySLUG','allAttributesForAll','maxPrice','minPrice','valPrice'));
     }
 
 

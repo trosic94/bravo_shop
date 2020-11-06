@@ -159,6 +159,10 @@ class CategoryController extends Controller
                                     ->with('childrenCategories')
                                     ->get();
 
+            $maxPrice = Product::max('product_price');
+
+            $minPrice = Product::min('product_price');
+            $valPrice = $maxPrice;
             // MANUFACTURERS
             $manufacturers = Manufacturer::manufacturersByCAT($currentCAT->id);
 
@@ -169,13 +173,14 @@ class CategoryController extends Controller
 
             // PRODUCTS
             $productsFor_CAT = Product::productsBy_CAT_IDs($allCAT_w_Child);
+        
 
             // ATRIBUTi za SVE
             $allAttributesForAll = AttributesCategory::attributesDATA_for_All();
                                       
             return view('category.category', compact('slug','favLIST','searchREQ','currentCAT','CATCurrent','metaTitle','metaDescription','metaKeywords',
                                                         'navCategory','manufacturers',
-                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child','categorySLUG','allAttributesForAll'));
+                                                        'productsFor_CAT','categoryW_Parents','allCAT_w_Child','categorySLUG','allAttributesForAll','minPrice','maxPrice','valPrice'));
 
 
         else:

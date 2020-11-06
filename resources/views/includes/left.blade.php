@@ -8,6 +8,7 @@
 	@include ('includes.nav_price')
 	@include ('includes.nav_numbers')
 	@include ('includes.nav_color')
+	@include ('includes.nav_slider_price')
 
 	<input type="hidden" name="CATCurrent" value="{{ $CATCurrent }}">
 
